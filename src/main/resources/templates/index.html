@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="../static/js/jquery-3.1.1.js"></script>
 </head>
 <body>
+<script>
+    $.ajax({
+        type : "GET",
+        async : false, //同步执行
+        url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM/100100010093",
+        data : {},
+        dataType : "json", //返回数据形式为json
+        success : function(result) {
+            if (result) {
+                var accountTypeArray = new Array();
+                var balanceArray = new Array();
+                var pieChartDataArray = new Array();
+                var i = 0;
 
+                for (var aData in result){
+                    alert(result[aData].account_type);
+                    accountTypeArray.push(aData.account_type);
+                    balanceArray.push(aData.account_balance_lcy_sum);
+                }
+
+
+                option_bar.xAxis.data = accountTypeArray;
+                option_bar.series.data = balanceArray;
+
+            }
+        },
+        error : function(errorMsg) {
+            alert("get pie chart and bar chart response failed!");
+
+        }
+    });
+
+
+</script>
 </body>
 </html>
