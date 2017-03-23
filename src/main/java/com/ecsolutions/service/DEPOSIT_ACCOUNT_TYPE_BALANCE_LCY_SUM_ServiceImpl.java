@@ -21,8 +21,12 @@ public class DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_ServiceImpl  implements DEPOSI
     }
 
     @Override
-    public List<DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity> findDEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUMByCustomer_code(String customer_code) {
-            return dEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_DAO.findDEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUMByCustomer_code(customer_code);
+    public List<DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity> findDEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUMByCustCode_CCY(String customer_code, String currency) {
+            return dEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_DAO.findDEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUMByCustCode_CCY(customer_code, currency);
     }
 
+    @Override
+    public List<DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity> findDeposit_AccountType_BalanceSumByCustCode(String customer_code) {
+        return dEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_DAO.findDeposit_AccountType_BalanceSumByCustCode(customer_code);
+    }
 }

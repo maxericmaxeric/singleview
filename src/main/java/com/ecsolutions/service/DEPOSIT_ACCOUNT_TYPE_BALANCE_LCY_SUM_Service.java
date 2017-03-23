@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Service {
 
-    List<DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity> findDEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUMByCustomer_code(String customer_code);
+    List<DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity> findDEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUMByCustCode_CCY(String customer_code, String currency);
+    List<DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity> findDeposit_AccountType_BalanceSumByCustCode(String customer_code);
 
 }

@@ -30,8 +30,10 @@ public class DEPOSIT_ACCOUNT_INFO_sqlProvider {
                 SELECT("BRANCH,DP_ACCOUNT_NO,ACCOUNT_TYPE,CURRENCY,OPEN_DATE,MATURITY_DATE,ACCOUNT_BALANCE,ACCOUNT_STATUS");
                 FROM("DEPOSIT_ACCOUNT_INFO");
                 WHERE("CUSTOMER_CODE = #{customer_code}");
-                if (!dp_account_no.equals("") && dp_account_no != null)
-                    WHERE("DP_ACCOUNT_NO LIKE #{dp_account_no}");
+                if (!dp_account_no.equals("") && dp_account_no != null) {
+                    String dp_account_no_like = "%" + dp_account_no + "%";
+                    WHERE("DP_ACCOUNT_NO LIKE '" + dp_account_no_like + "'");
+                }
                 if (branch != null && branch.length > 0){
                     String whereSql = "BRANCH IN (";
                     whereSql += getArray(branch);
