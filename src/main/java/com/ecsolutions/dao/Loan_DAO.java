@@ -1,9 +1,12 @@
 package com.ecsolutions.dao;
 
+import com.ecsolutions.dao.sqlProvider.Loan_sqlProvider;
 import com.ecsolutions.entity.DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity;
+import com.ecsolutions.entity.Loan_Entity;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.ResultType;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -24,5 +27,21 @@ public interface Loan_DAO {
     @ResultType(DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity.class)
     List<DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity> findLoan_Type_SumByCustCode_CCY(@Param("customer_code") String customer_code, @Param("currency") String currency);
 
+    //根据customer_code查询loan info
+    @Select("select Branch,Principal_Currency,LN_Account_No,Customer_Code,Loan_Type,Line_No,Principal_Amount,Balance,Value_Date,Maturity_Date,Balance_Currency,Account_Status from LOAN_ACCOUNT_INFO where Customer_Code = #{customer_code}")
+    @ResultType(Loan_Entity.class)
+    List<Loan_Entity> findLoanByCustCode(@Param("customer_code") String customer_code);
 
+    //根据customer_code查询Loan info记录总数
+    @Select("select count(*) from LOAN_ACCOUNT_INFO where Customer_Code = #{customer_code}")
+    @ResultType(Long.class)
+    Long findLoan_TotalByCustCode(String customer_code);
+
+    //根据customer_code,seach条件，order条件查询loan info
+    @SelectProvider(type = Loan_sqlProvider.class, method = "getLoan_Sql")
+    @ResultType(Loan_Entity.class)
+    List<Loan_Entity> findLoan(@Param("customer_code") String customer_code,
+                               @Param("search") String search,
+                               @Param("orderCol") String orderCol,
+                               @Param("orderDir") String orderDir);
 }
