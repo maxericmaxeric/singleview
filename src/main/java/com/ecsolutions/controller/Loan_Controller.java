@@ -52,11 +52,11 @@ public class Loan_Controller {
         return test;
     }
 
-   /* @CrossOrigin(origins = "*", maxAge = 3600)
+/*   @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(method = RequestMethod.GET, value = "/getTest2")
-   */ public String getTest(@ModelAttribute JDTRequest_Entity req) {
+    public String getTest(@ModelAttribute JDTRequest_Entity req) {
         return req.getColumns().get(0).get("data");
-    }
+    }*/
 
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(method = RequestMethod.GET, value = "/getLoanInfo")
@@ -73,7 +73,7 @@ public class Loan_Controller {
             Long recordsTotal = this.loan_service.findLoan_TotalByCustCode(customer_code);
             datatableResponse_entity.setRecordsTotal(recordsTotal);
 
-            Integer pageNum = start / length;
+            Integer pageNum = start / length + 1;
             Integer pageSize = length;
             PageHelper.startPage(pageNum, pageSize);
             List<Loan_Entity> loan_entities = loan_service.findLoan(customer_code, search, orderCol, orderDir);
