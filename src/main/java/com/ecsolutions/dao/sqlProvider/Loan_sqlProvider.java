@@ -123,13 +123,13 @@ public class Loan_sqlProvider {
                     if (Balance_Max != null && !Balance_Max.equals(""))
                         WHERE("BALANCE <= " + Balance_Max);
                     if (Value_Date != null && !Value_Date.equals(""))
-                        WHERE("VALUE_DATE >= " + Value_Date);
+                        WHERE("VALUE_DATE >= '" + Value_Date + "'");
                     if (Value_Date_Max != null && !Value_Date_Max.equals(""))
-                        WHERE("VALUE_DATE <= " + Value_Date_Max);
+                        WHERE("VALUE_DATE <= '" + Value_Date_Max + "'");
                     if (Maturity_Date != null && !Maturity_Date.equals(""))
-                        WHERE("MATURITY_DATE >= " + Maturity_Date);
+                        WHERE("MATURITY_DATE >= '" + Maturity_Date + "'");
                     if (Maturity_Date_Max != null && !Maturity_Date_Max.equals(""))
-                        WHERE("MATURITY_DATE <= " + Maturity_Date_Max);
+                        WHERE("MATURITY_DATE <= '" + Maturity_Date_Max + "'");
 
                     if (orderCol != null && !orderCol.equals("")) {
                         String ordercolumn = orderCol.trim().toUpperCase();
