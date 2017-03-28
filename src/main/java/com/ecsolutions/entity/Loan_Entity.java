@@ -1,11 +1,13 @@
 package com.ecsolutions.entity;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/23.
  */
-public class Loan_Entity {
+public class Loan_Entity extends Base_Entity{
     private String branch;
     private String principal_currency;
     private String ln_account_no;
@@ -116,4 +118,21 @@ public class Loan_Entity {
     }
 
 
+    @Override
+    public List<Object> convertToArray() {
+        List<Object> ret = new ArrayList<Object>();
+        ret.add(this.getBranch());
+        ret.add(this.getLn_account_no());
+        ret.add(this.getLoan_type());
+        ret.add(this.getLine_no());
+        ret.add(this.getPrincipal_currency());
+        ret.add(this.getPrincipal_amount());
+        ret.add(this.getValue_date());
+        ret.add(this.getMaturity_date());
+        ret.add(this.getBalance_currency());
+        ret.add(this.getBalance());
+        ret.add(this.getAccount_status());
+
+        return ret;
+    }
 }
