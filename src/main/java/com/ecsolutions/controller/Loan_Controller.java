@@ -2,7 +2,7 @@ package com.ecsolutions.controller;
 
 import com.ecsolutions.entity.*;
 import com.ecsolutions.service.Loan_Service;
-import com.ecsolutions.util.DatatableUtil;
+import com.ecsolutions.util.Converter;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,14 +76,49 @@ public class Loan_Controller {
             Integer pageNum = start / length + 1;
             Integer pageSize = length;
             PageHelper.startPage(pageNum, pageSize);
-            List<Loan_Entity> loan_entities = loan_service.findLoan(customer_code, search, orderCol, orderDir);
-            PageInfo<Loan_Entity> pageInfo=new PageInfo<Loan_Entity>(loan_entities);
+            List<? extends Base_Entity> loan_entities = loan_service.findLoan(customer_code, search, orderCol, orderDir);
+            PageInfo<Loan_Entity> pageInfo=new PageInfo<Loan_Entity>((List<Loan_Entity>) loan_entities);
             datatableResponse_entity.setRecordsFiltered(pageInfo.getTotal());
-            List<List<Object>> data = DatatableUtil.convertToArrayList(loan_entities);
+            List<List<Object>> data = Converter.convertToArrayList((List<Base_Entity>) loan_entities);
             datatableResponse_entity.setData(data);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return datatableResponse_entity;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getLoan_BranchByCustCode/{customer_code}")
+    public List<String> getLoan_BranchByCustCode(@PathVariable("customer_code") String customer_code) {
+        List<String> ret = this.loan_service.findLoan_BranchByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getLoan_TypeByCustCode/{customer_code}")
+    public List<String> getLoan_TypeByCustCode(@PathVariable("customer_code") String customer_code) {
+        List<String> ret = this.loan_service.findLoan_TypeByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getLoan_PrinCCYByCustCode/{customer_code}")
+    public List<String> getLoan_PrinCCYByCustCode(@PathVariable("customer_code") String customer_code) {
+        List<String> ret = this.loan_service.findLoan_PrinCCYByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getLoan_BalCCYByCustCode/{customer_code}")
+    public List<String> getLoan_BalCCYByCustCode(@PathVariable("customer_code") String customer_code) {
+        List<String> ret = this.loan_service.findLoan_BalCCYByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getLoan_AccStatusByCustCode/{customer_code}")
+    public List<String> getLoan_AccStatusByCustCode(@PathVariable("customer_code") String customer_code) {
+        List<String> ret = this.loan_service.findLoan_AccStatusByCustCode(customer_code);
+        return ret;
     }
 }
