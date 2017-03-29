@@ -25,10 +25,12 @@ public class Converter {
                 DEPOSIT_ACCOUNT_INFO_Entity deposit_account_info_entity = (DEPOSIT_ACCOUNT_INFO_Entity)base_entity;
                 entity = deposit_account_info_entity.convertToArray();
             }
+
             else if(base_entity instanceof PRODUCT_TRANSACTION_DETAIL_Entity){
                 PRODUCT_TRANSACTION_DETAIL_Entity product_transaction_detail_entity=(PRODUCT_TRANSACTION_DETAIL_Entity)base_entity;
                 entity=product_transaction_detail_entity.convertToArray();
             }
+
 
 
             ret.add(entity);
