@@ -1,6 +1,6 @@
 package com.ecsolutions.dao.sqlProvider;
 
-import com.ecsolutions.entity.LoanSearch_Entity;
+import com.ecsolutions.entity.Loan_Entity;
 import com.ecsolutions.util.SqlProviderUtil;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -22,7 +22,7 @@ public class Loan_sqlProvider {
         String orderDir = (String)parameters.get("orderDir");
 
         ObjectMapper objectMapper = new ObjectMapper();
-        LoanSearch_Entity loanSearch_entity = null;
+        Loan_Entity loan_entity = null;
         String[] branch_array;
         String LN_Account_No;
         String[] Loan_Type_array;
@@ -40,7 +40,7 @@ public class Loan_sqlProvider {
         String[] Account_Status_array;
 
         try {
-            loanSearch_entity = objectMapper.readValue(search, LoanSearch_Entity.class);
+            loan_entity = objectMapper.readValue(search, Loan_Entity.class);
 
         } catch (JsonParseException e) {
             e.printStackTrace();
@@ -50,24 +50,24 @@ public class Loan_sqlProvider {
             e.printStackTrace();
         }
 
-        if (loanSearch_entity == null)
+        if (loan_entity == null)
             return "";
         else {
-            branch_array = loanSearch_entity.getBranch_array();
-            LN_Account_No = loanSearch_entity.getLn_account_no();
-            Loan_Type_array = loanSearch_entity.getLoan_type_array();
-            Line_No = loanSearch_entity.getLine_no();
-            Principal_Amount = loanSearch_entity.getPrincipal_amount();
-            Principal_Amount_Max = loanSearch_entity.getPrincipal_amount_max();
-            principal_currency_array = loanSearch_entity.getPrincipal_currency_array();
-            Value_Date = loanSearch_entity.getValue_date();
-            Value_Date_Max = loanSearch_entity.getValue_date_max();
-            Maturity_Date = loanSearch_entity.getMaturity_date();
-            Maturity_Date_Max = loanSearch_entity.getMaturity_date_max();
-            Balance_Currency_array = loanSearch_entity.getBalance_currency_array();
-            Balance = loanSearch_entity.getBalance();
-            Balance_Max = loanSearch_entity.getBalance_max();
-            Account_Status_array = loanSearch_entity.getAccount_status_array();
+            branch_array = loan_entity.getBranch_array();
+            LN_Account_No = loan_entity.getLn_account_no();
+            Loan_Type_array = loan_entity.getLoan_type_array();
+            Line_No = loan_entity.getLine_no();
+            Principal_Amount = loan_entity.getPrincipal_amount();
+            Principal_Amount_Max = loan_entity.getPrincipal_amount_max();
+            principal_currency_array = loan_entity.getPrincipal_currency_array();
+            Value_Date = loan_entity.getValue_date();
+            Value_Date_Max = loan_entity.getValue_date_max();
+            Maturity_Date = loan_entity.getMaturity_date();
+            Maturity_Date_Max = loan_entity.getMaturity_date_max();
+            Balance_Currency_array = loan_entity.getBalance_currency_array();
+            Balance = loan_entity.getBalance();
+            Balance_Max = loan_entity.getBalance_max();
+            Account_Status_array = loan_entity.getAccount_status_array();
             return new SQL() {
                 {
                     SELECT("Branch, LN_Account_No,Loan_Type,Line_No, Principal_Currency,Principal_Amount,Value_Date,Maturity_Date,Balance_Currency,Balance,Account_Status");
