@@ -31,6 +31,65 @@ public abstract class Base_Entity{
 //    private String[] account_status_array;
 
 
+    //deposit transaction search
+    private String dep_serial_no;
+    private String transaction_date_max;
+    private String[] transaction_type_array;
+    private String account_no;
+    private String[] dr_indicator_array;
+    private BigDecimal transaction_amount_max;
+
+
+
+    public String getDep_serial_no() {
+        return dep_serial_no;
+    }
+
+    public void setDep_serial_no(String dep_serial_no) {
+        this.dep_serial_no = dep_serial_no;
+    }
+
+    public String getTransaction_date_max() {
+        return transaction_date_max;
+    }
+
+    public void setTransaction_date_max(String transaction_date_max) {
+        this.transaction_date_max = transaction_date_max;
+    }
+
+    public String[] getTransaction_type_array() {
+        return transaction_type_array;
+    }
+
+    public void setTransaction_type_array(String[] transaction_type_array) {
+        this.transaction_type_array = transaction_type_array;
+    }
+
+    public String getAccount_no() {
+        return account_no;
+    }
+
+    public void setAccount_no(String account_no) {
+        this.account_no = account_no;
+    }
+
+    public String[] getDr_indicator_array() {
+        return dr_indicator_array;
+    }
+
+    public void setDr_indicator_array(String[] dr_indicator_array) {
+        this.dr_indicator_array = dr_indicator_array;
+    }
+
+    public BigDecimal getTransaction_amount_max() {
+        return transaction_amount_max;
+    }
+
+    public void setTransaction_amount_max(BigDecimal transaction_amount_max) {
+        this.transaction_amount_max = transaction_amount_max;
+    }
+
+
     public String getDp_account_no() {
         return dp_account_no;
     }

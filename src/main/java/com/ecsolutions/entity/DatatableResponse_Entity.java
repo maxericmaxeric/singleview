@@ -1,6 +1,7 @@
 package com.ecsolutions.entity;
 
 import com.ecsolutions.controller.Loan_Controller;
+import com.ecsolutions.controller.PRODUCT_TRANSACTION_DETAIL_Controller;
 import com.ecsolutions.util.Converter;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -34,6 +35,14 @@ public class DatatableResponse_Entity {
                 base_entities = loan_controller.getLoan_service().findLoan(customer_code, search, orderCol, orderDir);
                 pageInfo= new PageInfo<Loan_Entity>((List<Loan_Entity>) base_entities);
             }
+            else if (object instanceof PRODUCT_TRANSACTION_DETAIL_Controller) {
+                PRODUCT_TRANSACTION_DETAIL_Controller product_transaction_detail_controller = (PRODUCT_TRANSACTION_DETAIL_Controller)object;
+                recordsTotal = product_transaction_detail_controller.getPRODUCT_TRANSACTION_DETAIL_Service().findTransactionDetail_TotalByCustCode(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = product_transaction_detail_controller.getPRODUCT_TRANSACTION_DETAIL_Service().findTransactionDetailByCustcd(customer_code,search,orderCol,orderDir);
+                pageInfo= new PageInfo<PRODUCT_TRANSACTION_DETAIL_Entity>((List<PRODUCT_TRANSACTION_DETAIL_Entity>) base_entities);
+            }
+
 
             this.setRecordsTotal(recordsTotal);
             this.setRecordsFiltered(pageInfo.getTotal());

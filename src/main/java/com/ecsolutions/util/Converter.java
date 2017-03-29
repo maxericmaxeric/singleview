@@ -2,6 +2,7 @@ package com.ecsolutions.util;
 
 import com.ecsolutions.entity.Base_Entity;
 import com.ecsolutions.entity.Loan_Entity;
+import com.ecsolutions.entity.PRODUCT_TRANSACTION_DETAIL_Entity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,11 @@ public class Converter {
                 Loan_Entity loan_entity = (Loan_Entity)base_entity;
                 entity = loan_entity.convertToArray();
             }
+            else if(base_entity instanceof PRODUCT_TRANSACTION_DETAIL_Entity){
+                PRODUCT_TRANSACTION_DETAIL_Entity product_transaction_detail_entity=(PRODUCT_TRANSACTION_DETAIL_Entity)base_entity;
+                entity=product_transaction_detail_entity.convertToArray();
+            }
+
 
             ret.add(entity);
         }
