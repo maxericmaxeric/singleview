@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class Base_Entity{
     abstract List<Object> convertToArray();
 
-    //search
+    //loan search
     private BigDecimal principal_amount_max;
     private BigDecimal balance_max;
     private String value_date_max;
@@ -20,15 +20,56 @@ public abstract class Base_Entity{
     private String[] loan_type_array;
     private String[] account_status_array;
 
-    public String getHaha() {
-        return haha;
+    //deposit search
+//    private String[] branch_array;
+    private String dp_account_no;
+    private String[] account_type_array;
+    private String[] currency_array;
+    private String open_date_max;
+//    private String maturity_date_max;
+    private BigDecimal account_balance_max;
+//    private String[] account_status_array;
+
+
+    public String getDp_account_no() {
+        return dp_account_no;
     }
 
-    public void setHaha(String haha) {
-        this.haha = haha;
+    public void setDp_account_no(String dp_account_no) {
+        this.dp_account_no = dp_account_no;
     }
 
-    private String haha;
+    public String[] getAccount_type_array() {
+        return account_type_array;
+    }
+
+    public void setAccount_type_array(String[] account_type_array) {
+        this.account_type_array = account_type_array;
+    }
+
+    public String[] getCurrency_array() {
+        return currency_array;
+    }
+
+    public void setCurrency_array(String[] currency_array) {
+        this.currency_array = currency_array;
+    }
+
+    public String getOpen_date_max() {
+        return open_date_max;
+    }
+
+    public void setOpen_date_max(String open_date_max) {
+        this.open_date_max = open_date_max;
+    }
+
+    public BigDecimal getAccount_balance_max() {
+        return account_balance_max;
+    }
+
+    public void setAccount_balance_max(BigDecimal account_balance_max) {
+        this.account_balance_max = account_balance_max;
+    }
 
     public BigDecimal getPrincipal_amount_max() {
         return principal_amount_max;
