@@ -28,4 +28,7 @@ public interface DEPOSIT_ACCOUNT_INFO_Service {
                                                                     String[] account_status);
 
 
+    Long findDeposit_TotalByCustCode(String customer_code);
+
+    List<DEPOSIT_ACCOUNT_INFO_Entity> findDeposit(String customer_code, String search, String orderCol, String orderDir);
 }

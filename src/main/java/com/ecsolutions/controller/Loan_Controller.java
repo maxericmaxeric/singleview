@@ -73,23 +73,6 @@ public class Loan_Controller {
                                                 @RequestParam(value = "search", required = true) String search,
                                                 @RequestParam(value = "customer_code", required = true) String customer_code) {
         DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity(this, draw,start,length,orderCol,orderDir,search,customer_code);
-        /*DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity();
-        datatableResponse_entity.setDraw(draw);
-        try {
-            Long recordsTotal = this.loan_service.findLoan_TotalByCustCode(customer_code);
-            datatableResponse_entity.setRecordsTotal(recordsTotal);
-
-            Integer pageNum = start / length + 1;
-            Integer pageSize = length;
-            PageHelper.startPage(pageNum, pageSize);
-            List<? extends Base_Entity> loan_entities = loan_service.findLoan(customer_code, search, orderCol, orderDir);
-            PageInfo<Loan_Entity> pageInfo=new PageInfo<Loan_Entity>((List<Loan_Entity>) loan_entities);
-            datatableResponse_entity.setRecordsFiltered(pageInfo.getTotal());
-            List<List<Object>> data = Converter.convertToArrayList((List<Base_Entity>) loan_entities);
-            datatableResponse_entity.setData(data);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }    */
         return datatableResponse_entity;
     }
 

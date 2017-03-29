@@ -51,28 +51,14 @@ public interface DEPOSIT_ACCOUNT_INFO_DAO {
                                                                     @Param("account_balance_min") BigDecimal account_balance_min,
                                                                     @Param("account_balance_max") BigDecimal account_balance_max,
                                                                     @Param("account_status") String[] account_status);
- /*   @Param("customer_code") String customer_code,
-    @Param("branch") String branch,
-    @Param("dp_account_no") String dp_account_no,
-    @Param("account_type") String account_type,
-    @Param("currency") String currency,
-    @Param("open_date_begin") String open_date_begin,
-    @Param("open_date_end") String open_date_end,
-    @Param("maturity_date_begin") String maturity_date_begin,
-    @Param("maturity_date_end") String maturity_date_end,
-    @Param("account_balance") BigDecimal account_balance,
-    @Param("account_status") String account_status*/
 
-  /*  String customer_code,
-    String branch,
-    String dp_account_no,
-    String account_type,
-    String currency,
-    String open_date_begin,
-    String open_date_end,
-    String maturity_date_begin,
-    String maturity_date_end,
-    BigDecimal account_balance,
-    String account_status)*/
+    @Select("SELECT COUNT(*) FROM DEPOSIT_ACCOUNT_INFO WHERE CUSTOMER_CODE = #{customer_code}")
+    @ResultType(long.class)
+    Long findDeposit_TotalByCustCode(@Param("customer_code") String customer_code);
+
+    @SelectProvider(type = DEPOSIT_ACCOUNT_INFO_sqlProvider.class, method = "getDeposit_Sql")
+    @ResultType(DEPOSIT_ACCOUNT_INFO_Entity.class)
+    List<DEPOSIT_ACCOUNT_INFO_Entity> findDeposit(@Param("customer_code") String customer_code, @Param("search") String search, @Param("orderCol") String orderCol, @Param("orderDir") String orderDir);
+
 
 }

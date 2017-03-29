@@ -1,5 +1,6 @@
 package com.ecsolutions.entity;
 
+import com.ecsolutions.controller.DEPOSIT_ACCOUNT_INFO_Controller;
 import com.ecsolutions.controller.Loan_Controller;
 import com.ecsolutions.util.Converter;
 import com.github.pagehelper.PageHelper;
@@ -33,6 +34,12 @@ public class DatatableResponse_Entity {
                 PageHelper.startPage(pageNum, pageSize);
                 base_entities = loan_controller.getLoan_service().findLoan(customer_code, search, orderCol, orderDir);
                 pageInfo= new PageInfo<Loan_Entity>((List<Loan_Entity>) base_entities);
+            } else if (object instanceof DEPOSIT_ACCOUNT_INFO_Controller) {
+                DEPOSIT_ACCOUNT_INFO_Controller deposit_account_info_controller = (DEPOSIT_ACCOUNT_INFO_Controller)object;
+                recordsTotal = deposit_account_info_controller.getDeposit_account_info_service().findDeposit_TotalByCustCode(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = deposit_account_info_controller.getDeposit_account_info_service().findDeposit(customer_code, search, orderCol, orderDir);
+                pageInfo= new PageInfo<DEPOSIT_ACCOUNT_INFO_Entity>((List<DEPOSIT_ACCOUNT_INFO_Entity>) base_entities);
             }
 
             this.setRecordsTotal(recordsTotal);
