@@ -44,4 +44,29 @@ public class Loan_ServiceImpl  implements  Loan_Service{
     public List<Loan_Entity> findLoan(String customer_code, String search, String orderCol, String orderDir) {
         return loan_dao.findLoan(customer_code, search, orderCol, orderDir);
     }
+
+    @Override
+    public List<String> findLoan_BranchByCustCode(String customer_code) {
+        return loan_dao.findLoan_BranchByCustCode(customer_code);
+    }
+
+    @Override
+    public List<String> findLoan_TypeByCustCode(String customer_code) {
+        return loan_dao.findLoan_TypeByCustCode(customer_code);
+    }
+
+    @Override
+    public List<String> findLoan_PrinCCYByCustCode(String customer_code) {
+        return loan_dao.findLoan_PrinCCYByCustCode(customer_code);
+    }
+
+    @Override
+    public List<String> findLoan_BalCCYByCustCode(String customer_code) {
+        return loan_dao.findLoan_BalCCYByCustCode(customer_code);
+    }
+
+    @Override
+    public List<String> findLoan_AccStatusByCustCode(String customer_code) {
+        return loan_dao.findLoan_AccStatusByCustCode(customer_code);
+    }
 }

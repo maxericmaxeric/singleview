@@ -17,4 +17,14 @@ public interface Loan_Service {
     Long findLoan_TotalByCustCode(String customer_code);
 
     List<Loan_Entity> findLoan(String customer_code, String search, String orderCol, String orderDir);
+
+    List<String> findLoan_BranchByCustCode(String customer_code);
+
+    List<String> findLoan_TypeByCustCode(String customer_code);
+
+    List<String> findLoan_PrinCCYByCustCode(String customer_code);
+
+    List<String> findLoan_BalCCYByCustCode(String customer_code);
+
+    List<String> findLoan_AccStatusByCustCode(String customer_code);
 }
