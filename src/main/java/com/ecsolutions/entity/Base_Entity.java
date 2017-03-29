@@ -27,13 +27,13 @@ public abstract class Base_Entity{
 
     //deposit search
 //    private String[] branch_array;
-    private String dp_account_no;
     private String[] account_type_array;
     private String[] currency_array;
     private String open_date_max;
 //    private String maturity_date_max;
     private BigDecimal account_balance_max;
 //    private String[] account_status_array;
+
 
 
     //deposit transaction search
@@ -95,13 +95,8 @@ public abstract class Base_Entity{
     }
 
 
-    public String getDp_account_no() {
-        return dp_account_no;
-    }
 
-    public void setDp_account_no(String dp_account_no) {
-        this.dp_account_no = dp_account_no;
-    }
+
 
     public String[] getAccount_type_array() {
         return account_type_array;
