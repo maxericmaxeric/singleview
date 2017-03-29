@@ -44,4 +44,24 @@ public interface Loan_DAO {
                                @Param("search") String search,
                                @Param("orderCol") String orderCol,
                                @Param("orderDir") String orderDir);
+
+    @Select("select distinct BRANCH from LOAN_ACCOUNT_INFO WHERE CUSTOMER_CODE = #{customer_code} order by BRANCH")
+    @ResultType(String.class)
+    List<String> findLoan_BranchByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Loan_Type from LOAN_ACCOUNT_INFO WHERE CUSTOMER_CODE = #{customer_code} order by Loan_Type")
+    @ResultType(String.class)
+    List<String> findLoan_TypeByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Principal_Currency from LOAN_ACCOUNT_INFO WHERE CUSTOMER_CODE = #{customer_code} order by Principal_Currency")
+    @ResultType(String.class)
+    List<String> findLoan_PrinCCYByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Balance_Currency from LOAN_ACCOUNT_INFO WHERE CUSTOMER_CODE = #{customer_code} order by Balance_Currency")
+    @ResultType(String.class)
+    List<String> findLoan_BalCCYByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Account_Status from LOAN_ACCOUNT_INFO WHERE CUSTOMER_CODE = #{customer_code} order by Account_Status")
+    @ResultType(String.class)
+    List<String> findLoan_AccStatusByCustCode(@Param("customer_code") String customer_code);
 }
