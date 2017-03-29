@@ -1,5 +1,10 @@
 package com.ecsolutions.entity;
 
+import com.ecsolutions.controller.Loan_Controller;
+import com.ecsolutions.util.Converter;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 
 /**
@@ -12,6 +17,31 @@ public class DatatableResponse_Entity {
     private List<List<Object>> data;
 
     public DatatableResponse_Entity() {
+    }
+
+    public DatatableResponse_Entity(Object object, Integer draw, Integer start, Integer length, String orderCol, String orderDir, String search, String customer_code) {
+        this.setDraw(draw);
+        try {
+            Long recordsTotal = null;
+            Integer pageNum = start / length + 1;
+            Integer pageSize = length;
+            List<? extends Base_Entity> base_entities = null;
+            PageInfo<? extends Base_Entity> pageInfo = null;
+            if (object instanceof Loan_Controller) {
+                Loan_Controller loan_controller = (Loan_Controller)object;
+                recordsTotal = loan_controller.getLoan_service().findLoan_TotalByCustCode(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = loan_controller.getLoan_service().findLoan(customer_code, search, orderCol, orderDir);
+                pageInfo= new PageInfo<Loan_Entity>((List<Loan_Entity>) base_entities);
+            }
+
+            this.setRecordsTotal(recordsTotal);
+            this.setRecordsFiltered(pageInfo.getTotal());
+            List<List<Object>> data = Converter.convertToArrayList((List<Base_Entity>) base_entities);
+            this.setData(data);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public Integer getDraw() {

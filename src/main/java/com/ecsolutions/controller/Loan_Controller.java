@@ -1,10 +1,11 @@
 package com.ecsolutions.controller;
 
-import com.ecsolutions.entity.*;
+import com.ecsolutions.entity.DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity;
+import com.ecsolutions.entity.DatatableResponse_Entity;
+import com.ecsolutions.entity.Loan_Entity;
+import com.ecsolutions.entity.Test_Entity;
 import com.ecsolutions.service.Loan_Service;
-import com.ecsolutions.util.Converter;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,10 @@ import java.util.List;
 public class Loan_Controller {
     @Autowired
     private Loan_Service loan_service;
+
+    public Loan_Service getLoan_service() {
+        return loan_service;
+    }
 
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(method = RequestMethod.GET, value = "/getLoan_Ccy_SumByCustCode")
@@ -67,7 +72,8 @@ public class Loan_Controller {
                                                 @RequestParam(value = "orderDir", required = true) String orderDir,
                                                 @RequestParam(value = "search", required = true) String search,
                                                 @RequestParam(value = "customer_code", required = true) String customer_code) {
-        DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity();
+        DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity(this, draw,start,length,orderCol,orderDir,search,customer_code);
+        /*DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity();
         datatableResponse_entity.setDraw(draw);
         try {
             Long recordsTotal = this.loan_service.findLoan_TotalByCustCode(customer_code);
@@ -83,7 +89,7 @@ public class Loan_Controller {
             datatableResponse_entity.setData(data);
         } catch (Exception ex) {
             ex.printStackTrace();
-        }
+        }    */
         return datatableResponse_entity;
     }
 
