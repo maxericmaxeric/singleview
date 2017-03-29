@@ -49,4 +49,14 @@ public class DEPOSIT_ACCOUNT_INFO_ServiceImpl implements DEPOSIT_ACCOUNT_INFO_Se
     public List<DEPOSIT_ACCOUNT_INFO_Entity> findDEPOSIT_ACCOUNT_INFOByAll(String customer_code, String[] branch, String dp_account_no, String[] account_type, String[] currency, String open_date_begin, String open_date_end, String maturity_date_begin, String maturity_date_end, BigDecimal account_balance_min, BigDecimal account_balance_max, String[] account_status) {
         return this.deposit_account_info_dao.findDEPOSIT_ACCOUNT_INFOByAll(customer_code, branch, dp_account_no, account_type,currency,open_date_begin,open_date_end,maturity_date_begin,maturity_date_end,account_balance_min,account_balance_max,account_status);
     }
+
+    @Override
+    public Long findDeposit_TotalByCustCode(String customer_code) {
+        return this.deposit_account_info_dao.findDeposit_TotalByCustCode(customer_code);
+    }
+
+    @Override
+    public List<DEPOSIT_ACCOUNT_INFO_Entity> findDeposit(String customer_code, String search, String orderCol, String orderDir) {
+        return this.deposit_account_info_dao.findDeposit(customer_code, search, orderCol, orderDir);
+    }
 }

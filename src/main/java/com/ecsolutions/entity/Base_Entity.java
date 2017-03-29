@@ -1,5 +1,10 @@
 package com.ecsolutions.entity;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -7,7 +12,7 @@ import java.util.List;
  * Created by Administrator on 2017/3/28.
  */
 public abstract class Base_Entity{
-    abstract List<Object> convertToArray();
+    public abstract List<Object> convertToArray();
 
     //loan search
     private BigDecimal principal_amount_max;
@@ -202,5 +207,21 @@ public abstract class Base_Entity{
         this.account_status_array = account_status_array;
     }
 
-
+    public Base_Entity parseJson(String search, Class<?> classtype) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        Object obj = null;
+        try {
+            Class cls = Class.forName(classtype.getName());
+            obj =  objectMapper.readValue(search, classtype);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return (Base_Entity) obj;
+    }
 }

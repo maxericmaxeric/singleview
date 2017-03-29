@@ -2,11 +2,13 @@ package com.ecsolutions.entity;
 
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/3/15.
  */
-public class DEPOSIT_ACCOUNT_INFO_Entity {
+public class DEPOSIT_ACCOUNT_INFO_Entity extends Base_Entity{
     private String dp_account_no;
     private String account_type;
     private String currency;
@@ -14,8 +16,8 @@ public class DEPOSIT_ACCOUNT_INFO_Entity {
     private String maturity_date;
     private BigDecimal account_balance;
     private String account_status;
-
     private String branch;
+
 
     public String getBranch() {
         return branch;
@@ -81,6 +83,22 @@ public class DEPOSIT_ACCOUNT_INFO_Entity {
         this.account_status = account_status;
     }
 
+
+    @Override
+    public List<Object> convertToArray() {
+        List<Object> ret = new ArrayList<Object>();
+        ret.add(this.getBranch());
+        ret.add(this.getDp_account_no());
+        ret.add(this.getAccount_type());
+        ret.add(this.getCurrency());
+        ret.add(this.getOpen_date());
+        ret.add(this.getMaturity_date());
+        ret.add(this.getAccount_balance());
+        ret.add(this.getMaturity_date());
+        ret.add(this.getAccount_status());
+
+        return ret;
+    }
 
 
 }

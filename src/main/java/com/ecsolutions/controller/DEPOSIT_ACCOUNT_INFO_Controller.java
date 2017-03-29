@@ -1,6 +1,7 @@
 package com.ecsolutions.controller;
 
 import com.ecsolutions.entity.DEPOSIT_ACCOUNT_INFO_Entity;
+import com.ecsolutions.entity.DatatableResponse_Entity;
 import com.ecsolutions.service.DEPOSIT_ACCOUNT_INFO_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +15,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/DEPOSIT_ACCOUNT_INFO")
 public class DEPOSIT_ACCOUNT_INFO_Controller {
+
     @Autowired
     private DEPOSIT_ACCOUNT_INFO_Service deposit_account_info_service;
+
+
+    public DEPOSIT_ACCOUNT_INFO_Service getDeposit_account_info_service() {
+        return deposit_account_info_service;
+    }
 
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(method = RequestMethod.GET, value = "/{customer_code}")
@@ -68,4 +75,19 @@ public class DEPOSIT_ACCOUNT_INFO_Controller {
                                                                     @RequestParam(value="account_status", defaultValue = "", required = false) String[] account_status) {
         return this.deposit_account_info_service.findDEPOSIT_ACCOUNT_INFOByAll(customer_code,branch,dp_account_no,account_type,currency,open_date_begin,open_date_end,maturity_date_begin,maturity_date_end, account_balance_min, account_balance_max, account_status);
     }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getDeposit")
+    public DatatableResponse_Entity getDeposit(@RequestParam(value = "draw", required = true) Integer draw,
+                                                @RequestParam(value = "start", required = true) Integer start,
+                                                @RequestParam(value = "length", required = true) Integer length,
+                                                @RequestParam(value = "orderCol", required = true) String orderCol,
+                                                @RequestParam(value = "orderDir", required = true) String orderDir,
+                                                @RequestParam(value = "search", required = true) String search,
+                                                @RequestParam(value = "customer_code", required = true) String customer_code) {
+        DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity(this, draw,start,length,orderCol,orderDir,search,customer_code);
+        return datatableResponse_entity;
+    }
+
+
 }
