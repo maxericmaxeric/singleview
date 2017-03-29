@@ -28,7 +28,7 @@ public class PRODUCT_TRANSACTION_DETAIL_Provider {
         String Transaction_Date;
         String Transaction_Date_Max;
         String[] Transaction_Type_Array;
-        String Acccount_No;
+        String Account_No;
         String[] Currency_Array;
         String[] DR_Indicator_Array;
         BigDecimal Transaction_Amount;
@@ -53,7 +53,7 @@ public class PRODUCT_TRANSACTION_DETAIL_Provider {
             Transaction_Date=product_transaction_detail_entity.getTransaction_date();
             Transaction_Date_Max=product_transaction_detail_entity.getTransaction_date_max();
             Transaction_Type_Array=product_transaction_detail_entity.getTransaction_type_array();
-            Acccount_No=product_transaction_detail_entity.getAccount_no();
+            Account_No=product_transaction_detail_entity.getAccount_no();
             Currency_Array=product_transaction_detail_entity.getCurrency_array();
             DR_Indicator_Array=product_transaction_detail_entity.getDr_indicator_array();
             Transaction_Amount=product_transaction_detail_entity.getTransaction_amount();
@@ -68,9 +68,9 @@ public class PRODUCT_TRANSACTION_DETAIL_Provider {
                         String Dep_Serial_No_like = "%" + Dep_Serial_No + "%";
                         WHERE("Dep_Serial_No LIKE '" + Dep_Serial_No_like + "'");
                     }
-                    if (Acccount_No != null && !Acccount_No.equals("")) {
-                        String Acccount_No_like = "%" + Acccount_No + "%";
-                        WHERE("Acccount_No LIKE '" + Acccount_No_like + "'");
+                    if (Account_No != null && !Account_No.equals("")) {
+                        String Account_No_like = "%" + Account_No + "%";
+                        WHERE("Account_No LIKE '" + Account_No_like + "'");
                     }
                     if (branch_array != null && branch_array.length > 0) {
                         String whereSql = "BRANCH IN (";
