@@ -26,10 +26,16 @@ public class Converter {
             else if(base_entity instanceof PRODUCT_TRANSACTION_DETAIL_Entity){
                 PRODUCT_TRANSACTION_DETAIL_Entity product_transaction_detail_entity=(PRODUCT_TRANSACTION_DETAIL_Entity)base_entity;
                 entity=product_transaction_detail_entity.convertToArray();
+            } else if (base_entity instanceof RelatedParty_Entity) {
+                RelatedParty_Entity relatedParty_entity = (RelatedParty_Entity)base_entity;
+                entity = relatedParty_entity.convertToArray();
             }
             else if(base_entity instanceof PRODUCT_REPAYMENT_TABLE_Entity){
                 PRODUCT_REPAYMENT_TABLE_Entity product_repayment_table_entity=(PRODUCT_REPAYMENT_TABLE_Entity)base_entity;
                 entity=product_repayment_table_entity.convertToArray();
+            } else if (base_entity instanceof BackgroundCheck_Entity) {
+                BackgroundCheck_Entity backgroundCheck_entity = (BackgroundCheck_Entity)base_entity;
+                entity = backgroundCheck_entity.convertToArray();
             }
 
 

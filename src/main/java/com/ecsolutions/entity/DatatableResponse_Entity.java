@@ -1,9 +1,6 @@
 package com.ecsolutions.entity;
 
-import com.ecsolutions.controller.DEPOSIT_ACCOUNT_INFO_Controller;
-import com.ecsolutions.controller.Loan_Controller;
-import com.ecsolutions.controller.PRODUCT_REPAYMENT_TABLE_Controller;
-import com.ecsolutions.controller.PRODUCT_TRANSACTION_DETAIL_Controller;
+import com.ecsolutions.controller.*;
 import com.ecsolutions.util.Converter;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -49,6 +46,12 @@ public class DatatableResponse_Entity {
                 PageHelper.startPage(pageNum, pageSize);
                 base_entities = product_transaction_detail_controller.getPRODUCT_TRANSACTION_DETAIL_Service().findTransactionDetailByCustcd(customer_code,search,orderCol,orderDir);
                 pageInfo= new PageInfo<PRODUCT_TRANSACTION_DETAIL_Entity>((List<PRODUCT_TRANSACTION_DETAIL_Entity>) base_entities);
+            } else if (object instanceof RelatedParty_Controller) {
+                RelatedParty_Controller relatedParty_controller = (RelatedParty_Controller)object;
+                recordsTotal = relatedParty_controller.getRelatedParty_service().findRelatedParty_TotalByCustCode(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = relatedParty_controller.getRelatedParty_service().findRelatedParty(customer_code,search,orderCol,orderDir);
+                pageInfo= new PageInfo<RelatedParty_Entity>((List<RelatedParty_Entity>) base_entities);
             }
             else if (object instanceof PRODUCT_REPAYMENT_TABLE_Controller) {
                 PRODUCT_REPAYMENT_TABLE_Controller product_repayment_table_controller = (PRODUCT_REPAYMENT_TABLE_Controller)object;
@@ -56,6 +59,12 @@ public class DatatableResponse_Entity {
                 PageHelper.startPage(pageNum, pageSize);
                 base_entities = product_repayment_table_controller.getPRODUCT_REPAYMENT_TABLE_Service().findRepaymentDetail(customer_code,search,orderCol,orderDir);
                 pageInfo= new PageInfo<PRODUCT_REPAYMENT_TABLE_Entity>((List<PRODUCT_REPAYMENT_TABLE_Entity>) base_entities);
+            } else if (object instanceof BackgroundCheck_Controller) {
+                BackgroundCheck_Controller backgroundCheck_controller = (BackgroundCheck_Controller)object;
+                recordsTotal = backgroundCheck_controller.getBackgroundCheck_service().findBackgroundCheck_TotalByCustCode(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = backgroundCheck_controller.getBackgroundCheck_service().findBackgroundCheck(customer_code,search,orderCol,orderDir);
+                pageInfo= new PageInfo<BackgroundCheck_Entity>((List<BackgroundCheck_Entity>)base_entities);
             }
 
 
