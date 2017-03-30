@@ -25,4 +25,12 @@ public class CustomerInfoMain_Controller {
         return customerInfoMain_entity;
     }
 
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getPersonalFlagByCustCode")
+    public String getPersonalFlagByCustCode(@RequestParam(value="customer_code", defaultValue = "", required = true) String customer_code) {
+        String  ret = this.customerInfoMain_service.findPersonalFlagByCustCode(customer_code);
+        return ret;
+    }
+
+
 }

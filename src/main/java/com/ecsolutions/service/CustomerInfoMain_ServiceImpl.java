@@ -21,4 +21,9 @@ public class CustomerInfoMain_ServiceImpl implements  CustomerInfoMain_Service{
     public CustomerInfoMain_Entity findCustomerInfoMainByCustCode(String customer_code) {
         return customerInfoMain_dao.findCustomerInfoMainByCustCode(customer_code);
     }
+
+    @Override
+    public String findPersonalFlagByCustCode(String customer_code) {
+        return customerInfoMain_dao.findPersonalFlagByCustCode(customer_code);
+    }
 }

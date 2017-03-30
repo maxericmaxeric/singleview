@@ -7,4 +7,6 @@ import com.ecsolutions.entity.CustomerInfoMain_Entity;
  */
 public interface CustomerInfoMain_Service {
     CustomerInfoMain_Entity findCustomerInfoMainByCustCode(String customer_code);
+
+    String findPersonalFlagByCustCode(String customer_code);
 }
