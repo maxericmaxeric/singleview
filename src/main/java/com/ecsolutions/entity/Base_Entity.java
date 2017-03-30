@@ -44,6 +44,65 @@ public abstract class Base_Entity{
     private String[] dr_indicator_array;
     private BigDecimal transaction_amount_max;
 
+    //product repayment search
+    private String start_date_max;
+    private String due_date_max;
+    private String paid_date_max;
+    private BigDecimal instalment_amount_max;
+    private BigDecimal interst_amt_max;
+    private String[] overdue_flag_array;
+
+    public String[] getOverdue_flag_array() {
+        return overdue_flag_array;
+    }
+
+    public void setOverdue_flag_array(String[] overdue_flag_array) {
+        this.overdue_flag_array = overdue_flag_array;
+    }
+
+
+    public String getStart_date_max() {
+        return start_date_max;
+    }
+
+    public void setStart_date_max(String start_date_max) {
+        this.start_date_max = start_date_max;
+    }
+
+    public String getDue_date_max() {
+        return due_date_max;
+    }
+
+    public void setDue_date_max(String due_date_max) {
+        this.due_date_max = due_date_max;
+    }
+
+    public String getPaid_date_max() {
+        return paid_date_max;
+    }
+
+    public void setPaid_date_max(String paid_date_max) {
+        this.paid_date_max = paid_date_max;
+    }
+
+    public BigDecimal getInstalment_amount_max() {
+        return instalment_amount_max;
+    }
+
+    public void setInstalment_amount_max(BigDecimal instalment_amount_max) {
+        this.instalment_amount_max = instalment_amount_max;
+    }
+
+    public BigDecimal getInterst_amt_max() {
+        return interst_amt_max;
+    }
+
+    public void setInterst_amt_max(BigDecimal interst_amt_max) {
+        this.interst_amt_max = interst_amt_max;
+    }
+
+
+
 
 
     public String getDep_serial_no() {

@@ -2,6 +2,7 @@ package com.ecsolutions.entity;
 
 import com.ecsolutions.controller.DEPOSIT_ACCOUNT_INFO_Controller;
 import com.ecsolutions.controller.Loan_Controller;
+import com.ecsolutions.controller.PRODUCT_REPAYMENT_TABLE_Controller;
 import com.ecsolutions.controller.PRODUCT_TRANSACTION_DETAIL_Controller;
 import com.ecsolutions.util.Converter;
 import com.github.pagehelper.PageHelper;
@@ -48,6 +49,13 @@ public class DatatableResponse_Entity {
                 PageHelper.startPage(pageNum, pageSize);
                 base_entities = product_transaction_detail_controller.getPRODUCT_TRANSACTION_DETAIL_Service().findTransactionDetailByCustcd(customer_code,search,orderCol,orderDir);
                 pageInfo= new PageInfo<PRODUCT_TRANSACTION_DETAIL_Entity>((List<PRODUCT_TRANSACTION_DETAIL_Entity>) base_entities);
+            }
+            else if (object instanceof PRODUCT_REPAYMENT_TABLE_Controller) {
+                PRODUCT_REPAYMENT_TABLE_Controller product_repayment_table_controller = (PRODUCT_REPAYMENT_TABLE_Controller)object;
+                recordsTotal = product_repayment_table_controller.getPRODUCT_REPAYMENT_TABLE_Service().findDRepaymentTotalCount(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = product_repayment_table_controller.getPRODUCT_REPAYMENT_TABLE_Service().findRepaymentDetail(customer_code,search,orderCol,orderDir);
+                pageInfo= new PageInfo<PRODUCT_REPAYMENT_TABLE_Entity>((List<PRODUCT_REPAYMENT_TABLE_Entity>) base_entities);
             }
 
 

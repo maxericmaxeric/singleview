@@ -1,9 +1,6 @@
 package com.ecsolutions.util;
 
-import com.ecsolutions.entity.Base_Entity;
-import com.ecsolutions.entity.DEPOSIT_ACCOUNT_INFO_Entity;
-import com.ecsolutions.entity.Loan_Entity;
-import com.ecsolutions.entity.PRODUCT_TRANSACTION_DETAIL_Entity;
+import com.ecsolutions.entity.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +26,10 @@ public class Converter {
             else if(base_entity instanceof PRODUCT_TRANSACTION_DETAIL_Entity){
                 PRODUCT_TRANSACTION_DETAIL_Entity product_transaction_detail_entity=(PRODUCT_TRANSACTION_DETAIL_Entity)base_entity;
                 entity=product_transaction_detail_entity.convertToArray();
+            }
+            else if(base_entity instanceof PRODUCT_REPAYMENT_TABLE_Entity){
+                PRODUCT_REPAYMENT_TABLE_Entity product_repayment_table_entity=(PRODUCT_REPAYMENT_TABLE_Entity)base_entity;
+                entity=product_repayment_table_entity.convertToArray();
             }
 
 
