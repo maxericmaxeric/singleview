@@ -94,7 +94,6 @@ public class DEPOSIT_ACCOUNT_INFO_Entity extends Base_Entity{
         ret.add(this.getOpen_date());
         ret.add(this.getMaturity_date());
         ret.add(this.getAccount_balance());
-        ret.add(this.getMaturity_date());
         ret.add(this.getAccount_status());
 
         return ret;

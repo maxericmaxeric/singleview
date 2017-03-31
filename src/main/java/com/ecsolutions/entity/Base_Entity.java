@@ -52,6 +52,72 @@ public abstract class Base_Entity{
     private BigDecimal interst_amt_max;
     private String[] overdue_flag_array;
 
+    //Credit line main search
+    private String create_date_max;
+    private String expire_date_max;
+    private BigDecimal limit_max;
+    private BigDecimal utilized_amount_max;
+    private BigDecimal booking_amount_max;
+    private BigDecimal available_amount_max;
+    private String[] revolving_ind_array;
+
+    public String[] getRevolving_ind_array() {
+        return revolving_ind_array;
+    }
+
+    public void setRevolving_ind_array(String[] revolving_ind_array) {
+        this.revolving_ind_array = revolving_ind_array;
+    }
+
+    public String getCreate_date_max() {
+        return create_date_max;
+    }
+
+    public void setCreate_date_max(String create_date_max) {
+        this.create_date_max = create_date_max;
+    }
+
+    public String getExpire_date_max() {
+        return expire_date_max;
+    }
+
+    public void setExpire_date_max(String expire_date_max) {
+        this.expire_date_max = expire_date_max;
+    }
+
+    public BigDecimal getLimit_max() {
+        return limit_max;
+    }
+
+    public void setLimit_max(BigDecimal limit_max) {
+        this.limit_max = limit_max;
+    }
+
+    public BigDecimal getUtilized_amount_max() {
+        return utilized_amount_max;
+    }
+
+    public void setUtilized_amount_max(BigDecimal utilized_amount_max) {
+        this.utilized_amount_max = utilized_amount_max;
+    }
+
+    public BigDecimal getBooking_amount_max() {
+        return booking_amount_max;
+    }
+
+    public void setBooking_amount_max(BigDecimal booking_amount_max) {
+        this.booking_amount_max = booking_amount_max;
+    }
+
+    public BigDecimal getAvailable_amount_max() {
+        return available_amount_max;
+    }
+
+    public void setAvailable_amount_max(BigDecimal available_amount_max) {
+        this.available_amount_max = available_amount_max;
+    }
+
+
     public String[] getOverdue_flag_array() {
         return overdue_flag_array;
     }

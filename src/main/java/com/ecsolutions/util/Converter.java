@@ -36,6 +36,12 @@ public class Converter {
             } else if (base_entity instanceof BackgroundCheck_Entity) {
                 BackgroundCheck_Entity backgroundCheck_entity = (BackgroundCheck_Entity)base_entity;
                 entity = backgroundCheck_entity.convertToArray();
+            } else if (base_entity instanceof CreditLineMain_Entity) {
+                CreditLineMain_Entity creditLineMain_entity = (CreditLineMain_Entity)base_entity;
+                entity = creditLineMain_entity.convertToArray();
+            } else if (base_entity instanceof CollateralMain_Entity) {
+                CollateralMain_Entity collateralMain_entity = (CollateralMain_Entity)base_entity;
+                entity = collateralMain_entity.convertToArray();
             }
 
 

@@ -65,6 +65,18 @@ public class DatatableResponse_Entity {
                 PageHelper.startPage(pageNum, pageSize);
                 base_entities = backgroundCheck_controller.getBackgroundCheck_service().findBackgroundCheck(customer_code,search,orderCol,orderDir);
                 pageInfo= new PageInfo<BackgroundCheck_Entity>((List<BackgroundCheck_Entity>)base_entities);
+            } else if (object instanceof CreditLineMain_Controller) {
+                CreditLineMain_Controller creditLineMain_controller = (CreditLineMain_Controller)object;
+                recordsTotal = creditLineMain_controller.getCreditLineMain_service().findCreditLineMain_TotalByCustCode(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = creditLineMain_controller.getCreditLineMain_service().findCreditLineMain(customer_code,search,orderCol,orderDir);
+                pageInfo= new PageInfo<CreditLineMain_Entity>((List<CreditLineMain_Entity>) base_entities);
+            } else if (object instanceof CollateralMain_Controller) {
+                CollateralMain_Controller collateralMain_controller = (CollateralMain_Controller)object;
+                recordsTotal = collateralMain_controller.getCollateralMain_service().findCollateralMain_TotalByCustCode(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = collateralMain_controller.getCollateralMain_service().findCollateralMain(customer_code,search,orderCol,orderDir);
+                pageInfo= new PageInfo<CollateralMain_Entity>((List<CollateralMain_Entity>) base_entities);
             }
 
 
