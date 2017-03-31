@@ -5,6 +5,8 @@ import com.ecsolutions.service.PRODUCT_TRANSACTION_DETAIL_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017-3-23.
  */
@@ -31,4 +33,38 @@ public class PRODUCT_TRANSACTION_DETAIL_Controller {
         DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity(this, draw,start,length,orderCol,orderDir,search,customer_code);
         return datatableResponse_entity;
     }
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getDepTran_Branch/{customer_code}")
+    public List<String> getTransactionBrachByCustCode(@PathVariable("customer_code") String customer_code)
+    {
+        List<String> ret=pRODUCT_TRANSACTION_DETAIL_Service.findTransactionBrachByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getDepTran_Type/{customer_code}")
+    public List<String> getTransactionTypeByCustCode(@PathVariable("customer_code") String customer_code)
+    {
+        List<String> ret=pRODUCT_TRANSACTION_DETAIL_Service.findTransactionTypeByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getDepTran_Ccy/{customer_code}")
+    public List<String> getTransactionCcyByCustCode(@PathVariable("customer_code") String customer_code)
+    {
+        List<String> ret=pRODUCT_TRANSACTION_DETAIL_Service.findTransactionCcyByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getDepTran_Dr_Indicator/{customer_code}")
+    public List<String> getTransactionDrIndicatorByCustCode(@PathVariable("customer_code") String customer_code)
+    {
+        List<String> ret=pRODUCT_TRANSACTION_DETAIL_Service.findTransactionDrIndicatorByCustCode(customer_code);
+        return ret;
+    }
+
+
+
 }

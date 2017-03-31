@@ -31,4 +31,20 @@ public interface PRODUCT_TRANSACTION_DETAIL_DAO {
     @Select("select count(*) from DEPOSIT_ACCOUNT_TRAN where Customer_Code = #{customer_code}")
     @ResultType(PRODUCT_TRANSACTION_DETAIL_Entity.class)
     Long findTransactionDetail_TotalByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Branch from DEPOSIT_ACCOUNT_TRAN where Customer_Code = #{customer_code}")
+    @ResultType(String.class)
+    List<String> findTransactionBrachByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Transaction_Type from DEPOSIT_ACCOUNT_TRAN where Customer_Code = #{customer_code}")
+    @ResultType(String.class)
+    List<String> findTransactionTypeByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Currency from DEPOSIT_ACCOUNT_TRAN where Customer_Code = #{customer_code}")
+    @ResultType(String.class)
+    List<String> findTransactionCcyByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct DR_Indicator from DEPOSIT_ACCOUNT_TRAN where Customer_Code = #{customer_code}")
+    @ResultType(String.class)
+    List<String> findTransactionDrIndicatorByCustCode(@Param("customer_code") String customer_code);
 }

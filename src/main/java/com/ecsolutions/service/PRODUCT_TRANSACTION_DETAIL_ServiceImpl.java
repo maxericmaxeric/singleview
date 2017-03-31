@@ -28,4 +28,24 @@ public class PRODUCT_TRANSACTION_DETAIL_ServiceImpl implements PRODUCT_TRANSACTI
     {
         return pRODUCT_TRANSACTION_DETAIL_DAO.findTransactionDetail_TotalByCustCode(customer_code);
     }
+    @Override
+    public List<String> findTransactionBrachByCustCode(String customer_code)
+    {
+        return pRODUCT_TRANSACTION_DETAIL_DAO.findTransactionBrachByCustCode(customer_code);
+    }
+    @Override
+    public List<String> findTransactionTypeByCustCode(String customer_code)
+    {
+        return pRODUCT_TRANSACTION_DETAIL_DAO.findTransactionTypeByCustCode(customer_code);
+    }
+    @Override
+    public List<String> findTransactionCcyByCustCode(String customer_code)
+    {
+        return pRODUCT_TRANSACTION_DETAIL_DAO.findTransactionCcyByCustCode(customer_code);
+    }
+    @Override
+    public List<String> findTransactionDrIndicatorByCustCode(String customer_code)
+    {
+        return pRODUCT_TRANSACTION_DETAIL_DAO.findTransactionDrIndicatorByCustCode(customer_code);
+    }
 }

@@ -84,14 +84,16 @@ public class PRODUCT_TRANSACTION_DETAIL_Entity extends Base_Entity{
     @Override
     public List<Object> convertToArray() {
         List<Object> ret = new ArrayList<Object>();
-        ret.add(this.getAccount_no());
         ret.add(this.getBranch());
-        ret.add(this.getCurrency());
         ret.add(this.getDep_serial_no());
-        ret.add(this.getDr_indicator());
-        ret.add(this.getTransaction_amount());
         ret.add(this.getTransaction_date());
         ret.add(this.getTransaction_type());
+        ret.add(this.getAccount_no());
+        ret.add(this.getCurrency());
+        ret.add(this.getDr_indicator());
+        ret.add(this.getTransaction_amount());
+
+
 
 
         return ret;
