@@ -31,4 +31,16 @@ List<PRODUCT_REPAYMENT_TABLE_Entity> findRepaymentDetail(@Param("customer_code")
     @Select("select count(*) from repayment where Customer_Code = #{customer_code}")
     @ResultType(PRODUCT_TRANSACTION_DETAIL_Entity.class)
     Long findDRepaymentTotalCount(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Branch from repayment where Customer_Code = #{customer_code}")
+    @ResultType(String.class)
+    List<String> findRepaymentBrachByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct Currency from repayment where Customer_Code = #{customer_code}")
+    @ResultType(String.class)
+    List<String> findRepaymentCcyByCustCode(@Param("customer_code") String customer_code);
+
+    @Select("select distinct OVERDUE_FLAG from repayment where Customer_Code = #{customer_code}")
+    @ResultType(String.class)
+    List<String> findRepaymentOverdueFlagByCustCode(@Param("customer_code") String customer_code);
 }

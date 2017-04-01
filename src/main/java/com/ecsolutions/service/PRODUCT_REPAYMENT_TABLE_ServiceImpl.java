@@ -27,4 +27,19 @@ public class PRODUCT_REPAYMENT_TABLE_ServiceImpl implements PRODUCT_REPAYMENT_TA
     public Long findDRepaymentTotalCount(String customer_code){
         return pRODUCT_REPAYMENT_TABLE_DAO.findDRepaymentTotalCount(customer_code);
     }
+    @Override
+    public List<String> findRepaymentBrachByCustCode(String customer_code)
+    {
+        return pRODUCT_REPAYMENT_TABLE_DAO.findRepaymentBrachByCustCode(customer_code);
+    }
+    @Override
+    public List<String> findRepaymentCcyByCustCode(String customer_code)
+    {
+        return pRODUCT_REPAYMENT_TABLE_DAO.findRepaymentCcyByCustCode(customer_code);
+    }
+    @Override
+    public List<String> findRepaymentOverdueFlagByCustCode(String customer_code)
+    {
+        return pRODUCT_REPAYMENT_TABLE_DAO.findRepaymentOverdueFlagByCustCode(customer_code);
+    }
 }

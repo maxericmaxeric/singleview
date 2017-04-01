@@ -104,19 +104,16 @@ public class PRODUCT_REPAYMENT_TABLE_Entity extends Base_Entity{
     @Override
     public List<Object> convertToArray() {
         List<Object> ret = new ArrayList<Object>();
-        ret.add(this.getCurrency());
         ret.add(this.getBranch());
-        ret.add(this.getDue_date());
-        ret.add(this.getInstalment_amount());
-        ret.add(this.getInstalment_no());
-        ret.add(this.getInterest_amt());
         ret.add(this.getOpen_item_num());
-        ret.add(this.getOverdue_flag());
-        ret.add(this.getPaid_date());
+        ret.add(this.getInstalment_no());
         ret.add(this.getStart_date());
-
-
-
+        ret.add(this.getDue_date());
+        ret.add(this.getPaid_date());
+        ret.add(this.getCurrency());
+        ret.add(this.getInstalment_amount());
+        ret.add(this.getInterest_amt());
+        ret.add(this.getOverdue_flag());
         return ret;
     }
 

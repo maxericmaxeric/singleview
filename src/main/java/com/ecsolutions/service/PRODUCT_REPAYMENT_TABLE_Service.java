@@ -10,4 +10,7 @@ import java.util.List;
 public interface PRODUCT_REPAYMENT_TABLE_Service {
     List<PRODUCT_REPAYMENT_TABLE_Entity> findRepaymentDetail(String customer_code,String search, String orderCol, String orderDir);
     Long findDRepaymentTotalCount(String customer_code);
+    List<String> findRepaymentBrachByCustCode(String customer_code);
+    List<String> findRepaymentCcyByCustCode(String customer_code);
+    List<String> findRepaymentOverdueFlagByCustCode(String customer_code);
 }

@@ -5,6 +5,8 @@ import com.ecsolutions.service.PRODUCT_REPAYMENT_TABLE_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017-3-23.
  */
@@ -30,5 +32,29 @@ public class PRODUCT_REPAYMENT_TABLE_Controller {
 //        return product_repayment_table_entities;
         DatatableResponse_Entity datatableResponse_entity = new DatatableResponse_Entity(this, draw,start,length,orderCol,orderDir,search,customer_code);
         return datatableResponse_entity;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getRep_Branch/{customer_code}")
+    public List<String> getRepaymentBrachByCustCode(@PathVariable("customer_code") String customer_code)
+    {
+        List<String> ret=pRODUCT_REPAYMENT_TABLE_Service.findRepaymentBrachByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getRep_Ccy/{customer_code}")
+    public List<String> getRepaymentCcyByCustCode(@PathVariable("customer_code") String customer_code)
+    {
+        List<String> ret=pRODUCT_REPAYMENT_TABLE_Service.findRepaymentCcyByCustCode(customer_code);
+        return ret;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getRep_Overdue_Flag/{customer_code}")
+    public List<String> getRepaymentOverdueFlagByCustCode(@PathVariable("customer_code") String customer_code)
+    {
+        List<String> ret=pRODUCT_REPAYMENT_TABLE_Service.findRepaymentOverdueFlagByCustCode(customer_code);
+        return ret;
     }
 }
