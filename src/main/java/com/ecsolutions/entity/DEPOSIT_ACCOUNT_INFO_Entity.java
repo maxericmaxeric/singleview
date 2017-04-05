@@ -1,6 +1,8 @@
 package com.ecsolutions.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +10,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2017/3/15.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DEPOSIT_ACCOUNT_INFO_Entity extends Base_Entity{
     private String dp_account_no;
     private String account_type;
