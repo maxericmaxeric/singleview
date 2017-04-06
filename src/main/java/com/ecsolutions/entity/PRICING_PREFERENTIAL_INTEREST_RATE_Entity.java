@@ -79,6 +79,7 @@ public class PRICING_PREFERENTIAL_INTEREST_RATE_Entity extends Base_Entity{
         ret.add(this.getProduct_desc());
         ret.add(this.getIr_spread());
         ret.add(this.getOd_int_spread());
+        ret.add(this.getPreminum_discount());
         ret.add(this.getEffective_date());
         ret.add(this.getExpiry_date());
         return ret;
