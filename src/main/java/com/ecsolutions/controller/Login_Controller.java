@@ -36,6 +36,12 @@ public class Login_Controller {
         if (user == null) {
             session.setAttribute("MESSAGE", "userid/password invalid!");
             return "login";
+        } else if (user.getStatus().equals("D")) {
+            session.setAttribute("MESSAGE", "This user has been deactivated, please contact the administrator!");
+            return "login";
+        } else if (user.getStatus().equals("C")) {
+            session.setAttribute("MESSAGE", "This user has been cancelled, please contact the administrator!");
+            return "login";
         }
         session.setAttribute("CURRENT_USER", user);
         String adminflag = user.getAdminflag();

@@ -6,7 +6,16 @@ package com.ecsolutions.entity;
 public class User_Entity {
     private String userid;
     private String username;
+    private String status;
     private String adminflag;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getAdminflag() {
         return adminflag;

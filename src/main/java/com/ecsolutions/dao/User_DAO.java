@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface User_DAO {
 
-    @Select("SELECT TRIM(USERID) USERID, TRIM(USERNAME) USERNAME, TRIM(ADMINFLAG) ADMINFLAG FROM SVUSER WHERE TRIM(USERID) = TRIM(#{userid}) AND TRIM(PASSWORD) = TRIM(#{password})")
+    @Select("SELECT TRIM(USERID) USERID, TRIM(USERNAME) USERNAME, TRIM(STATUS) STATUS, TRIM(ADMINFLAG) ADMINFLAG FROM CSVUSER WHERE TRIM(USERID) = TRIM(#{userid}) AND TRIM(PASSWORD) = TRIM(#{password})")
     @ResultType(User_Entity.class)
     User_Entity findUser(@Param("userid") String userid, @Param("password") String password);
 }
