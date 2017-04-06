@@ -78,6 +78,13 @@ public class DatatableResponse_Entity {
                 base_entities = collateralMain_controller.getCollateralMain_service().findCollateralMain(customer_code,search,orderCol,orderDir);
                 pageInfo= new PageInfo<CollateralMain_Entity>((List<CollateralMain_Entity>) base_entities);
             }
+              else if (object instanceof PRICING_PREFERENTIAL_FEES_Controller) {
+                PRICING_PREFERENTIAL_FEES_Controller pricing_preferential_fees_controller = (PRICING_PREFERENTIAL_FEES_Controller)object;
+                recordsTotal = pricing_preferential_fees_controller.getpRICING_PREFERENTIAL_FEES_Service().findPreferentialFeesTotalByCustd(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = pricing_preferential_fees_controller.getpRICING_PREFERENTIAL_FEES_Service().findPreferentialFeesByCustd(customer_code,search,orderCol,orderDir);
+                pageInfo= new PageInfo<PRICING_PREFERENTIAL_FEES_Entity>((List<PRICING_PREFERENTIAL_FEES_Entity>) base_entities);
+        }
 
 
             this.setRecordsTotal(recordsTotal);
