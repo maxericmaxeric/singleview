@@ -42,6 +42,18 @@ public class Converter {
             } else if (base_entity instanceof PRICING_PREFERENTIAL_FEES_Entity) {
                 PRICING_PREFERENTIAL_FEES_Entity pricing_preferential_fees_entity = (PRICING_PREFERENTIAL_FEES_Entity) base_entity;
                 entity = pricing_preferential_fees_entity.convertToArray();
+            } else if (base_entity instanceof PRICING_PREFERENTIAL_FX_RATE_Entity){
+                PRICING_PREFERENTIAL_FX_RATE_Entity pricing_preferential_fx_rate_entity=(PRICING_PREFERENTIAL_FX_RATE_Entity) base_entity;
+                entity = pricing_preferential_fx_rate_entity.convertToArray();
+            } else if (base_entity instanceof PRICING_PREFERENTIAL_INTEREST_RATE_Entity) {
+                PRICING_PREFERENTIAL_INTEREST_RATE_Entity pricing_preferential_interest_rate_entity=(PRICING_PREFERENTIAL_INTEREST_RATE_Entity) base_entity;
+                entity = pricing_preferential_interest_rate_entity.convertToArray();
+            } else if (base_entity instanceof PRICING_PRODUCT_INSTRUCTION_Entity) {
+                PRICING_PRODUCT_INSTRUCTION_Entity pricing_product_instruction_entity=(PRICING_PRODUCT_INSTRUCTION_Entity) base_entity;
+                entity = pricing_product_instruction_entity.convertToArray();
+            } else if (base_entity instanceof PRICING_STANDING_INSTRUCTION_Entity) {
+                PRICING_STANDING_INSTRUCTION_Entity pricing_standing_instruction_entity=(PRICING_STANDING_INSTRUCTION_Entity) base_entity;
+                entity = pricing_standing_instruction_entity.convertToArray();
             }
 
 

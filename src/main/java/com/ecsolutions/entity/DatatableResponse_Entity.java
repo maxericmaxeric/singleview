@@ -84,7 +84,36 @@ public class DatatableResponse_Entity {
                 PageHelper.startPage(pageNum, pageSize);
                 base_entities = pricing_preferential_fees_controller.getpRICING_PREFERENTIAL_FEES_Service().findPreferentialFeesByCustd(customer_code,search,orderCol,orderDir);
                 pageInfo= new PageInfo<PRICING_PREFERENTIAL_FEES_Entity>((List<PRICING_PREFERENTIAL_FEES_Entity>) base_entities);
-        }
+            }
+              else if (object instanceof PRICING_PREFERENTIAL_FX_RATE_Controller) {
+                PRICING_PREFERENTIAL_FX_RATE_Controller pricing_preferential_fx_rate_controller = (PRICING_PREFERENTIAL_FX_RATE_Controller)object;
+                recordsTotal = pricing_preferential_fx_rate_controller.getpRICING_PREFERENTIAL_FX_RATE_Service().findPreferentialFxTotalByCustd(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities = pricing_preferential_fx_rate_controller.getpRICING_PREFERENTIAL_FX_RATE_Service().findPreferentialFxRateByCustd(customer_code, search, orderCol, orderDir);
+                pageInfo= new PageInfo<PRICING_PREFERENTIAL_FX_RATE_Entity>((List<PRICING_PREFERENTIAL_FX_RATE_Entity>) base_entities);
+            }
+            else if (object instanceof PRICING_PREFERENTIAL_INTEREST_RATE_Controller) {
+                PRICING_PREFERENTIAL_INTEREST_RATE_Controller pricing_preferential_interest_rate_controller = (PRICING_PREFERENTIAL_INTEREST_RATE_Controller)object;
+                recordsTotal = pricing_preferential_interest_rate_controller.getPricing_Preferential_Interest_Rate_Service().findPreferentialIRTotalByCustd(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities =pricing_preferential_interest_rate_controller.getPricing_Preferential_Interest_Rate_Service().findPreferentialInterestRateByCustd(customer_code, search, orderCol, orderDir);
+                pageInfo= new PageInfo<PRICING_PREFERENTIAL_INTEREST_RATE_Entity>((List<PRICING_PREFERENTIAL_INTEREST_RATE_Entity>) base_entities);
+            }
+            else if (object instanceof PRICING_PRODUCT_INSTRUCTION_Controller) {
+                PRICING_PRODUCT_INSTRUCTION_Controller pricing_product_instruction_controller = (PRICING_PRODUCT_INSTRUCTION_Controller)object;
+                recordsTotal = pricing_product_instruction_controller.getPricing_Product_Instruction_Service().findPITotalByCustd(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities =pricing_product_instruction_controller.getPricing_Product_Instruction_Service().findProductInstructionByCustd(customer_code, search, orderCol, orderDir);
+                pageInfo= new PageInfo<PRICING_PRODUCT_INSTRUCTION_Entity>((List<PRICING_PRODUCT_INSTRUCTION_Entity>) base_entities);
+            }
+            else if (object instanceof PRICING_STANDING_INSTRUCTION_Controller) {
+                PRICING_STANDING_INSTRUCTION_Controller pricing_standing_instruction_controller = (PRICING_STANDING_INSTRUCTION_Controller)object;
+                recordsTotal = pricing_standing_instruction_controller.getPricing_Standing_Instruction_Service().findSITotalByCustd(customer_code);
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities =pricing_standing_instruction_controller.getPricing_Standing_Instruction_Service().findStandingInstructionByCustd(customer_code, search, orderCol, orderDir);
+                pageInfo= new PageInfo<PRICING_STANDING_INSTRUCTION_Entity>((List<PRICING_STANDING_INSTRUCTION_Entity>) base_entities);
+            }
+
 
 
             this.setRecordsTotal(recordsTotal);
