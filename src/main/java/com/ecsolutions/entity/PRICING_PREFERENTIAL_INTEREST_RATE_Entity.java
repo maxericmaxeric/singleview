@@ -1,5 +1,6 @@
 package com.ecsolutions.entity;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
 public class PRICING_PREFERENTIAL_INTEREST_RATE_Entity extends Base_Entity{
     private String product_code;
     private String product_desc;
-    private String ir_spread;
+    private BigDecimal ir_spread;
     private String od_int_spread;
     private String preminum_discount;
     private String effective_date;
@@ -31,11 +32,12 @@ public class PRICING_PREFERENTIAL_INTEREST_RATE_Entity extends Base_Entity{
         this.product_desc = product_desc;
     }
 
-    public String getIr_spread() {
+
+    public BigDecimal getIr_spread() {
         return ir_spread;
     }
 
-    public void setIr_spread(String ir_spread) {
+    public void setIr_spread(BigDecimal ir_spread) {
         this.ir_spread = ir_spread;
     }
 
