@@ -1,0 +1,4840 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Customer Single View</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css"> 
+  <!-- fullCalendar 2.2.5-->
+  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <!-- Tree Map -->
+  <link rel="stylesheet" href="../plugins/d3/tree.css"> 
+  <script src="../plugins/d3/tree.js"></script>
+  <!-- Echarts -->
+  <script src="../plugins/echarts/echarts.js"></script>
+  <!-- D3 -->
+  <script src="../plugins/d3/d3.v3.min.js"></script>
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../plugins/select2/select2.min.css">  
+  <!-- jQuery Number -->
+  <script src="../number/jquery.number.js"></script>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="hold-transition skin-green-light sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header" style="position:fixed;width:100%">
+    <!-- Logo -->
+    <a class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini">CSV</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg">Customer Single View</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+		  <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="hidden-xs">UserName</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <a href="../login.html" class="btn btn-default btn-flat">Sign out</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" style="position:fixed">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li>
+          <a data-toggle="modal" data-target="#project-enquiry">
+            <i class="fa fa-th"></i> <span>Single View</span>
+          </a>
+        </li>		
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+	
+  </aside>
+  
+  <!-- Modal -->
+	<div class="modal fade " id="project-enquiry" tabindex="-1" role="dialog" aria-labelledby="project-enquiry-label" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-purple">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="project-enquiry-label">Customer Enquiry</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Customer Code:</label>											
+										<input class="form-control" id="cust_code">
+									 </div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Customer Name:</label>
+										<input class="form-control" id="cust_name">
+									 </div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Account No:</label>
+										<input class="form-control" id="acct_no">
+									 </div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Reference No:</label>
+										<input class="form-control" id="ref_no">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Identity No:</label>
+										<input class="form-control" id="id_no">
+									</div>
+								</div>																	
+								<div class="col-md-12">
+								<button type="button" class="btn  bg-purple btn-block" onclick="enquiry()">Search</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<table id="enquiryTable" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th>Customer Code</th>
+								<th>Customer Name</th>
+								<th>Identity No</th>
+							</tr>
+						</thead>
+						<tbody >
+							
+						</tbody>
+					</table>
+				</div>					
+				<div class="modal-footer" >
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+   <!-- Content Header (Page header) -->
+    <section class="content-header">
+		<h1>
+			Single View
+			<small>
+				<a data-toggle="modal" data-target="#project-enquiry">
+					<i class="fa fa-search-plus"></i> <span>Enquiry</span>
+				</a>
+			</small>
+		</h1>		
+	</section>
+    <section class="content-header">
+		<h1>
+			Single View
+			<small>
+				<a data-toggle="modal" data-target="#project-enquiry">
+					<i class="fa fa-search-plus"></i> <span>Enquiry</span>
+				</a>
+			</small>
+		</h1>		
+    </section>	
+	
+	
+	<!-- Main content -->
+    <section class="content">
+	<div class="row">	
+	<!-- Custom tabs (Charts with tabs)-->
+		<div>
+			<div id="tabMenu" style="width:100%;background:rgba(236,240,245,1);padding:5px;top:50px;z-index:100" >
+            <!-- Tabs within a box -->
+            <ul class="nav nav-tabs pull-left" style="font:16px arial,sans-serif;background-color:white;">
+				<li class="active"><a href="#Portfolio-chart" data-toggle="tab">Portfolio</a></li>
+				<li><a href="#CustomerProfile-chart" data-toggle="tab">Customer profile</a></li>
+				<li><a href="#Product-chart" data-toggle="tab">Product</a></li>
+				<li><a href="#CreditFacility-chart" data-toggle="tab">Credit facility</a></li>
+				<li><a href="#Pricing-chart" data-toggle="tab">Pricing</a></li>	
+				<li><a href="#CallMemo-chart" data-toggle="tab">Call memo</a></li>				
+			</ul>
+			</div>
+            <div class="tab-content no-padding">
+              <!-- Morris chart - Sales -->
+				<div class="chart tab-pane active" id="Portfolio-chart" style="background-color: rgba(236,240,245,1) ">
+					<div class="col-lg-11" style="padding:0px">
+						<div class="box box-success" >
+							<div class="box-header with-border">
+								 <h5 class="box-title"></h5>
+								 <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+								 </div>
+								  <!-- /.box-tools -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">					 
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Name</h3>					  
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CN">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Code</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CC">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Level</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CL">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Risk Rating</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_RR">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Assets Balance</h3>				
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_AB">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Liabilities Balance</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LB">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Line Limit</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LL">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+							</div>
+								<!-- /.box-body -->
+						</div>
+						<!-- /.box -->												 
+
+						<section class="col-lg-6 connectedSortable">
+							<div class="box box-success">
+								<div class="box-header">
+								  <div class="pull-right box-tools">
+									<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+									  <i class="fa fa-minus"></i></button>
+								  </div>
+								  <h3 class="box-title">
+									Deposit Outstanding Amount 
+								  </h3>
+								</div>
+								<div class="box-body">
+								  <small id="pieChartLocation"></small>
+								  <br/><br/>
+								  <!-- Pie Chart -->
+								  <div id="depositBalance" style="width: 98%;height:400px;"></div>
+								</div>
+							</div>
+						</section>	
+						
+						<section class="col-lg-6 connectedSortable">
+						<div class="box box-success">
+								<div class="box-header">
+								  <div class="pull-right box-tools">
+									<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+									  <i class="fa fa-minus"></i></button>
+								  </div>
+								  <h3 class="box-title">
+									Loan Outstanding Amount
+								  </h3>
+								</div>
+								<div class="box-body">
+								  <small id="barChartLocation"></small>
+								  <br/><br/>
+								  <!-- Bar Chart -->
+								  <div id="loanBalance" style="width: 98%;height:400px;"></div>
+								</div>
+							</div>
+						</section>
+					
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+											<button type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#project-d" style="margin-right: 5px;">
+										<i class="fa fa-search-plus"></i></button>
+									</div>
+								  
+									<!-- Modal -->
+									<div class="modal fade " id="project-d" tabindex="-1" role="dialog" aria-labelledby="project-d-label" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header bg-purple">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													<h4 class="modal-title" id="project-d-label">Search</h4>
+												</div>
+												<div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Branch:</label>
+																<select id="depositBranchSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Account No:</label>
+																<input id="depositAccountNo" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Product:</label>
+																<select id="depositProductSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Currency:</label>
+																<select id="depositCurrencySelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Open Date:</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD1">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD2">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Maturity Date:</label>
+
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD3">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD4">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Outstanding AMT:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="depositOutstandingAmountFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="depositOutstandingAmountTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Status:</label>												
+																<select id="depositStatusSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn  bg-purple" onclick="searchDepositResult()">Search</button>
+													<button type="button" class="btn  bg-purple" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Modal end -->
+								  
+									<h3 class="box-title">
+										Deposit Account Information
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="depositInformationTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Branch</th>
+									  <th>Acct No</th>
+									  <th>Product</th>
+									  <th>CCY</th>
+									  <th>Start Date</th>
+									  <th>End Date</th>
+									  <th>Outstanding AMT</th>
+									  <th>Status</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Branch</th>
+									  <th>Acct No</th>
+									  <th>Product</th>
+									  <th>CCY</th>
+									  <th>Start Date</th>
+									  <th>End Date</th>
+									  <th>Outstanding AMT</th>
+									  <th>Status</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+						
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+											<button type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#project-l" style="margin-right: 5px;">
+										<i class="fa fa-search-plus"></i></button>
+									</div>
+									
+									<!-- Modal -->
+									<div class="modal fade " id="project-l" tabindex="-1" role="dialog" aria-labelledby="project-l-label" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header bg-purple">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													<h4 class="modal-title" id="project-l-label">Search</h4>
+												</div>
+												<div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Branch:</label>
+																<select id="loanBranchSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Account No:</label>
+																<input id="loanAccountNo" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Loan Type:</label>
+																<select id="loanTypeSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Line No:</label>
+																<input id="loanLineNo" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Principal Currency:</label>
+																<select id="loanPrincipalCurrencySelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Principal Amount:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="loanPrincipalAmountFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="loanPrincipalAmountTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Value Date:</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerL1">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerL2">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Maturity Date:</label>
+
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerL3">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerL4">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Balance Currency:</label>
+																<select id="loanBalanceCurrencySelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Balance:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="loanBalanceFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="loanBalanceTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Account Status:</label>
+																<select id="loanStatusSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn  bg-purple" onclick="searchLoanResult()">Search</button>
+													<button type="button" class="btn  bg-purple" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Modal end -->
+									
+									<h3 class="box-title">
+										Loan Information
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="loanInformationTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Branch</th>
+									  <th>Loan Acct No</th>
+									  <th>Loan Type</th>
+									  <th>Line No</th>									  
+									  <th>Principal Currency</th>
+									  <th>Principal Amount</th>									  
+									  <th>Value Date</th>
+									  <th>Maturity Date</th>
+									  <th>Balance Currency</th>	 									  
+									  <th>Balance</th>
+									  <th>Account Status</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Branch</th>
+									  <th>Loan Acct No</th>
+									  <th>Loan Type</th>
+									  <th>Line No</th>									  
+									  <th>Principal Currency</th>
+									  <th>Principal Amount</th>									  
+									  <th>Value Date</th>
+									  <th>Maturity Date</th>
+									  <th>Balance Currency</th>	 									  
+									  <th>Balance</th>
+									  <th>Account Status</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+					</div>
+					<div class="col-lg-1" style="padding:8px;position:fixed;right:-12px">
+						<ul class="nav nav-tabs" style="font:14px arial,sans-serif;background:#e9efef;">
+						<li class="nav-header" style="border-bottom:solid 2px #ddd;width:100%;text-align:center">
+						  <h4>Navigation</h4>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#">Top</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#depositBalance">Deposit Outstanding Amount</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#loanBalance">Loan Outstanding Amount</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#depositInformationTable">Deposit Account Information</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#loanInformationTable">Loan Information</a>
+						</li>
+						</ul>
+					</div>
+				</div>
+				<div class="chart tab-pane" id="CustomerProfile-chart" style="position: relative;">
+					<div class="col-lg-11" style="padding:0px">
+						<div class="box box-success">
+							<div class="box-header with-border">
+								 <h5 class="box-title"></h5>
+								 <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+								 </div>
+								  <!-- /.box-tools -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">					 
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Name</h3>					  
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CN">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Code</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CC">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Level</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CL">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Risk Rating</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_RR">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Assets Balance</h3>				
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_AB">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Liabilities Balance</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LB">
+
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Line Limit</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body number" name="b_LL">
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+							</div>
+								<!-- /.box-body -->		
+						</div>
+						<!-- /.box -->
+							
+						<section class="col-lg-6 connectedSortable">
+						<div class="box box-success">
+							<div class="box-header">
+							  <div class="pull-right box-tools">
+								<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+								  <i class="fa fa-minus"></i></button>
+							  </div>
+							  <h3 class="box-title">
+								Basic Information
+							  </h3>
+							</div>
+							<div class="box-body">
+							  <div class="table-responsive">
+								<table class="table" id="basicInformationDisplay">
+								  <tbody>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Branch</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Customer Code</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Customer Full Name</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Customer Short Name</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Identity No</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Customer Status</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Close Date</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Open Date</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Country Code</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Credit Rating</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Customer Type</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">E-Mail</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Fax No</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Parent Customer Code</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Relationship Level</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Strat Date</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Tel No</th>
+									<td></td>
+								  </tr>
+								</tbody>
+								</table>
+							  </div>
+							</div>
+						</div>
+						</section>
+						
+						<section class="col-lg-6 connectedSortable">
+						<div class="box box-success">
+							<div class="box-header">
+							  <div class="pull-right box-tools">
+								<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+								  <i class="fa fa-minus"></i></button>
+							  </div>
+							  <h3 class="box-title">
+								Risk Rating
+							  </h3>
+							</div>
+							<div class="box-body">
+							  <div class="table-responsive">
+								<table class="table" id="riskRatingDisplay">
+								  <tbody><tr>
+									<th style="width:50%;color:#00CCCC">LCY Rating</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">FCY Rating</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Rating Date</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Rating Agency</th>
+									<td></td>
+								  </tr>
+								</tbody></table>
+							  </div>
+							</div>
+						</div>
+						</section>
+						
+						<section class="col-lg-6 connectedSortable" id="companyInformation">
+						<div class="box box-success">
+							<div class="box-header">
+							  <div class="pull-right box-tools">
+								<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+								  <i class="fa fa-minus"></i></button>
+							  </div>
+							  <h3 class="box-title">
+								Company Information
+							  </h3>
+							</div>
+							<div class="box-body">
+							  <div class="table-responsive">
+								<table class="table" id="companyInformationDisplay">
+								  <tbody><tr>
+									<th style="width:50%;color:#00CCCC">Industry Code Head Office</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Industry Code Regulatory</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Sales Vol</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Market Share</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Product Array</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Reputation</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Network</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Threats Challenges</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Success Factors</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Potential Gap</th>
+									<td></td>
+								  </tr>
+								</tbody></table>
+							  </div>
+							</div>
+						</div>
+						</section>
+						
+						<section class="col-lg-6 connectedSortable" id="companyRegistration">
+						<div class="box box-success">
+							<div class="box-header">
+							  <div class="pull-right box-tools">
+								<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+								  <i class="fa fa-minus"></i></button>
+							  </div>
+							  <h3 class="box-title">
+								Company Registration
+							  </h3>
+							</div>
+							<div class="box-body">
+							  <div class="table-responsive">
+								<table class="table" id="companyRegistrationDisplay">
+								  <tbody>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Parent Subsidiary Type</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Registration Type</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Registration No</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Registration Date</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Business License Exp Date</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Org Code</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Legal Rep</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Business Area</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Tax No National</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Tax No Local</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Registered Capital</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Listed Company Status</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Stock Exchange</th>
+									<td></td>
+								  </tr>
+								  <tr>
+									<th style="width:50%;color:#00CCCC">Stock Ticker</th>
+									<td></td>
+								  </tr>
+								  </tbody>
+								</table>
+							  </div>
+							</div>
+						</div>
+						</section>
+						
+						<section class="col-lg-12" id="customerGroup">
+							<div class="box box-success" id="customerGroupBox">
+								<div class="box-header">
+								  <div class="pull-right box-tools">
+									<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+									  <i class="fa fa-minus"></i></button>
+								  </div>
+								  <h3 class="box-title">
+									Customer Group 
+								  </h3>
+								</div>
+								<div class="box-body">
+								  <!-- Tree Structure Chart -->
+								  <div id="customerGroupTreeMap"></div>
+								</div>
+							</div>
+						</section>							
+
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+									</div>
+									<h3 class="box-title">
+										Related Parties
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="relatedPartiesTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Customer Code</th>
+									  <th>Related Party</th>
+									  <th>Related Party Name</th>
+									  <th>Relationship</th>
+									  <th>Shareholding </th>									  
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Customer Code</th>
+									  <th>Related Party</th>
+									  <th>Related Party Name</th>
+									  <th>Relationship</th>
+									  <th>Shareholding </th>									  
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+						
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+									</div>
+									<h3 class="box-title">
+										Background Check
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="backgroundCheckTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Check Date</th>
+									  <th>Check Item</th>
+									  <th>Check Result</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Check Date</th>
+									  <th>Check Item</th>
+									  <th>Check Result</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>								
+				    	
+					</div>
+					<div class="col-lg-1" style="padding:8px;position:fixed;right:-12px">
+						<ul class="nav nav-tabs" style="font:14px arial,sans-serif;background:#e9efef;">
+						<li class="nav-header" style="border-bottom:solid 2px #ddd;width:100%;text-align:center">
+						  <h4>Navigation</h4>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#">Top</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#basicInformationDisplay">Basic Information</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#riskRatingDisplay">Risk Rating</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#companyInformationDisplay">Company Information</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#companyRegistrationDisplay">Company Registration</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#customerGroup">Customer Group</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#relatedPartiesTable">Related Parties</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#backgroundCheckTable">Background Check</a>
+						</li>
+						</ul>
+					</div>						
+				</div>
+				<div class="chart tab-pane" id="Product-chart" style="position: relative;">
+					<div class="col-lg-11" style="padding:0px">
+						<div class="box box-success">
+							<div class="box-header with-border">
+								 <h5 class="box-title"></h5>
+								 <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+								 </div>
+								  <!-- /.box-tools -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">					 
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Name</h3>					  
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CN">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Code</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CC">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Level</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CL">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Risk Rating</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_RR">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Assets Balance</h3>				
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_AB">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Liabilities Balance</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LB">
+
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Line Limit</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body number" name="b_LL">
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+							</div>
+								<!-- /.box-body -->
+						</div>
+						<!-- /.box -->	
+						<section class="col-lg-12 ">
+							<div class="box">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-primary btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+											<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#project-d2" style="margin-right: 5px;">
+										<i class="fa fa-search-plus"></i></button>
+									</div>
+								  
+									<!-- Modal -->
+									<div class="modal fade " id="project-d2" tabindex="-1" role="dialog" aria-labelledby="project-d2-label" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header bg-purple">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													<h4 class="modal-title" id="project-d2-label">Search</h4>
+												</div>
+												<div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Branch:</label>
+																<select id="depositBranchSelect2" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Account No:</label>
+																<input id="depositAccountNo2" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Product:</label>
+																<select id="depositProductSelect2" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Currency:</label>
+																<select id="depositCurrencySelect2" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Open Date:</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD12">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD22">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Maturity Date:</label>
+
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD32">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerD42">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Outstanding AMT:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="depositOutstandingAmountFrom2" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="depositOutstandingAmountTo2" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Status:</label>												
+																<select id="depositStatusSelect2" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn  bg-purple" onclick="searchDepositResult2()">Search</button>
+													<button type="button" class="btn  bg-purple" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Modal end -->
+								  
+									<h3 class="box-title">
+										Deposit Account Information
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="depositInformationTable2" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Branch</th>
+									  <th>Acct No</th>
+									  <th>Product</th>
+									  <th>CCY</th>
+									  <th>Start Date</th>
+									  <th>End Date</th>
+									  <th>Outstanding AMT</th>
+									  <th>Status</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Branch</th>
+									  <th>Acct No</th>
+									  <th>Product</th>
+									  <th>CCY</th>
+									  <th>Start Date</th>
+									  <th>End Date</th>
+									  <th>Outstanding AMT</th>
+									  <th>Status</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+				<div class="chart tab-pane" id="CreditFacility-chart" style="position: relative;">
+					<div class="col-lg-11" style="padding:0px">
+						<div class="box box-success" >
+							<div class="box-header with-border">
+								 <h5 class="box-title"></h5>
+								 <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+								 </div>
+								  <!-- /.box-tools -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">					 
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Name</h3>					  
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CN">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Code</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CC">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Level</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CL">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Risk Rating</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_RR">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Assets Balance</h3>				
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_AB">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Liabilities Balance</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LB">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Line Limit</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LL">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+							</div>
+								<!-- /.box-body -->
+						</div>
+						<!-- /.box -->												 
+
+						<section class="col-lg-12">
+							<div class="box box-success">
+								<div class="box-header">
+								  <div class="pull-right box-tools">
+									<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+									  <i class="fa fa-minus"></i></button>
+								  </div>
+								  <h3 class="box-title">
+									Credit Line Structure 
+								  </h3>
+								</div>
+								<div class="box-body">
+								  <!-- Tree Structure Chart -->
+								  <div id="creditLineTreeMap">
+									<div id="creditLineTreeShowDiv" style="position:absolute;display:none;border:2px solid silver;">
+										<small></small></br>
+										<small></small></br>
+										<small></small>
+									</div>
+								  </div>
+								</div>
+							</div>
+						</section>	
+					
+						<section class="col-lg-12">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+											<button type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#project-cl" style="margin-right: 5px;">
+										<i class="fa fa-search-plus"></i></button>
+									</div>
+									
+									<!-- Modal -->
+									<div class="modal fade " id="project-cl" tabindex="-1" role="dialog" aria-labelledby="project-cl-label" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header bg-purple">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													<h4 class="modal-title" id="project-cl-label">Search</h4>
+												</div>
+												<div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Credit Line No:</label>
+																<input id="creditLineNo" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Line Name:</label>
+																<input id="creditLineName" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Create Date:</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerCL1">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerCL2">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Expire Date:</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerCL3">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerCL4">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Currency:</label>
+																<select id="creditLineCurrencySelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>		
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Limit:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineLimitFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineLimitTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Utilized Amount:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineUtilizedAmountFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineUtilizedAmountTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Booking Amount:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineBookingAmountFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineBookingAmountTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>														
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Available Amount:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineAvailableAmountFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="creditLineAvailableAmountTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Revolving Ind:</label>												
+																<select id="creditLineRevolvingSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn  bg-purple" onclick="searchCreditLineResult()">Search</button>
+													<button type="button" class="btn  bg-purple" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Modal end -->									
+									
+									<h3 class="box-title">
+										Credit Lines
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="creditLinesTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Credit Line No</th>
+									  <th>Line Name</th>
+									  <th>Create Date</th>
+									  <th>Expire Date</th>
+									  <th>Currency</th>
+									  <th>Limit</th>
+									  <th>Utilized Amount</th>
+									  <th>Booking Amount</th>
+									  <th>Available Amount</th>
+									  <th>Revolving Industry</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Credit Line No</th>
+									  <th>Line Name</th>
+									  <th>Create Date</th>
+									  <th>ExpireDate</th>
+									  <th>Currency</th>
+									  <th>Limit</th>
+									  <th>Utilized Amount</th>
+									  <th>Booking Amount</th>
+									  <th>Available Amount</th>
+									  <th>Revolving Industry</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+						
+						<section class="col-lg-12">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+										<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+											<button type="button" class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#project-c" style="margin-right: 5px;">
+										<i class="fa fa-search-plus"></i></button>
+									</div>
+									
+									<!-- Modal -->
+									<div class="modal fade " id="project-c" tabindex="-1" role="dialog" aria-labelledby="project-c-label" aria-hidden="true">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header bg-purple">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+													<h4 class="modal-title" id="project-c-label">Search</h4>
+												</div>
+												<div class="modal-body">
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Collateral No:</label>
+																<input id="collateralNo" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Collateral Type:</label>
+																<select id="collateralTypeSelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Item Description:</label>
+																<input id="collateralItemDescription" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Val Currency:</label>
+																<select id="collateralCurrencySelect" class="form-control select2" multiple="multiple" data-placeholder="Select a State" style="width: 100%;">
+																</select>
+															 </div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Valuation:</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="collateralValuationFrom" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+																<label>To</label>
+																<div class="input-group">
+																	<span class="input-group-addon">$</span>
+																	<input id="collateralValuationTo" type="text" class="form-control">
+																	<span class="input-group-addon">.00</span>
+																</div>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<!-- Date -->
+															  <div class="form-group" style="position: relative; z-index: 9999;">
+																<label>Valuation Date:</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerC1">
+																</div>
+																<label>To</label>
+																<div class="input-group date">
+																  <div class="input-group-addon">
+																	<i class="fa fa-calendar"></i>
+																  </div>
+																  <input type="text" class="form-control pull-right" id="datepickerC2">
+																</div>
+																<!-- /.input group -->
+															  </div>
+															  <!-- /.form group -->
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label>Line No:</label>
+																<input id="collateralLineNo" type="text" class="form-control" data-inputmask="'alias': 'ip'" data-mask>
+															  </div>
+															  <!-- /.form group -->
+														</div>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn  bg-purple" onclick="searchCollateralsResult()">Search</button>
+													<button type="button" class="btn  bg-purple" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Modal end -->									
+									
+									<h3 class="box-title">
+										Collaterals
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="collateralsTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Ref</th>
+									  <th>Collateral No</th>
+									  <th>Collateral Type</th>
+									  <th>Item Description</th>
+									  <th>Valuation</th>
+									  <th>Valuation Date</th>
+									  <th>Customer Code</th>
+									  <th>Line No</th>
+									</tr>
+									</thead>
+									<tbody> 
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Ref</th>
+									  <th>Collateral No</th>
+									  <th>Collateral Type</th>
+									  <th>Item Description</th>
+									  <th>Valuation</th>
+									  <th>Valuation Date</th>
+									  <th>Customer Code</th>
+									  <th>Line No</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+					</div>
+					<div class="col-lg-1" style="padding:8px;position:fixed;right:-12px">
+						<ul class="nav nav-tabs" style="font:14px arial,sans-serif;background:#e9efef;">
+						<li class="nav-header" style="border-bottom:solid 2px #ddd;width:100%;text-align:center">
+						  <h4>Navigation</h4>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#">Top</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#creditLineTreeMap">Credit Line Structure</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#creditLinesTable">Credit Lines</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#collateralsTable">Collaterals</a>
+						</li>
+						</ul>
+					</div>
+				</div>
+				<div class="chart tab-pane" id="Pricing-chart" style="position: relative;">
+					<div class="col-lg-11" style="padding:0px">
+						<div class="box box-success">
+						<div class="box-header with-border">
+							 <h5 class="box-title"></h5>
+							 <div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+							 </div>
+							  <!-- /.box-tools -->
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">					 
+							<div class="col-md-3">
+							  <div class="box box-success box-solid">
+								<div class="box-header with-border">
+								  <h3 class="box-title">Customer Name</h3>					  
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body" name="b_CN">
+								  XXXXXXXXXXX
+								</div>
+								<!-- /.box-body -->
+							  </div>
+							  <!-- /.box -->
+							</div>
+							<!-- /.col -->						
+							<div class="col-md-3">
+							  <div class="box box-success box-solid">
+								<div class="box-header with-border">
+								  <h3 class="box-title">Customer Code</h3>
+								  <!-- /.box-tools -->
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body" name="b_CC">
+								  100000111111
+								</div>
+								<!-- /.box-body -->
+							  </div>
+							  <!-- /.box -->
+							</div>
+							<!-- /.col -->						
+							<div class="col-md-3">
+							  <div class="box box-success box-solid">
+								<div class="box-header with-border">
+								  <h3 class="box-title">Customer Level</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body" name="b_CL">
+								  VIP
+								</div>
+								<!-- /.box-body -->
+							  </div>
+							  <!-- /.box -->
+							</div>
+							<!-- /.col -->						
+							<div class="col-md-3">
+							  <div class="box box-success box-solid">
+								<div class="box-header with-border">
+								  <h3 class="box-title">Risk Rating</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body" name="b_RR">
+								  AA+
+								</div>
+								<!-- /.box-body -->
+							  </div>
+							  <!-- /.box -->
+							</div>
+							<!-- /.col -->						
+							<div class="col-md-4">
+							  <div class="box box-success box-solid">
+								<div class="box-header with-border">
+								  <h3 class="box-title">Assets Balance</h3>				
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body" name="b_AB">
+								  1,556,472,678.99
+								</div>
+								<!-- /.box-body -->
+							  </div>
+							  <!-- /.box -->
+							</div>
+							<!-- /.col -->						
+							<div class="col-md-4">
+							  <div class="box box-success box-solid">
+								<div class="box-header with-border">
+								  <h3 class="box-title">Liabilities Balance</h3>
+								  <!-- /.box-tools -->
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body" name="b_LB">
+								  15,625,428.35
+								</div>
+								<!-- /.box-body -->
+							  </div>
+							  <!-- /.box -->
+							</div>
+							<!-- /.col -->						
+							<div class="col-md-4">
+							  <div class="box box-success box-solid">
+								<div class="box-header with-border">
+								  <h3 class="box-title">Line Limit</h3>
+								</div>
+								<!-- /.box-header -->
+								<div class="box-body" name="b_LL">
+								  111,362,573,235.55
+								</div>
+								<!-- /.box-body -->
+							  </div>
+							  <!-- /.box -->
+							</div>
+							<!-- /.col -->						
+						</div>
+							<!-- /.box-body -->
+				    </div>
+				    <!-- /.box -->	
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+									</div>
+									<h3 class="box-title">
+										Preferential Interest Rate
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="preferentialInterestRateTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Product Code</th>
+									  <th>Product Desc</th>
+									  <th>IR Spread</th>
+									  <th>OD Int Spread</th>
+									  <th>OD Int Spread</th>
+									  <th>Effective Date</th>
+									  <th>Expiry Date</th>
+									  
+									  
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Product Code</th>
+									  <th>Product Desc</th>
+									  <th>IR Spread</th>
+									  <th>OD Int Spread</th>
+									  <th>OD Int Spread</th>
+									  <th>Effective Date</th>
+									  <th>Expiry Date</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>	
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+									</div>
+									<h3 class="box-title">
+										Preferential FX Rate
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="preferentialFXRateTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Product Code</th>
+									  <th>Product Desc</th>
+									  <th>CCY1</th>
+									  <th>CCY2</th>
+									  <th>Point</th>
+									  <th>Preminum Discount</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Product Code</th>
+									  <th>Product Desc</th>
+									  <th>CCY1</th>
+									  <th>CCY2</th>
+									  <th>Point</th>
+									  <th>Preminum Discount</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>	
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+									</div>
+									<h3 class="box-title">
+										Preferential Fees
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="preferentialFeesTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Fee Type</th>
+									  <th>Preminum Discount</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Fee Type</th>
+									  <th>Preminum Discount</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>	
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+									</div>
+									<h3 class="box-title">
+										Standing Instruction
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="standingInstructionTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Instruction</th>
+									  <th>Maker</th>
+									  <th>Sdate</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Instruction</th>
+									  <th>Maker</th>
+									  <th>Sdate</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+						<section class="col-lg-12 ">
+							<div class="box box-success">
+								<div class="box-header">
+									<div class="pull-right box-tools">
+									  <button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+										<i class="fa fa-minus"></i></button>
+									</div>
+									<h3 class="box-title">
+										Product Instruction
+									</h3>
+								</div>
+								<div class="box-body">
+								 <table id="productInstructionTable" class="table table-bordered table-striped">
+									<thead>
+									<tr>
+									  <th>Product Code</th>
+									  <th>Product Desc</th>
+									  <th>Instruction</th>
+									  <th>Maker</th>
+									  <th>Pdate</th>
+									</tr>
+									</thead>
+									<tbody>
+									</tbody>
+									<tfoot>
+									<tr>
+									  <th>Product Code</th>
+									  <th>Product Desc</th>
+									  <th>Instruction</th>
+									  <th>Maker</th>
+									  <th>Pdate</th>
+									</tr>
+									</tfoot>
+								  </table>
+								</div>
+							</div>
+						</section>
+					</div>
+					<div class="col-lg-1" style="padding:8px;position:fixed;right:-12px">
+						<ul class="nav nav-tabs" style="font:14px arial,sans-serif;background:#e9efef;">
+						<li class="nav-header" style="border-bottom:solid 2px #ddd;width:100%;text-align:center">
+						  <h4>Navigation</h4>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#">Top</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#preferentialInterestRateTable">Preferential Interest Rate</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#preferentialFXRateTable">Preferential FX Rate</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#preferentialFeesTable">Preferential Fees</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#standingInstructionTable">Standing Instruction</a>
+						</li>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#productInstructionTable">Product Instruction</a>
+						</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="chart tab-pane" id="CallMemo-chart" style="position: relative;">
+					<div class="col-lg-11" style="padding:0px">
+						<div class="box box-success">
+							<div class="box-header with-border">
+								 <h5 class="box-title"></h5>
+								 <div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+									</button>
+								 </div>
+								  <!-- /.box-tools -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body">					 
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Name</h3>					  
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CN">
+									
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Code</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CC">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Customer Level</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_CL">
+									 
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-3">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Risk Rating</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_RR">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Assets Balance</h3>				
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_AB">
+									 
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Liabilities Balance</h3>
+									  <!-- /.box-tools -->
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LB">
+									  
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+								<div class="col-md-4">
+								  <div class="box box-success box-solid">
+									<div class="box-header with-border">
+									  <h3 class="box-title">Line Limit</h3>
+									</div>
+									<!-- /.box-header -->
+									<div class="box-body" name="b_LL">
+									 
+									</div>
+									<!-- /.box-body -->
+								  </div>
+								  <!-- /.box -->
+								</div>
+								<!-- /.col -->						
+							</div>
+								<!-- /.box-body -->
+						</div>
+						<!-- /.box -->	
+						
+						<section class="col-lg-7 connectedSortable">
+							<div class="box box-success">
+								<div class="box-header">
+								  <div class="pull-right box-tools">
+									<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+									  <i class="fa fa-minus"></i></button>
+								  </div>
+								  <h3 class="box-title">
+									Call Memo 
+								  </h3>
+								</div>
+								<div class="box-body">
+									<ul class="timeline" id="callMemoList">
+										
+									</ul>
+								</div>
+							</div>
+						</section>	
+						
+						<section class="col-lg-5 connectedSortable">
+						  <div class="box box-success">
+							<div class="box-header">
+							  <i class="fa fa-calendar"></i>
+							  <h3 class="box-title">Calendar</h3>
+							  <!-- tools box -->
+							  <div class="pull-right box-tools">
+								<button type="button" class="btn btn-info btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
+								</button>
+							  </div>
+							  <!-- /. tools -->
+							</div>
+							<!-- /.box-header -->
+							<div class="box-body no-padding">
+								<div class="input-group" style="width:80%; margin-left:10%">
+								  <input id="dateMask" type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask>
+								  <span class="input-group-btn">
+									<button type="button" class="btn btn-info btn-flat" onclick="callMemoDateGo()">Go</button>
+								  </span>
+								</div>
+
+								<!--The calendar -->
+								<div id="calendar" style="width: 100%"></div>
+							  <br/>
+							</div>
+							<!-- /.box-body -->
+						  </div>
+						  <!-- /.box -->
+						</section>	
+					</div>
+					<div class="col-lg-1" style="padding:8px;position:fixed;right:-12px">
+						<ul class="nav nav-tabs" style="font:14px arial,sans-serif;background:#e9efef;">
+						<li class="nav-header" style="border-bottom:solid 2px #ddd;width:100%;text-align:center">
+						  <h4>Navigation</h4>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#">Top</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#callMemoList">Call Memo List</a>
+						</li>
+						<li style="border-bottom:solid 2px #ddd;width:100%">
+						<a href="#calendar">Calendar</a>
+						</li>
+						</ul>
+					</div>	
+				</div>
+            </div>
+		</div>
+		<!-- /.nav-tabs-custom -->
+	</div>
+	</section>
+	</div>
+	
+    <!-- /.content -->
+  
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-light">
+    
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../plugins/jQuery/jquery-3.2.0.js"></script>
+<!-- jQuery Number -->
+<script src="../number/jquery.number.min.js"></script>
+<!-- fullCalendar 2.2.5 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="../plugins/fullcalendar/fullcalendar.min.js"></script>
+
+<script type="text/javascript">
+//Portfolio------------------------------------------------------------------------------------------------------------
+	var custcod = "100100000060";
+	//var custcod = document.cookie;
+	var reg = new RegExp("/","g"); // 正则表达式，用于去除/符号
+	var pieIndex,barIndex;
+		
+	var option_pieArray = new Array();
+	var option_barArray = new Array();
+
+	function initPrimaryBox(){	
+		
+		$.ajax({
+             type: "GET",
+             url: "http://192.1.6.34:8080/CUSTOMER_INFO_DISPLAY/"+custcod,
+             data: {
+			 //custCode:cust_Code
+			 },
+             dataType: "json",
+             success: function(data){
+					$("div[name='b_CN']").html(data[0].customer_full_name);
+					$("div[name='b_CC']").html(data[0].customer_code);
+					$("div[name='b_CL']").html(data[0].relationship_level);
+					$("div[name='b_RR']").html(data[0].credit_rating);
+					$("div[name='b_AB']").html($.number(data[0].account_balance_lcy_sum,2));
+					$("div[name='b_LB']").html($.number(data[0].balance_lcy_sum,2));
+					$("div[name='b_LL']").html($.number(data[0].available_amount_lcy_sum,2));
+                      },
+			 error: function(request) {
+                    //alert("Connection error");
+                }
+         });
+	}
+	
+	// init charts
+	var pieChart = echarts.init(document.getElementById('depositBalance'));
+	var barChart = echarts.init(document.getElementById('loanBalance'));
+	
+	pieChart.showLoading();
+	barChart.showLoading();
+	
+	function initPortfolioPieChart(){
+		pieIndex = 1;
+		var option_pie_1 = {
+			title: {
+				show : false,
+				text : ''
+			},
+			tooltip: {
+				trigger: 'item',
+				formatter: "{a} <br/>{b}: {c} ({d}%)"
+			},
+			legend: {
+				orient: 'vertical',
+				x: 'left',
+				data : []
+			},
+			series: [{
+				name:'Balance',
+				type:'pie',
+				radius: ['50%', '70%'],
+				avoidLabelOverlap: false,
+				label: {
+					normal: {
+						show: false,
+						position: 'center'
+					},
+					emphasis: {
+						show: true,
+						textStyle: {
+							fontSize: '30',
+							fontWeight: 'bold'
+						}
+					}
+				},
+				labelLine: {
+					normal: {
+						show: false
+					}
+				},
+				data:[]
+			}]
+		}; 
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM/getCcy",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					var typeArray = new Array();
+					var pieChartDataArray = new Array();
+					for (var aData in result){
+						typeArray.push(result[aData].type);
+						pieChartDataArray.push({'value':result[aData].sum,'name':result[aData].type});
+					}										
+					option_pie_1.legend.data = typeArray; 
+					option_pie_1.series[0].data = pieChartDataArray;
+
+					pieChart.hideLoading();  
+					pieChart.setOption(option_pie_1);
+					
+					option_pieArray.push(option_pie_1);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get pie chart response failed!");  
+				pieChart.hideLoading(); 			
+			}  
+		});  
+	}
+
+	function initPortfolioBarChart() { 
+		barIndex = 1;		
+		var option_bar_1 = {
+			title: {
+				show : false,
+				text : ''
+			},
+			grid: [
+				{
+					bottom : '20%',
+					containLabel: true
+				}
+			],
+            tooltip: {},
+            legend: {
+                data:['Balance']
+            },
+			xAxis: {
+				boundaryGap : ['20%', '20%'],
+				axisLabel:{
+					interval:0,
+					rotate:30,
+					margin:5
+				},
+				data : []
+			},
+            yAxis: {
+				type : 'value',
+				scale : true
+			},
+            series: [{
+				name: 'Balance',
+				type: 'bar',
+				data : []
+			}]
+		};
+
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/Loan/getLoan_Ccy_SumByCustCode",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					var typeArray = new Array();
+					var balanceArray = new Array();
+					for (var aData in result){
+						typeArray.push(result[aData].type);
+						balanceArray.push(result[aData].sum);
+					}										
+					option_bar_1.xAxis.data = typeArray;  
+					option_bar_1.series[0].data = balanceArray;  
+ 
+					barChart.hideLoading();  
+					barChart.setOption(option_bar_1); 
+					
+					option_barArray.push(option_bar_1);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get bar chart response failed!");  
+				barChart.hideLoading();				
+			}  
+		});  
+	}  
+	
+	pieChart.on('click', function (params) {
+		//var value = params.value; //数值
+		var name = params.name; //类目
+		var index = pieIndex;
+		var title = option_pieArray[index-1].title.text;
+		var url,data;
+		var option_pie = {
+			title: {
+				show : false,
+				text : ''
+			},
+			tooltip: {
+				trigger: 'item',
+				formatter: "{a} <br/>{b}: {c} ({d}%)"
+			},
+			legend: {
+				orient: 'vertical',
+				x: 'left',
+				data : []
+			},
+			series: [{
+				name: 'Balance',
+				type:'pie',
+				radius: ['50%', '70%'],
+				avoidLabelOverlap: false,
+				label: {
+					normal: {
+						show: false,
+						position: 'center'
+					},
+					emphasis: {
+						show: true,
+						textStyle: {
+							fontSize: '30',
+							fontWeight: 'bold'
+						}
+					}
+				},
+				labelLine: {
+					normal: {
+						show: false
+					}
+				},
+				data:[]
+			}]
+		}; 
+	
+		pieChart.showLoading();
+		
+		if (index == 2){
+			pieChart.hideLoading();
+			return;
+		} 
+		
+		if (index == 1){
+			url = "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM/getAccountType";
+			data = {customer_code:custcod,currency:name};
+			option_pie.toolbox = {  
+				show : true,  
+				feature : {  
+					myBackBtn1: {
+						show: true,
+						title: 'back',
+						icon: 'image://../image/back.png',
+						onclick: function (){
+						    pieIndex--;
+							pieChart.setOption(option_pieArray[0],true);
+							$('#pieChartLocation').html('');
+						}
+					}
+				}  
+			}
+		}
+		
+		$.ajax({  
+			type : "GET",  
+			url : url,  
+			data : data,
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					pieIndex++;
+					var typeArray = new Array();
+					var pieDataArray = new Array();
+					for (var aData in result){
+						typeArray.push(result[aData].type);
+						pieDataArray.push({'value':result[aData].sum,'name':result[aData].type});
+					}
+					option_pieArray[index] = option_pie;
+					
+					option_pieArray[index].title.text = title+' > '+name;
+					option_pieArray[index].legend.data = typeArray; 
+					option_pieArray[index].series[0].data = pieDataArray;
+					
+					pieChart.hideLoading();  
+					pieChart.setOption(option_pieArray[index],true); 
+					$('#pieChartLocation').html(option_pieArray[index].title.text);	
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get pie chart response failed!");  
+				pieChart.hideLoading(); 			
+			}  
+		});  
+
+	});
+	
+	barChart.on('click', function (params) {
+		//var value = params.value; //数值
+		var name = params.name; //类目
+		var index = barIndex;
+		var title = option_barArray[index-1].title.text;
+		var url,data,result;
+		var option_bar = {
+			title: {
+				show : false,
+				text : ''
+            },
+			grid: [
+				{
+					bottom : '20%',
+					containLabel: true
+				}
+			],
+            tooltip: {},
+            legend: {
+                data:['Balance']
+            },
+			xAxis: {
+				boundaryGap : ['20%', '20%'],
+				axisLabel:{
+					interval:0,
+					rotate:30,
+					margin:5
+				},
+				data : []
+			},
+            yAxis: {
+				type : 'value',
+				scale : true
+			},
+            series: [{
+				name: 'Balance',
+				type: 'bar',
+				data : []
+			}]
+		};
+		
+		barChart.showLoading();
+		
+		if (index == 2){
+			barChart.hideLoading();
+			return;
+		} 
+		
+		if (index == 1){
+			url = "http://192.1.6.34:8080/Loan/getLoan_Type_SumByCustCode_CCY";
+			data = {customer_code:custcod,currency:name};
+			option_bar.toolbox = {  
+				show : true,  
+				feature : {  
+					myBackBtn1: {
+						show: true,
+						title: 'back',
+						icon: 'image://../image/back.png',
+						onclick: function (){
+						    barIndex--;
+							barChart.setOption(option_barArray[0],true);
+							$('#barChartLocation').html('');
+						}
+					}
+				}  
+			}
+		}
+		
+		$.ajax({  
+			type : "GET",  
+			url : url,  
+			data : data,
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+				    barIndex++;
+					var typeArray = new Array();
+					var balanceArray = new Array();
+					for (var aData in result){
+						typeArray.push(result[aData].type);
+						balanceArray.push(result[aData].sum);
+					}				
+					option_barArray[index] = option_bar;
+	
+					option_barArray[index].title.text = title+' > '+name;
+					option_barArray[index].xAxis.data = typeArray;  
+					option_barArray[index].series[0].data = balanceArray;  
+
+					barChart.hideLoading();
+					barChart.setOption(option_barArray[index],true); 
+					$('#barChartLocation').html(option_barArray[index].title.text);						
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get bar chart response failed!");  
+				barChart.hideLoading(); 			
+			}  
+		});  
+	});
+
+	initPrimaryBox();
+	initPortfolioPieChart();
+	initPortfolioBarChart();
+//Portfolio------------------------------------------------------------------------------------------------------------
+
+//Customer Profile-----------------------------------------------------------------------------------------------------
+	function initCustomerProfileTab(){
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CustomerInfoMain/getPersonalFlagByCustCode", 
+			data : {customer_code:custcod},
+			//dataType : "json",
+			success : function(result) { 			
+				if (result == 'N'){
+					initBasicInformationDisplay();
+					initRiskRatingDisplay();
+					initCompanyInformationDisplay();
+					initCompanyRegistrationDisplay();
+					initCustomerGroupTreeMap();
+				}
+				else{
+					$('#companyInformation').hide();
+					$('#companyRegistration').hide();
+					$('#customerGroup').hide();
+					initBasicInformationDisplay();
+					initRiskRatingDisplay();				
+				}
+			},  
+			error : function(errorMsg) {  
+				alert("get personal flag response failed!");  		
+			}  
+		}); 
+	}
+	
+	function initBasicInformationDisplay(){
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CustomerInfoMain/getCustomerInfoMainByCustCode",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					$("#basicInformationDisplay tr td").eq(0).html(result.branch);
+					$("#basicInformationDisplay tr td").eq(1).html(result.customer_code);
+					$("#basicInformationDisplay tr td").eq(2).html(result.customer_full_name);
+					$("#basicInformationDisplay tr td").eq(3).html(result.customer_short_name);
+					$("#basicInformationDisplay tr td").eq(4).html(result.identity_no);
+					$("#basicInformationDisplay tr td").eq(5).html(result.customer_status);
+					$("#basicInformationDisplay tr td").eq(6).html(result.close_date);
+					$("#basicInformationDisplay tr td").eq(7).html(result.open_date);
+					$("#basicInformationDisplay tr td").eq(8).html(result.country_codel);
+					$("#basicInformationDisplay tr td").eq(9).html(result.credit_rating);
+					$("#basicInformationDisplay tr td").eq(10).html(result.customer_type);
+					$("#basicInformationDisplay tr td").eq(11).html(result.email_address);
+					$("#basicInformationDisplay tr td").eq(12).html(result.fax_no);
+					$("#basicInformationDisplay tr td").eq(13).html(result.parent_customer_code);
+					$("#basicInformationDisplay tr td").eq(14).html(result.relationship_level);
+					$("#basicInformationDisplay tr td").eq(15).html(result.start_date);
+					$("#basicInformationDisplay tr td").eq(16).html(result.tel_no);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get basic information response failed!");  		
+			}  
+		}); 
+	}
+	
+	function initRiskRatingDisplay(){
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/ExternalRating/getExternalRatingByCustCode",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					$("#riskRatingDisplay tr td").eq(0).html(result.fcy_Rating);
+					$("#riskRatingDisplay tr td").eq(1).html(result.lcy_Rating);
+					$("#riskRatingDisplay tr td").eq(2).html(result.rating_Date);
+					$("#riskRatingDisplay tr td").eq(3).html(result.rating_Agency);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get risk rating response failed!");  		
+			}  
+		}); 
+	}
+	
+	function initCompanyInformationDisplay(){
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CompanyProfileExtent/getCompanyInformationByCustCode",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					$("#companyInformationDisplay tr td").eq(0).html(result.industry_Code_Head_Office);
+					$("#companyInformationDisplay tr td").eq(1).html(result.industry_Code_Regulatory);
+					$("#companyInformationDisplay tr td").eq(2).html(result.sales_Vol);
+					$("#companyInformationDisplay tr td").eq(3).html(result.market_Share);
+					$("#companyInformationDisplay tr td").eq(4).html(result.product_Array);
+					$("#companyInformationDisplay tr td").eq(5).html(result.reputation);
+					$("#companyInformationDisplay tr td").eq(6).html(result.network);
+					$("#companyInformationDisplay tr td").eq(7).html(result.threats_Challenges);
+					$("#companyInformationDisplay tr td").eq(8).html(result.success_Factors);
+					$("#companyInformationDisplay tr td").eq(9).html(result.potential_Gap);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get company information response failed!");  		
+			}  
+		}); 
+	}
+	
+	function initCompanyRegistrationDisplay(){
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CompanyProfileExtent/getCompanyRegistrationByCustCode",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					$("#companyRegistrationDisplay tr td").eq(0).html(result.parent_Subsidiary_Type);
+					$("#companyRegistrationDisplay tr td").eq(1).html(result.registration_Type);
+					$("#companyRegistrationDisplay tr td").eq(2).html(result.registration_No);
+					$("#companyRegistrationDisplay tr td").eq(3).html(result.registration_Date);
+					$("#companyRegistrationDisplay tr td").eq(4).html(result.business_License_Exp_Date);
+					$("#companyRegistrationDisplay tr td").eq(5).html(result.org_Code);
+					$("#companyRegistrationDisplay tr td").eq(6).html(result.legal_Rep);
+					$("#companyRegistrationDisplay tr td").eq(7).html(result.business_Area);
+					$("#companyRegistrationDisplay tr td").eq(8).html(result.tax_No_National);
+					$("#companyRegistrationDisplay tr td").eq(9).html(result.tax_No_Local);
+					$("#companyRegistrationDisplay tr td").eq(10).html(result.registered_Capital);
+					$("#companyRegistrationDisplay tr td").eq(11).html(result.listed_Company_Status);
+					$("#companyRegistrationDisplay tr td").eq(12).html(result.stock_Exchange);
+					$("#companyRegistrationDisplay tr td").eq(13).html(result.stock_Ticker);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get company registration response failed!");  		
+			}  
+		}); 
+	}
+	
+	var customerGroupTreeDepth = 0 ; 
+		
+	function getDepthOfTree(node,deep) {
+		if (node.children != null) {
+			for (var i = 0; i < node.children.length; i++) {
+				getDepthOfTree(node.children[i],deep+1);
+			}
+		}
+		else{
+			customerGroupTreeDepth = (customerGroupTreeDepth > deep ? customerGroupTreeDepth : deep);
+			return;
+		}
+	}
+	
+	function initCustomerGroupTreeMap(){
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CustomerGroup/getCustomerGroupByCustCode",
+			data : {customer_code:custcod},			
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					var treeData = transData(result,'custcod','prtynop','children')[0];
+					getDepthOfTree(treeData,customerGroupTreeDepth);
+					var height = (customerGroupTreeDepth+1)*120;
+					BuildVerticaLTree(treeData, "#customerGroupTreeMap", 960, height);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get customer group response failed!");  		
+			}  
+		}); 
+	}
+	
+	initCustomerProfileTab();
+//Customer Profile-----------------------------------------------------------------------------------------------------
+
+//Credit Facility------------------------------------------------------------------------------------------------------
+	var creditLineTreeDepth = 0 ; 
+
+	function getDepthOfTree2(node,deep) {
+		if (node.children != null) {
+			for (var i = 0; i < node.children.length; i++) {
+				getDepthOfTree2(node.children[i],deep+1);
+			}
+		}
+		else{
+			creditLineTreeDepth = (creditLineTreeDepth > deep ? creditLineTreeDepth : deep);
+			return;
+		}
+	}
+	
+	function initCreditLineTreeMap(){
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CustomerCreditLine/getCustomerCreditLineByCustCode",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  
+				if (result) {  
+					var treeData = transData(result,'code1','parentid','children')[0];
+					getDepthOfTree2(treeData,creditLineTreeDepth);
+					var height = (creditLineTreeDepth+1)*120;
+					BuildVerticaLTree2(treeData, "#creditLineTreeMap", 960, height ,"#creditLineTreeShowDiv");
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get credit line structure response failed!");  		
+			}  
+		}); 
+	}
+	
+	initCreditLineTreeMap();
+
+//Credit Facility------------------------------------------------------------------------------------------------------
+
+//Call Memo------------------------------------------------------------------------------------------------------------
+	var dateArray = new Array();
+	var eventDateArray = new Array();
+	var callMemoResult = [];
+	function initCallMemoList(){
+		$.ajax({  
+			type : "GET",  
+			async: false, //同步
+			url : "http://192.1.6.34:8080/CallMemo/getCallMemoByCustCode",  
+			data : {customer_code:custcod},
+			dataType : "json",
+			success : function(result) {  				
+				var strCallMemoList = "";
+				var date,content;
+				if (result) {  
+					callMemoResult = result;
+					for (var aData in result){
+						date = result[aData].calldte;
+						//eventDate = date.toString().trim().replace(reg,'-');
+						content = result[aData].memo_entityList;
+						dateArray.push(date);
+						eventDateArray.push({'title':'√ memo','start':date,'backgroundColor':'#00c0ef','borderColor':'#00c0ef'});
+						strCallMemoList += "<li class='time-label'><span class='bg-blue'>"+date+"</span></li>";
+						for (var aData2 in content){
+							strCallMemoList += "<li><i class='fa fa-user bg-aqua'></i><div class='timeline-item'><h2 class='timeline-header'>Called by :"+content[aData2].callcus+"</h2><div class='timeline-body'><h5>Purpose : "+content[aData2].purpose+"</h5><h5>Summary :"+content[aData2].summay1+"</h5><h5>Action Plan :"+content[aData2].action1+"</h5></div></div></li>";
+						}							
+					}
+					strCallMemoList += "<li><i class='fa fa-clock-o bg-gray'></i></li>";
+					$("#callMemoList").html(strCallMemoList);
+				}  
+			},  
+			error : function(errorMsg) {  
+				//alert("get call memo response failed!");  		
+			}  
+		}); 
+	}
+	
+	initCallMemoList();
+	
+	$('#calendar').fullCalendar({
+		selectable: true,
+        header: {
+			left: 'prevYear,prev',
+			center: 'title',
+			right: 'next,nextYear'
+        },
+		next: function(){ 
+			alert(1);    
+		},  
+		contentHeight: 380,
+		events: eventDateArray,
+	    dayClick: function(date, allDay, jsEvent, view) {
+			jQuery(this).toggleClass("memoSelect");
+			
+			var date_array = date.toString().split(' ');
+			var strCallMemoList = "";
+			var clickDate,dateIndex,content;
+			var month = date_array[1];
+			switch(month)
+			{
+				case "Jan":
+					clickDate = date_array[3]+"-01-"+date_array[2];
+					break;
+				case "Feb":
+					clickDate = date_array[3]+"-02-"+date_array[2];
+					break;
+				case "Mar":
+					clickDate = date_array[3]+"-03-"+date_array[2];
+					break;
+				case "Apr":
+					clickDate = date_array[3]+"-04-"+date_array[2];
+					break;
+				case "May":
+					clickDate = date_array[3]+"-05-"+date_array[2];
+					break;		
+				case "Jun":
+					clickDate = date_array[3]+"-06-"+date_array[2];
+					break;
+				case "Jul":
+					clickDate = date_array[3]+"-07-"+date_array[2];
+					break;	
+				case "Aug":
+					clickDate = date_array[3]+"-08-"+date_array[2];
+					break;	
+				case "Sep":
+					clickDate = date_array[3]+"-09-"+date_array[2];
+					break;	
+				case "Oct":
+					clickDate = date_array[3]+"-10-"+date_array[2];
+					break;	
+				case "Nov":
+					clickDate = date_array[3]+"-11-"+date_array[2];
+					break;	
+				case "Dec":
+					clickDate = date_array[3]+"-12-"+date_array[2];
+					break;	
+				default:
+					break;
+			}
+			dateIndex = dateArray.indexOf(clickDate);
+			if (dateIndex >= 0){
+				if (this.hasClass("memoSelect")){
+					content = callMemoResult[dateIndex].memo_entityList;
+					strCallMemoList += "<li class='time-label'><span class='bg-blue'>"+callMemoResult[dateIndex].calldte+"</span></li>";
+					for (var aData in content){
+						strCallMemoList += "<li><i class='fa fa-user bg-aqua'></i><div class='timeline-item'><h2 class='timeline-header'>Called by :"+content[aData].callcus+"</h2><div class='timeline-body'><h5>Purpose : "+content[aData].purpose+"</h5><h5>Summary :"+content[aData].summay1+"</h5><h5>Action Plan :"+content[aData].action1+"</h5></div></div></li>";
+					}
+				}
+				else{
+					for (var aData in callMemoResult){
+						content = callMemoResult[aData].memo_entityList;
+						strCallMemoList += "<li class='time-label'><span class='bg-blue'>"+callMemoResult[aData].calldte+"</span></li>";
+						for (var aData2 in content){
+							strCallMemoList += "<li><i class='fa fa-user bg-aqua'></i><div class='timeline-item'><h2 class='timeline-header'>Called by :"+content[aData2].callcus+"</h2><div class='timeline-body'><h5>Purpose : "+content[aData2].purpose+"</h5><h5>Summary :"+content[aData2].summay1+"</h5><h5>Action Plan :"+content[aData2].action1+"</h5></div></div></li>";
+						}							
+					}
+				}
+				strCallMemoList += "<li><i class='fa fa-clock-o bg-gray'></i></li>";
+				$("#callMemoList").html(strCallMemoList);
+			}
+			else{
+				jQuery(this).toggleClass("memoSelect");
+			}
+	    }
+    });
+
+//Call Memo------------------------------------------------------------------------------------------------------------
+
+</script>
+
+
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/select2.full.min.js"></script>
+<!-- InputMask -->
+<script src="../plugins/input-mask/jquery.inputmask.js"></script>
+<script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+<script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<!-- datepicker -->
+<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- Slimscroll -->
+<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="../plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../dist/js/demo.js"></script>
+<script src="enquiryModal.js"></script>
+
+<script>
+//Portfolio------------------------------------------------------------------------------------------------------------
+	var searchDepositParameters = "{}";
+	var searchLoanParameters = "{}";
+	var depositDataTable,loanDataTable,order_column_index;
+	function initDepositTable(){	
+		depositDataTable = $("#depositInformationTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDeposit",
+				"data": function ( d ) {
+					if (depositDataTable!=null){
+						order_column_index = depositDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "Branch";
+						    break;
+						case 1:
+						    d.orderCol = "DP_ACCOUNT_NO";
+						    break;
+						case 2:
+						    d.orderCol = "ACCOUNT_TYPE";
+						    break;
+						case 3:
+						    d.orderCol = "CURRENCY";
+						    break;
+						case 4:
+						    d.orderCol = "OPEN_DATE";
+						    break;
+						case 5:
+						    d.orderCol = "MATURITY_DATE";
+						    break;
+						case 6:
+						    d.orderCol = "ACCOUNT_BALANCE";
+						    break;
+						case 7:
+						    d.orderCol = "ACCOUNT_STATUS";
+						    break;							
+						default:
+							break;
+						}
+						d.orderDir = depositDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "Branch";
+						d.orderDir = "asc";
+					}
+					d.search = searchDepositParameters;
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	function initLoanTable(){
+		loanDataTable = $("#loanInformationTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/Loan/getLoanInfo",
+				"data": function ( d ) {
+					if (loanDataTable!=null){
+						order_column_index = loanDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "Branch";
+						    break;
+						case 1:
+						    d.orderCol = "LN_Account_No";
+						    break;
+						case 2:
+						    d.orderCol = "Loan_Type";
+						    break;
+						case 3:
+						    d.orderCol = "Line_No";
+						    break;
+						case 4:
+						    d.orderCol = "Principal_Currency";
+						    break;
+						case 5:
+						    d.orderCol = "Principal_Amount";
+						    break;
+						case 6:
+						    d.orderCol = "Value_Date";
+						    break;
+						case 7:
+						    d.orderCol = "Maturity_Date";
+						    break;	
+						case 8:
+						    d.orderCol = "Balance_Currency";
+						    break;
+						case 9:
+						    d.orderCol = "Balance";
+						    break;
+						case 10:
+						    d.orderCol = "Account_Status";
+						    break;							
+						default:
+							break;
+						}					
+						d.orderDir = loanDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "Branch";
+						d.orderDir = "asc";
+					}
+					d.search = searchLoanParameters;
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	function initDepositSearchTable(){		
+		var strBranchOptions ="";
+		var strProductOptions = "";
+		var strCurrencyOptions = "";
+		var strStatusOptions = "";
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Branch/"+custcod,  
+			data : {},  
+			dataType : "json", 
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strBranchOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositBranchSelect").html(strBranchOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit branch select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_type/"+custcod,  
+			data : {},  
+			dataType : "json",   
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strProductOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositProductSelect").html(strProductOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit product select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Currency/"+custcod,  
+			data : {},  
+			dataType : "json",
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strCurrencyOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositCurrencySelect").html(strCurrencyOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit currency select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_status/"+custcod,  
+			data : {},  
+			dataType : "json",  
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strStatusOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositStatusSelect").html(strStatusOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit status select data response failed!");  			
+			}  
+		});
+	}
+	
+	function initLoanSearchTable(){
+		var strBranchOptions ="";
+		var strPrincipalCurrencyOptions = "";
+		var strBalanceCurrencyOptions = "";
+		var strLoanTypeOptions = "";
+		var strStatusOptions = "";
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/Loan/getLoan_BranchByCustCode/"+custcod,  
+			data : {},  
+			dataType : "json", 
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strBranchOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#loanBranchSelect").html(strBranchOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get loan branch select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/Loan/getLoan_PrinCCYByCustCode/"+custcod,  
+			data : {},  
+			dataType : "json",   
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strPrincipalCurrencyOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#loanPrincipalCurrencySelect").html(strPrincipalCurrencyOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get loan principal currency select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/Loan/getLoan_BalCCYByCustCode/"+custcod,  
+			data : {},  
+			dataType : "json",
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strBalanceCurrencyOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#loanBalanceCurrencySelect").html(strBalanceCurrencyOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get loan balance currency select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/Loan/getLoan_TypeByCustCode/"+custcod,  
+			data : {},  
+			dataType : "json",  
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strLoanTypeOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#loanTypeSelect").html(strLoanTypeOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get loan type select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/Loan/getLoan_AccStatusByCustCode/"+custcod,  
+			data : {},  
+			dataType : "json",  
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strStatusOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#loanStatusSelect").html(strStatusOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get loan status select data response failed!");  			
+			}  
+		});
+	}
+
+	//initDepositTable();	
+	//initLoanTable();
+	//initDepositSearchTable();
+	//initLoanSearchTable();
+	
+	$(function () {
+		$("#enquiryTable").DataTable({
+		  "paging": true,
+		  "lengthChange": false,
+		  "searching": false,
+		  "ordering": true,
+		  "info": false,
+		  "autoWidth": false,
+		});		
+		
+		//Initialize Select2 Elements
+		$(".select2").select2();
+		
+		//Date picker
+		$('#datepickerD1').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerD2').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerD3').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerD4').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerL1').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerL2').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerL3').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerL4').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerCL1').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerCL2').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerCL3').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerCL4').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerC1').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$('#datepickerC2').datepicker({
+		  autoclose: true,
+		  format : 'yyyy/mm/dd'
+		});
+		$("#datemask").inputmask("yyyy/mm/dd", {"placeholder": "yyyy/mm/dd"});
+		$("[data-mask]").inputmask();
+	  });
+//Portfolio------------------------------------------------------------------------------------------------------------
+
+//Customer Profile-----------------------------------------------------------------------------------------------------
+	var relatedPartiesDataTable,backgroundCheckDataTable;
+	function initRelatedPartiesTable(){	
+		relatedPartiesDataTable = $("#relatedPartiesTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/RelatedParty/getRelatedParty",
+				"data": function ( d ) {
+					if (relatedPartiesDataTable!=null){
+						order_column_index = relatedPartiesDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "customer_code";
+						    break;
+						case 1:
+						    d.orderCol = "related_party";
+						    break;
+						case 2:
+						    d.orderCol = "related_party_name";
+						    break;
+						case 3:
+						    d.orderCol = "relationship";
+						    break;
+						case 4:
+						    d.orderCol = "Shareholding";
+						    break;					
+						default:
+							break;
+						}
+						d.orderDir = relatedPartiesDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "customer_code";
+						d.orderDir = "asc";
+					}
+					d.search = "{}";
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	function initBackgroundCheckTable(){	
+		backgroundCheckDataTable = $("#backgroundCheckTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/BackgroundCheck/getBackgroundCheck",
+				"data": function ( d ) {
+					if (backgroundCheckDataTable!=null){
+						order_column_index = backgroundCheckDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "CHECK_DATE";
+						    break;
+						case 1:
+						    d.orderCol = "CHECK_ITEM";
+						    break;
+						case 2:
+						    d.orderCol = "CHECK_RESULT";
+						    break;	
+						default:
+							break;
+						}
+						d.orderDir = backgroundCheckDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "CHECK_DATE";
+						d.orderDir = "asc";
+					}
+					d.search = "{}";
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	//initRelatedPartiesTable();
+	//initBackgroundCheckTable();
+
+//Customer Profile-----------------------------------------------------------------------------------------------------
+
+//Product--------------------------------------------------------------------------------------------------------------
+	var searchDepositParameters2="{}";
+	var depositDataTable2;
+	function initDepositTable2(){	
+		depositDataTable2 = $("#depositInformationTable2").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDeposit",
+				"data": function ( d ) {
+					if (depositDataTable2!=null){
+						order_column_index = depositDataTable2.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "Branch";
+						    break;
+						case 1:
+						    d.orderCol = "DP_ACCOUNT_NO";
+						    break;
+						case 2:
+						    d.orderCol = "ACCOUNT_TYPE";
+						    break;
+						case 3:
+						    d.orderCol = "CURRENCY";
+						    break;
+						case 4:
+						    d.orderCol = "OPEN_DATE";
+						    break;
+						case 5:
+						    d.orderCol = "MATURITY_DATE";
+						    break;
+						case 6:
+						    d.orderCol = "ACCOUNT_BALANCE";
+						    break;
+						case 7:
+						    d.orderCol = "ACCOUNT_STATUS";
+						    break;							
+						default:
+							break;
+						}
+						d.orderDir = depositDataTable2.order()[0][1];
+					}
+					else{
+						d.orderCol = "Branch";
+						d.orderDir = "asc";
+					}
+					d.search = searchDepositParameters2;
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	function initDepositSearchTable2(){		
+		var strBranchOptions ="";
+		var strProductOptions = "";
+		var strCurrencyOptions = "";
+		var strStatusOptions = "";
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Branch/"+custcod,  
+			data : {},  
+			dataType : "json", 
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strBranchOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositBranchSelect2").html(strBranchOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit branch select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_type/"+custcod,  
+			data : {},  
+			dataType : "json",   
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strProductOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositProductSelect2").html(strProductOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit product select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Currency/"+custcod,  
+			data : {},  
+			dataType : "json",
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strCurrencyOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositCurrencySelect2").html(strCurrencyOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit currency select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_status/"+custcod,  
+			data : {},  
+			dataType : "json",  
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strStatusOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#depositStatusSelect2").html(strStatusOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get deposit status select data response failed!");  			
+			}  
+		});
+	}
+
+	//initDepositTable2();
+	//initDepositSearchTable2();
+//Product--------------------------------------------------------------------------------------------------------------
+
+//Credit Facility------------------------------------------------------------------------------------------------------
+	var searchCreditLineParameters = "{}";
+	var searchCollateralsParameters = "{}";
+	var creditLineDataTable,collateralsDataTable;
+	var ifNeedClear = false;
+	function initCreditLineTable(){
+		creditLineDataTable = $("#creditLinesTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/CreditLineMain/getCreditLineMain",
+				"data": function ( d ) {
+					if (creditLineDataTable!=null){
+						order_column_index = creditLineDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "Credit_Line_No";
+						    break;
+						case 1:
+						    d.orderCol = "Line_name";
+						    break;
+						case 2:
+						    d.orderCol = "Create_Date";
+						    break;
+						case 3:
+						    d.orderCol = "Expire_Date";
+						    break;
+						case 4:
+						    d.orderCol = "Currency";
+						    break;
+						case 5:
+						    d.orderCol = "Limit";
+						    break;
+						case 6:
+						    d.orderCol = "Utilized_Amount";
+						    break;
+						case 7:
+						    d.orderCol = "Booking_Amount";
+						    break;		
+						case 8:
+						    d.orderCol = "Available_Amount";
+						    break;
+						case 9:
+						    d.orderCol = "Revolving_Ind";
+						    break;								
+						default:
+							break;
+						}					
+						d.orderDir = creditLineDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "Credit_Line_No";
+						d.orderDir = "asc";
+					}
+					d.search = searchCreditLineParameters;
+					d.customer_code = custcod;
+				}
+			}
+		});
+		$('#creditLinesTable thead tr').eq(0).append("<th>Utilized Ratio</th>");
+		$('#creditLinesTable tfoot tr').eq(0).append("<th>Utilized Ratio</th>");
+	}
+	
+	function initCreditLineSearchTable(){		
+		var strCurrencyOptions = "";
+		var strRevolvingOptions = "";
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CreditLineMain/getCurrencyByCustCode",  
+			data : {customer_code:custcod},   
+			dataType : "json",
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strCurrencyOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#creditLineCurrencySelect").html(strCurrencyOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get credit line currency select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/CreditLineMain/getRevolvingIndByCustCode",  
+			data : {customer_code:custcod},  
+			dataType : "json",  
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strRevolvingOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#creditLineRevolvingSelect").html(strRevolvingOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get revolving ind select data response failed!");  			
+			}  
+		});
+	}
+	
+	$('#creditLinesTable').on( 'draw.dt', function () {
+		var limit,utilized_amount,booking_amount,ratio,trDom,strHtml,linkCondition;
+		var trCount = $('#creditLinesTable tbody tr').length;
+		for (var i = 0;i < trCount;i++){
+			trDom = $('#creditLinesTable tbody tr').eq(i);
+			limit = trDom.find('td').eq(5).html();
+			//utilized_amount = trDom.find('td').eq(6).html();
+			//booking_amount = trDom.find('td').eq(7).html();
+			available_amount = trDom.find('td').eq(8).html();
+			ratio = parseInt(((limit - available_amount)/limit)*100);
+			if (ratio >= 40){
+				strHtml = "<td><div class='progress progress-striped active'><div class='progress-bar' style='width:"+ratio+"%'>"+ratio+"%</div></div></td>";
+			}
+			else{
+				strHtml = "<td><div class='progress progress-striped active'><div class='progress-bar' style='width:"+ratio+"%'></div><small>&nbsp;&nbsp;"+ratio+"%</small></div></td>";
+			}
+			trDom.append(strHtml);
+		}
+
+		if (ifNeedClear){
+			searchCollateralsParameters = "{\"collateral_no\":\"\",\"item_description\":\"\",\"valuation_date\":\"\",\"valuation_date_max\":\"\",\"valuation\":\"\",\"valuation_max\":\"\",\"collateral_type_array\":[],\"val_currency_array\":[],\"line_no\":\"\",\"auto\":\"false\"}";
+			collateralsDataTable.ajax.reload();	
+		}
+		
+		$("#creditLinesTable tbody tr").on( 'click', function () {
+			linkCondition = this.childNodes[0].innerHTML;
+			var flag = jQuery(this).hasClass("link_condition");
+			ifNeedClear = false;
+			
+			var len = $('#creditLinesTable tbody tr').length;
+			for (var i = 0;i < len;i++){
+				$('#creditLinesTable tbody tr').eq(i).removeClass("link_condition");
+				$('#creditLinesTable tbody tr').eq(i).removeAttr("style");
+			}
+			if (!flag){
+				jQuery(this).addClass("link_condition");
+				jQuery(this).css("background-color","yellow");
+				ifNeedClear = true;
+			}
+			
+			//jQuery(this).toggleClass("link_condition");
+			if (this.className.indexOf("link_condition") < 0){
+				searchCollateralsParameters = "{\"collateral_no\":\"\",\"item_description\":\"\",\"valuation_date\":\"\",\"valuation_date_max\":\"\",\"valuation\":\"\",\"valuation_max\":\"\",\"collateral_type_array\":[],\"val_currency_array\":[],\"line_no\":\"\",\"auto\":\"false\"}";
+			}
+			else{
+				searchCollateralsParameters = "{\"collateral_no\":\"\",\"item_description\":\"\",\"valuation_date\":\"\",\"valuation_date_max\":\"\",\"valuation\":\"\",\"valuation_max\":\"\",\"collateral_type_array\":[],\"val_currency_array\":[],\"line_no\":\""+linkCondition+"\",\"auto\":\"false\"}";
+			}
+			collateralsDataTable.ajax.reload();	
+		});
+	});
+	
+	function initCollateralsTable(){
+		collateralsDataTable = $("#collateralsTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/CollateralMain/getCollateralMain",
+				"data": function ( d ) {
+					if (collateralsDataTable!=null){
+						order_column_index = collateralsDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "Ref";
+						    break;
+						case 1:
+						    d.orderCol = "Collateral_No";
+						    break;
+						case 2:
+						    d.orderCol = "Collateral_Type";
+						    break;
+						case 3:
+						    d.orderCol = "Item_Description";
+						    break;
+						case 4:
+						    d.orderCol = "Val_Currency";
+						    break;
+						case 5:
+						    d.orderCol = "Valuation";
+						    break;
+						case 6:
+						    d.orderCol = "Valuation_Date";
+						    break;
+						case 7:
+						    d.orderCol = "Line_no";
+						    break;						
+						default:
+							break;
+						}					
+						d.orderDir = collateralsDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "Ref";
+						d.orderDir = "asc";
+					}
+					d.search = searchCollateralsParameters;
+					d.customer_code = custcod;
+				}
+			}
+		});	
+	}
+	
+	function initCollateralsSearchTable(){		
+		var strCurrencyOptions = "";
+		var strTypeOptions = "";
+		$.ajax({  
+			type : "GET",  
+			url : "http://192.1.6.34:8080/CollateralMain/getValCurrencyByCustCode",  
+			data : {customer_code:custcod},   
+			dataType : "json",
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strCurrencyOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#collateralCurrencySelect").html(strCurrencyOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get collateral currency select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "http://192.1.6.34:8080/CollateralMain/getCollateralTypeByCustCode",  
+			data : {customer_code:custcod},  
+			dataType : "json",  
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strTypeOptions += "<option>"+result[aData]+"</option>";
+					}
+				}
+				$("#collateralTypeSelect").html(strTypeOptions);
+			},  
+			error : function(errorMsg) {  
+				//alert("get collaterals type select data response failed!");  			
+			}  
+		});
+	}
+	
+	//initCreditLineTable();
+	//initCreditLineSearchTable();
+	//initCollateralsTable();
+	//initCollateralsSearchTable();
+//Credit Facility------------------------------------------------------------------------------------------------------
+
+//Pricing------------------------------------------------------------------------------------------------------
+function initpreferentialInterestRateTable(){	
+		var preferentialInterestRateTable = $("#preferentialInterestRateTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/PRICING_PREFERENTIAL_INTEREST_RATE/getValue",
+				"data": function ( d ) {
+					if (preferentialInterestRateTable!=null){
+						order_column_index = preferentialInterestRateTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "PRODUCT_CODE";
+						    break;
+						case 1:
+						    d.orderCol = "PRODUCT_DESC";
+						    break;
+						case 2:
+						    d.orderCol = "IR_SPREAD";
+						    break;	
+						case 3:
+						    d.orderCol = "OD_INT_SPREAD";
+						    break;
+						case 4:
+						    d.orderCol = "PREMINUM_DISCOUNT";
+						    break;
+						case 5:
+						    d.orderCol = "EFFECTIVE_DATE";
+						    break;
+						case 6:
+						    d.orderCol = "EXPIRY_DATE";
+						    break;
+						default:
+							break;
+						}
+						d.orderDir = preferentialInterestRateTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "PRODUCT_CODE";
+						d.orderDir = "asc";
+					}
+					d.search = "{}";
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	initpreferentialInterestRateTable();
+	
+	function initpreferentialFXRateTableTable(){	
+		var preferentialFXRateTable = $("#preferentialFXRateTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/PRICING_PREFERENTIAL_FX_RATE/getValue",
+				"data": function ( d ) {
+					if (preferentialFXRateTable!=null){
+						order_column_index = preferentialFXRateTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "PRODUCT_CODE";
+						    break;
+						case 1:
+						    d.orderCol = "PRODUCT_DESC";
+						    break;
+						case 2:
+						    d.orderCol = "CCY1";
+						    break;	
+						case 3:
+						    d.orderCol = "CCY2";
+						    break;
+						case 4:
+						    d.orderCol = "POINT";
+						    break;
+						case 5:
+						    d.orderCol = "PREMINUM_DISCOUNT";
+						    break;
+						default:
+							break;
+						}
+						d.orderDir = preferentialFXRateTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "PRODUCT_CODE";
+						d.orderDir = "asc";
+					}
+					d.search = "{}";
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	initpreferentialFXRateTableTable();
+	
+	
+	function initpreferentialFeesTable(){	
+		var preferentialFeesDataTable = $("#preferentialFeesTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false,
+			"ajax": {
+				"url": "http://192.1.6.34:8080/PRICING_PREFERENTIAL_FEES/getValue",
+				"data": function ( d ) {
+					if (preferentialFeesDataTable!=null){
+						order_column_index = preferentialFeesDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "FEE_TYPE";
+						    break;
+						case 1:
+						    d.orderCol = "PREMINUM_DISCOUNT";
+						    break;
+						default:
+							break;
+						}
+						d.orderDir = preferentialFeesDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "FEE_TYPE";
+						d.orderDir = "asc";
+					}
+					d.search = "{}";
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	initpreferentialFeesTable();
+	
+	function initStandingInstructionTable(){	
+		var standingInstructionTable = $("#standingInstructionTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false, 
+			"ajax": {
+				"url": "http://192.1.6.34:8080/PRICING_STANDING_INSTRUCTION/getValue",
+				"data": function ( d ) {
+					if (standingInstructionTable!=null){
+						order_column_index = standingInstructionTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "INSTRUCTION";
+						    break;
+						case 1:
+						    d.orderCol = "MAKER";
+						    break;
+						case 2:
+						    d.orderCol = "SDATE";
+						    break;
+						default:
+							break;
+						}
+						d.orderDir = standingInstructionTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "INSTRUCTION";
+						d.orderDir = "asc";
+					}
+					d.search = "{}";
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	initStandingInstructionTable();
+	
+	function initProductInstructionTable(){	
+		var productInstructionTable = $("#productInstructionTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"searching": false, 
+			"ajax": {
+				"url": "http://192.1.6.34:8080/PRICING_PRODUCT_INSTRUCTION/getValue",
+				"data": function ( d ) {
+					if (productInstructionTable!=null){
+						order_column_index = productInstructionTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "PRODUCT_CODE";
+						    break;
+						case 1:
+						    d.orderCol = "PRODUCT_DESC";
+						    break;
+						case 2:
+						    d.orderCol = "INSTRUCTION";
+						    break;
+						case 3:
+						    d.orderCol = "MAKER";
+						    break;
+						case 4:
+						    d.orderCol = "PDATE";
+						    break;
+						default:
+							break;
+						}
+						d.orderDir = productInstructionTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "PRODUCT_CODE";
+						d.orderDir = "asc";
+					}
+					d.search = "{}";
+					d.customer_code = custcod;
+				}
+			}
+		});
+	}
+	
+	initProductInstructionTable();
+
+//Pricing------------------------------------------------------------------------------------------------------
+</script>
+
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="../dist/js/pages/dashboard.js"></script> 
+
+<script>
+//Portfolio------------------------------------------------------------------------------------------------------------
+	function printArray(array){
+		var strResult = "";
+		for (var i=0;i<array.length;i++){
+			strResult += "\""+array[i]+"\"";
+			if (i!=array.length-1)
+				strResult += ","
+		}
+		return strResult;
+	}
+	
+	function searchDepositResult(){
+		//url parameters
+		var branchArray,productArray,currencyArray,statusArray;
+		var accountNo = $('#depositAccountNo').val();
+		var openDateFrom = $('#datepickerD1').val();
+		var openDateTo = $('#datepickerD2').val();
+		var maturityDateFrom = $('#datepickerD3').val();
+		var maturityDateTo = $('#datepickerD4').val();
+		var outstandingAmoutFrom = $('#depositOutstandingAmountFrom').val();
+		var outstandingAmoutTo = $('#depositOutstandingAmountTo').val();		
+		var strBranch = $('#depositBranchSelect').val();
+		var strProduct = $('#depositProductSelect').val();
+		var strCurrency = $('#depositCurrencySelect').val();
+		var strStatus = $('#depositStatusSelect').val();
+		
+		if (strBranch != null && strBranch!= ""){
+			branchArray = strBranch.toString().trim().split(',');
+			strBranch = printArray(branchArray);
+		}
+		if (strProduct != null && strProduct!= ""){
+			productArray = strProduct.toString().trim().split(',');
+			strProduct = printArray(productArray);
+		}
+		if (strCurrency != null && strCurrency!= ""){
+			currencyArray = strCurrency.toString().trim().split(',');
+			strCurrency = printArray(currencyArray);
+		}		
+		if (strStatus != null && strStatus!= ""){
+			statusArray = strStatus.toString().trim().split(',');
+			strStatus = printArray(statusArray);
+		}	
+		
+		// verify data
+		if (openDateFrom != "" && openDateTo != ""){
+			if (openDateFrom > openDateTo){
+				alert("open date range is wrong");
+				return;
+			}
+		}
+		if (maturityDateFrom != "" && maturityDateTo != ""){
+			if (maturityDateFrom > maturityDateTo){
+				alert("maturity date range is wrong");
+				return;
+			}
+		}
+		if (outstandingAmoutFrom != "" && outstandingAmoutTo != ""){
+			if (/^\d+$/.test(outstandingAmoutFrom) && /^\d+$/.test(outstandingAmoutTo)){
+				if (parseInt(outstandingAmoutFrom) > parseInt(outstandingAmoutTo)){
+					alert("outstanding amout range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("outstanding amout to be filled in must be integer");
+				return;
+			}
+		}	
+		searchDepositParameters = "{\"branch_array\":["+strBranch+"],\"account_type_array\":["+strProduct+"],\"currency_array\":["+strCurrency+"],\"account_status_array\":["+strStatus+"],\"dp_account_no\":\""+accountNo+"\",\"open_date\":\""+openDateFrom+"\",\"open_date_max\":\""+openDateTo+"\",\"maturity_date\":\""+maturityDateFrom+"\",\"maturity_date_max\":\""+maturityDateTo+"\",\"account_balance\":\""+outstandingAmoutFrom+"\",\"account_balance_max\":\""+outstandingAmoutTo+"\"}";
+		depositDataTable.ajax.reload();		
+		$('#project-d').modal('toggle');
+	}
+	
+	function searchLoanResult(){	
+		//url parameters
+		var branch_array,principal_currency_array,balance_currency_array,loan_type_array,account_status_array;
+		var ln_account_no = $('#loanAccountNo').val();
+		var line_no = $('#loanLineNo').val();
+		var principal_amount = $('#loanPrincipalAmountFrom').val();
+		var principal_amount_max = $('#loanPrincipalAmountTo').val();
+		var balance = $('#loanBalanceFrom').val();
+		var balance_max = $('#loanBalanceTo').val();
+		var value_date = $('#datepickerL1').val();
+		var value_date_max = $('#datepickerL2').val();
+		var maturity_date = $('#datepickerL3').val();
+		var maturity_date_max = $('#datepickerL4').val();		
+		var strBranch = $('#loanBranchSelect').val();
+		var strPrincipalCurrency = $('#loanPrincipalCurrencySelect').val();
+		var strBalanceCurrency = $('#loanBalanceCurrencySelect').val();
+		var strLoanType = $('#loanTypeSelect').val();
+		var strStatus = $('#loanStatusSelect').val();
+		
+		if (strBranch != null && strBranch!= ""){
+			branch_array = strBranch.toString().trim().split(',');
+			strBranch = printArray(branch_array);
+		}		
+		if (strPrincipalCurrency != null && strPrincipalCurrency!= ""){
+			principal_currency_array = strPrincipalCurrency.toString().trim().split(',');
+			strPrincipalCurrency = printArray(principal_currency_array);
+		}		
+		if (strBalanceCurrency != null && strBalanceCurrency!= ""){
+			balance_currency_array = strBalanceCurrency.toString().trim().split(',');
+			strBalanceCurrency = printArray(balance_currency_array);
+		}				
+		if (strLoanType != null && strLoanType!= ""){
+			loan_type_array = strLoanType.toString().trim().split(',');
+			strLoanType = printArray(loan_type_array);
+		}			
+		if (strStatus != null && strStatus!= ""){
+			account_status_array = strStatus.toString().trim().split(',');
+			strStatus = printArray(account_status_array);
+		}	
+		
+		// verify data
+		if (value_date != "" && value_date_max != ""){
+			if (value_date > value_date_max){
+				alert("value date range is wrong");
+				return;
+			}
+		}
+		if (maturity_date != "" && maturity_date_max != ""){
+			if (maturity_date > maturity_date_max){
+				alert("maturity date range is wrong");
+				return;
+			}
+		}
+		if (principal_amount != "" && principal_amount_max != ""){
+			if (/^\d+$/.test(principal_amount) && /^\d+$/.test(principal_amount_max)){
+				if (parseInt(principal_amount) > parseInt(principal_amount_max)){
+					alert("principal amount range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("principal amount to be filled in must be integer");
+				return;
+			}
+		}
+		if (balance != "" && balance_max != ""){
+			if (/^\d+$/.test(balance) && /^\d+$/.test(balance_max)){
+				if (parseInt(balance) > parseInt(balance_max)){
+					alert("balance range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("balance to be filled in must be integer");
+				return;
+			}
+		}
+		searchLoanParameters = "{\"branch_array\":["+strBranch+"],\"ln_account_no\":\""+ln_account_no+"\",\"loan_type_array\":["+strLoanType+"],\"line_no\":\""+line_no+"\",\"principal_currency_array\":["+strPrincipalCurrency+"],\"principal_amount\":\""+principal_amount+"\",\"principal_amount_max\":\""+principal_amount_max+"\",\"value_date\":\""+value_date+"\",\"value_date_max\":\""+value_date_max+"\",\"maturity_date\":\""+maturity_date+"\",\"maturity_date_max\":\""+maturity_date_max+"\",\"balance_currency_array\":["+strBalanceCurrency+"],\"balance\":\""+balance+"\",\"balance_max\":\""+balance_max+"\",\"account_status_array\":["+strStatus+"]}";
+		loanDataTable.ajax.reload();
+		$('#project-l').modal('toggle');
+	}
+
+//Portfolio------------------------------------------------------------------------------------------------------------
+
+//Product--------------------------------------------------------------------------------------------------------------
+	function searchDepositResult2(){
+		//url parameters
+		var branchArray,productArray,currencyArray,statusArray;
+		var accountNo = $('#depositAccountNo2').val();
+		var openDateFrom = $('#datepickerD12').val();
+		var openDateTo = $('#datepickerD22').val();
+		var maturityDateFrom = $('#datepickerD32').val();
+		var maturityDateTo = $('#datepickerD42').val();
+		var outstandingAmoutFrom = $('#depositOutstandingAmountFrom2').val();
+		var outstandingAmoutTo = $('#depositOutstandingAmountTo2').val();		
+		var strBranch = $('#depositBranchSelect2').val();
+		var strProduct = $('#depositProductSelect2').val();
+		var strCurrency = $('#depositCurrencySelect2').val();
+		var strStatus = $('#depositStatusSelect2').val();
+		
+		if (strBranch != null && strBranch!= ""){
+			branchArray = strBranch.toString().trim().split(',');
+			strBranch = printArray(branchArray);
+		}
+		if (strProduct != null && strProduct!= ""){
+			productArray = strProduct.toString().trim().split(',');
+			strProduct = printArray(productArray);
+		}
+		if (strCurrency != null && strCurrency!= ""){
+			currencyArray = strCurrency.toString().trim().split(',');
+			strCurrency = printArray(currencyArray);
+		}		
+		if (strStatus != null && strStatus!= ""){
+			statusArray = strStatus.toString().trim().split(',');
+			strStatus = printArray(statusArray);
+		}	
+		if (openDateFrom != ""){
+			openDateFrom = openDateFrom.toString().trim().replace(reg,'');
+		}
+		if (openDateTo != ""){
+			openDateTo = openDateTo.toString().trim().replace(reg,'');
+		}
+		if (maturityDateFrom != ""){
+			maturityDateFrom = maturityDateFrom.toString().trim().replace(reg,'');
+		}
+		if (maturityDateTo != ""){
+			maturityDateTo = maturityDateTo.toString().trim().replace(reg,'');
+		}
+		
+		// verify data
+		if (openDateFrom != "" && openDateTo != ""){
+			if (openDateFrom > openDateTo){
+				alert("open date range is wrong");
+				return;
+			}
+		}
+		if (maturityDateFrom != "" && maturityDateTo != ""){
+			if (maturityDateFrom > maturityDateTo){
+				alert("maturity date range is wrong");
+				return;
+			}
+		}
+		if (outstandingAmoutFrom != "" && outstandingAmoutTo != ""){
+			if (/^\d+$/.test(outstandingAmoutFrom) && /^\d+$/.test(outstandingAmoutTo)){
+				if (parseInt(outstandingAmoutFrom) > parseInt(outstandingAmoutTo)){
+					alert("outstanding amout range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("outstanding amout to be filled in must be integer");
+				return;
+			}
+		}	
+		searchDepositParameters2 = "{\"branch_array\":["+strBranch+"],\"account_type_array\":["+strProduct+"],\"currency_array\":["+strCurrency+"],\"account_status_array\":["+strStatus+"],\"dp_account_no\":\""+accountNo+"\",\"open_date\":\""+openDateFrom+"\",\"open_date_max\":\""+openDateTo+"\",\"maturity_date\":\""+maturityDateFrom+"\",\"maturity_date_max\":\""+maturityDateTo+"\",\"account_balance\":\""+outstandingAmoutFrom+"\",\"account_balance_max\":\""+outstandingAmoutTo+"\"}";
+		depositDataTable2.ajax.reload();		
+		$('#project-d2').modal('toggle');
+	}
+//Product--------------------------------------------------------------------------------------------------------------
+
+//Credit Facility------------------------------------------------------------------------------------------------------
+	function searchCreditLineResult(){	
+		//url parameters
+		var currency_array,revolving_ind_array;
+		var credit_line_no = $('#creditLineNo').val();
+		var line_name = $('#creditLineName').val();
+		var create_date = $('#datepickerCL1').val();
+		var create_date_max = $('#datepickerCL2').val();
+		var expire_date = $('#datepickerCL3').val();
+		var expire_date_max = $('#datepickerCL4').val();	
+		var limit = $('#creditLineLimitFrom').val();
+		var limit_max = $('#creditLineLimitTo').val();
+		var utilized_amount = $('#creditLineUtilizedAmountFrom').val();
+		var utilized_amount_max = $('#creditLineUtilizedAmountTo').val();	
+		var booking_amount = $('#creditLineBookingAmountFrom').val();
+		var booking_amount_max = $('#creditLineBookingAmountTo').val();
+		var available_amount = $('#creditLineAvailableAmountFrom').val();
+		var available_amount_max = $('#creditLineAvailableAmountTo').val();		
+		var strCurrency = $('#creditLineCurrencySelect').val();
+		var strRevolvingInd = $('#creditLineRevolvingSelect').val();
+		
+		if (strCurrency != null && strCurrency!= ""){
+			currency_array = strCurrency.toString().trim().split(',');
+			strCurrency = printArray(currency_array);
+		}		
+		if (strRevolvingInd != null && strRevolvingInd!= ""){
+			revolving_ind_array = strRevolvingInd.toString().trim().split(',');
+			strRevolvingInd = printArray(revolving_ind_array);
+		}		
+		
+		// verify data
+		if (create_date != "" && create_date_max != ""){
+			if (create_date > create_date_max){
+				alert("create date range is wrong");
+				return;
+			}
+		}
+		if (expire_date != "" && expire_date_max != ""){
+			if (expire_date > expire_date_max){
+				alert("expire date range is wrong");
+				return;
+			}
+		}
+		if (limit != "" && limit_max != ""){
+			if (/^\d+$/.test(limit) && /^\d+$/.test(limit_max)){
+				if (parseInt(limit) > parseInt(limit_max)){
+					alert("limit range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("limit to be filled in must be integer");
+				return;
+			}
+		}
+		if (utilized_amount != "" && utilized_amount_max != ""){
+			if (/^\d+$/.test(utilized_amount) && /^\d+$/.test(utilized_amount_max)){
+				if (parseInt(utilized_amount) > parseInt(utilized_amount_max)){
+					alert("utilized amount range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("utilized amount to be filled in must be integer");
+				return;
+			}
+		}
+		if (booking_amount != "" && booking_amount_max != ""){
+			if (/^\d+$/.test(booking_amount) && /^\d+$/.test(booking_amount_max)){
+				if (parseInt(booking_amount) > parseInt(booking_amount_max)){
+					alert("booking amount range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("booking amount to be filled in must be integer");
+				return;
+			}
+		}
+		if (available_amount != "" && available_amount_max != ""){
+			if (/^\d+$/.test(available_amount) && /^\d+$/.test(available_amount_max)){
+				if (parseInt(available_amount) > parseInt(available_amount_max)){
+					alert("available amount range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("available amount to be filled in must be integer");
+				return;
+			}
+		}
+		searchCreditLineParameters = "{\"credit_line_no\":\""+credit_line_no+"\",\"line_name\":\""+line_name+"\",\"create_date\":\""+create_date+"\",\"create_date_max\":\""+create_date_max+"\",\"expire_date\":\""+expire_date+"\",\"expire_date_max\":\""+expire_date_max+"\",\"currency_array\":["+strCurrency+"],\"limit\":\""+limit+"\",\"limit_max\":\""+limit_max+"\",\"utilized_amount\":\""+utilized_amount+"\",\"utilized_amount_max\":\""+utilized_amount_max+"\",\"booking_amount\":\""+booking_amount+"\",\"booking_amount_max\":\""+booking_amount_max+"\",\"available_amount\":\""+available_amount+"\",\"available_amount_max\":\""+available_amount_max+"\",\"revolving_ind_array\":["+strRevolvingInd+"]}";
+		creditLineDataTable.ajax.reload();
+		$('#project-cl').modal('toggle');
+	}
+	
+	function searchCollateralsResult(){		
+		//url parameters
+		var collateral_type_array,val_currency_array;
+		var collateral_no = $('#collateralNo').val();
+		var item_description = $('#collateralItemDescription').val();
+		var valuation_date = $('#datepickerC1').val();
+		var valuation_date_max = $('#datepickerC2').val();	
+		var valuation = $('#collateralValuationFrom').val();
+		var valuation_max = $('#collateralValuationTo').val();
+		var line_no = $('#collateralLineNo').val();
+		var strCollateralType = $('#collateralTypeSelect').val();
+		var strValCurrency = $('#collateralCurrencySelect').val();
+		
+		if (strCollateralType != null && strCollateralType!= ""){
+			collateral_type_array = strCollateralType.toString().trim().split(',');
+			strCollateralType = printArray(collateral_type_array);
+		}		
+		if (strValCurrency != null && strValCurrency!= ""){
+			strValCurrency = strValCurrency.toString().trim().split(',');
+			strValCurrency = printArray(strValCurrency);
+		}		
+		
+		// verify data
+		if (valuation_date != "" && valuation_date_max != ""){
+			if (valuation_date > valuation_date_max){
+				alert("valuation date range is wrong");
+				return;
+			}
+		}
+		if (valuation != "" && valuation_max != ""){
+			if (/^\d+$/.test(valuation) && /^\d+$/.test(valuation_max)){
+				if (parseInt(valuation) > parseInt(valuation_max)){
+					alert("valuation range is wrong");
+					return;
+				}
+			}
+			else{
+				alert("valuation to be filled in must be integer");
+				return;
+			}
+		}
+		searchCollateralsParameters = "{\"collateral_no\":\""+collateral_no+"\",\"item_description\":\""+item_description+"\",\"valuation_date\":\""+valuation_date+"\",\"valuation_date_max\":\""+valuation_date_max+"\",\"valuation\":\""+valuation+"\",\"valuation_max\":\""+valuation_max+"\",\"collateral_type_array\":["+strCollateralType+"],\"val_currency_array\":["+strValCurrency+"],\"line_no\":\""+line_no+"\",\"auto\":\"false\"}";
+		collateralsDataTable.ajax.reload();
+		$('#project-c').modal('toggle');
+	}
+	
+//Credit Facility------------------------------------------------------------------------------------------------------
+
+//Call Memo------------------------------------------------------------------------------------------------------------
+	function callMemoDateGo(){
+		var goDate = $('#dateMask').val();
+		var goDateArray,year,month,day,date="null";
+		if (goDate != "" && goDate != null){
+			goDateArray = goDate.toString().split('/');
+			year = goDateArray[0];
+			month = goDateArray[1];
+			day = goDateArray[2];
+			if (/^\d+$/.test(year)){
+				if (/^\d+$/.test(month)){
+					if (/^\d+$/.test(day)){
+						date = year+"/"+month+"/"+day;
+						$("#calendar").fullCalendar( 'gotoDate', date )
+					}
+					else {
+						date = year+"/"+month+"/01";
+						$("#calendar").fullCalendar( 'gotoDate', date )
+					}
+				}
+				else {
+					date = year+"/01/01";
+					$("#calendar").fullCalendar( 'gotoDate', date )
+				}
+			}
+		}
+	}
+
+//Call Memo------------------------------------------------------------------------------------------------------------
+</script>
+</body>
+</html>
