@@ -1,13 +1,44 @@
 package com.ecsolutions.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Created by Administrator on 2017/4/1.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User_Entity {
     private String userid;
     private String username;
+    private String password;
+    private String organization;
+    private String groupid;
     private String status;
     private String adminflag;
+
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    public String getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(String groupid) {
+        this.groupid = groupid;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public String getStatus() {
         return status;

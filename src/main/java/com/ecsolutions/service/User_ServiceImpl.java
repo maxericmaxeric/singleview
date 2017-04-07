@@ -21,4 +21,14 @@ public class User_ServiceImpl implements User_Service {
     public User_Entity findUser(String userid, String password) {
         return user_dao.findUser(userid, password);
     }
+
+    @Override
+    public void createUser(User_Entity user_entity){
+        user_dao.createUser(user_entity);
+    }
+
+    @Override
+    public User_Entity getUser(String userid) {
+        return user_dao.getUser(userid);
+    }
 }

@@ -4,10 +4,12 @@ import com.ecsolutions.entity.User_Entity;
 import com.ecsolutions.service.User_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
@@ -30,17 +32,20 @@ public class Login_Controller {
 
 
     @PostMapping("/login")
-    public String login(@RequestParam("next") Optional<String> next, @RequestParam("userid") String userid, @RequestParam("password") String password, HttpSession session) {
+    public String login(@RequestParam("next") Optional<String> next, @RequestParam("userid") String userid, @RequestParam("password") String password, HttpSession session, Model model) {
         // Get User instance
         User_Entity user = user_service.findUser(userid, password);
         if (user == null) {
             session.setAttribute("MESSAGE", "userid/password invalid!");
+            model.addAttribute("MESSAGE", "userid/password invalid!");
             return "login";
         } else if (user.getStatus().equals("D")) {
             session.setAttribute("MESSAGE", "This user has been deactivated, please contact the administrator!");
+            model.addAttribute("MESSAGE", "This user has been deactivated, please contact the administrator!");
             return "login";
         } else if (user.getStatus().equals("C")) {
             session.setAttribute("MESSAGE", "This user has been cancelled, please contact the administrator!");
+            model.addAttribute("MESSAGE", "This user has been cancelled, please contact the administrator!");
             return "login";
         }
         session.setAttribute("CURRENT_USER", user);
@@ -56,12 +61,26 @@ public class Login_Controller {
     }
 
     @GetMapping("/admin")
-    public String adminPage() {
+    public String adminPage(HttpServletRequest request, Model model) {
+        User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
+        model.addAttribute("user", user);
         return "Admin/AdminMain";
     }
 
+
+    @GetMapping("/test")
+    public String testPage(Model model) {
+        User_Entity user = new User_Entity();
+        user.setUsername("111");
+        model.addAttribute("user",user);
+        return "test";
+    }
+
+
     @GetMapping("/user")
-    public String userPage() {
+    public String userPage(HttpServletRequest request, Model model) {
+        User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
+        model.addAttribute("user", user);
         return "User/UserMain";
     }
 }

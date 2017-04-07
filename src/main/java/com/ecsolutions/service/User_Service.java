@@ -7,4 +7,8 @@ import com.ecsolutions.entity.User_Entity;
  */
 public interface User_Service {
     User_Entity findUser(String userid, String password);
+
+    void createUser(User_Entity user_entity);
+
+    User_Entity getUser(String userid);
 }
