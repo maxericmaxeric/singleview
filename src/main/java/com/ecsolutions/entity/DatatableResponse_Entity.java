@@ -112,6 +112,12 @@ public class DatatableResponse_Entity {
                 PageHelper.startPage(pageNum, pageSize);
                 base_entities =pricing_standing_instruction_controller.getPricing_Standing_Instruction_Service().findStandingInstructionByCustd(customer_code, search, orderCol, orderDir);
                 pageInfo= new PageInfo<PRICING_STANDING_INSTRUCTION_Entity>((List<PRICING_STANDING_INSTRUCTION_Entity>) base_entities);
+            }  else if (object instanceof User_controller) {
+                User_controller user_controller = (User_controller)object;
+                recordsTotal = user_controller.getUser_service().findUserCount();
+                PageHelper.startPage(pageNum, pageSize);
+                base_entities =user_controller.getUser_service().findUserList(search, orderCol, orderDir);
+                pageInfo= new PageInfo<User_Entity>((List<User_Entity>) base_entities);
             }
 
 

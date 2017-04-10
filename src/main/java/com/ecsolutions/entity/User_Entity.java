@@ -2,11 +2,14 @@ package com.ecsolutions.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/4/1.
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class User_Entity {
+public class User_Entity extends Base_Entity{
     private String userid;
     private String username;
     private String password;
@@ -70,5 +73,18 @@ public class User_Entity {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public List<Object> convertToArray() {
+        List<Object> ret = new ArrayList<>();
+        ret.add(userid);
+        ret.add(username);
+        ret.add(password);
+        ret.add(organization);
+        ret.add(groupid);
+        ret.add(status);
+        ret.add(adminflag);
+        return ret;
     }
 }

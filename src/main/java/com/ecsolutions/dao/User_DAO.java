@@ -1,12 +1,12 @@
 package com.ecsolutions.dao;
 
+import com.ecsolutions.dao.sqlProvider.User_sqlProvider;
 import com.ecsolutions.entity.User_Entity;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.ResultType;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/1.
@@ -24,4 +24,25 @@ public interface User_DAO {
     @Select("SELECT * FROM CSVUSER WHERE TRIM(USERID) = #{userid} ")
     @ResultType(User_Entity.class)
     User_Entity getUser(String userid);
+
+    @Select("SELECT COUNT(*) FROM CSVUSER")
+    @ResultType(Long.class)
+    Long findUserCount();
+
+    @SelectProvider(type = User_sqlProvider.class, method = "getSql")
+    @ResultType(User_Entity.class)
+    List<User_Entity> findUserList(@Param("search") String search, @Param("orderCol") String orderCol, @Param("orderDir") String orderDir);
+
+    @Update("UPDATE CSVUSER SET " +
+            "USERNAME = #{username}," +
+            "PASSWORD = #{password}, " +
+            "ORGANIZATION = #{organization}," +
+            "GROUPID = #{groupid}," +
+            "STATUS = #{status}," +
+            "ADMINFLAG = #{adminflag} " +
+            "WHERE TRIM(USERID) = #{userid}" )
+    void update(User_Entity user_entity);
+
+    @Delete("DELETE FROM CSVUSER WHERE TRIM(USERID) = #{userid}")
+    void delete(String userid);
 }

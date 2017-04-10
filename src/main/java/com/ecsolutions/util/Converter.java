@@ -54,6 +54,9 @@ public class Converter {
             } else if (base_entity instanceof PRICING_STANDING_INSTRUCTION_Entity) {
                 PRICING_STANDING_INSTRUCTION_Entity pricing_standing_instruction_entity=(PRICING_STANDING_INSTRUCTION_Entity) base_entity;
                 entity = pricing_standing_instruction_entity.convertToArray();
+            } else if (base_entity instanceof  User_Entity) {
+                User_Entity user_entity=(User_Entity) base_entity;
+                entity = user_entity.convertToArray();
             }
 
 
