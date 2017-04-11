@@ -23,4 +23,10 @@ public class PRODUCT_REPAYMENT_DELIQUENCY_ServiceImpl implements PRODUCT_REPAYME
     {
         return pRODUCT_REPAYMENT_DELIQUENCY_DAO.findProductRepaymentDelByCustcdAndCcy(customer_code,ccy);
     }
+
+    @Override
+    public List<String> findProductRepaymentDeliquencyCcy(String customer_code)
+    {
+        return pRODUCT_REPAYMENT_DELIQUENCY_DAO.findProductRepaymentDeliquencyCcy(customer_code);
+    }
 }

@@ -17,6 +17,10 @@ public interface PRODUCT_LIQUIDITY_DAO {
     @ResultType(String.class)
     List<String> findProductLiquidityTenor(@Param("customer_code") String customer_code);
 
+    @Select("select  distinct ccy from liquidity_for_graph where customer_code='${customer_code}'")
+    @ResultType(String.class)
+    List<String> findProductLiquidityCcy(@Param("customer_code") String customer_code);
+
     @Select("select a.tenor tenor,sum(a.amount) amount from liquidity_for_graph a where MARK ='DEP' and customer_code='${customer_code}' and ccy='${ccy}' group by a.tenor")
     @ResultType(PRODUCT_LIQUIDITY_Entity.class)
     List<PRODUCT_LIQUIDITY_Entity> findProductLiquidityDepAmt(@Param("customer_code") String customer_code,@Param("ccy") String ccy);

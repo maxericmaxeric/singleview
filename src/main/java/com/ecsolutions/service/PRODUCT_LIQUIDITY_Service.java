@@ -9,6 +9,7 @@ import java.util.List;
  */
 public interface PRODUCT_LIQUIDITY_Service {
     List<String> findProductLiquidityTenor(String customer_code);
+    List<String> findProductLiquidityCcy(String customer_code);
     List<PRODUCT_LIQUIDITY_Entity> findProductLiquidityDepAmt(String customer_code,String ccy);
     List<PRODUCT_LIQUIDITY_Entity> findProductLiquidityLoanAmt(String customer_code,String ccy);
 }

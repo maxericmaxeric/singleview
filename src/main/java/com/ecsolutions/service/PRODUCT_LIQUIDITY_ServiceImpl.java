@@ -25,6 +25,12 @@ public class PRODUCT_LIQUIDITY_ServiceImpl implements PRODUCT_LIQUIDITY_Service{
     }
 
     @Override
+    public List<String> findProductLiquidityCcy(String customer_code)
+    {
+        return pRODUCT_LIQUIDITY_DAO.findProductLiquidityCcy(customer_code);
+    }
+
+    @Override
     public List<PRODUCT_LIQUIDITY_Entity> findProductLiquidityDepAmt(String customer_code, String ccy)
     {
         return pRODUCT_LIQUIDITY_DAO.findProductLiquidityDepAmt(customer_code,ccy);

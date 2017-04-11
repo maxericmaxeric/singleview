@@ -9,5 +9,6 @@ import java.util.List;
  */
 public interface PRODUCT_REPAYMENT_DELIQUENCY_Service {
     List<PRODUCT_REPAYMENT_DELIQUENCY_Entity> findProductRepaymentDelByCustcdAndCcy(String customer_code, String ccy);
+    List<String> findProductRepaymentDeliquencyCcy(String customer_code);
 
 }

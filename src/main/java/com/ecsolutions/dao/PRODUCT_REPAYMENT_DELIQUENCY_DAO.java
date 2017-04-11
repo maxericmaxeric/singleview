@@ -17,4 +17,8 @@ public interface PRODUCT_REPAYMENT_DELIQUENCY_DAO {
     @Select("select tbucket,amount from deliquency where Customer_Code = '${customer_code}' and CCY = '${ccy}'")
     @ResultType(PRODUCT_REPAYMENT_DELIQUENCY_Entity.class)
     List<PRODUCT_REPAYMENT_DELIQUENCY_Entity> findProductRepaymentDelByCustcdAndCcy(@Param("customer_code") String customer_code,@Param("ccy") String ccy);
+
+    @Select("select  distinct ccy from deliquency where customer_code='${customer_code}'")
+    @ResultType(String.class)
+    List<String> findProductRepaymentDeliquencyCcy(@Param("customer_code") String customer_code);
 }

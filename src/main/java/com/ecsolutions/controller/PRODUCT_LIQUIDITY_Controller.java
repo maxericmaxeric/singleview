@@ -24,6 +24,13 @@ public class PRODUCT_LIQUIDITY_Controller {
     }
 
     @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/getCcy")
+    public List<String> getPRODUCT_LIQUIDITY_CCY(@RequestParam(value="customer_code", defaultValue = "", required = true) String customer_code) {
+        List<String>  product_liquidity_tenor_entities = pRODUCT_LIQUIDITY_Service.findProductLiquidityCcy(customer_code);
+        return product_liquidity_tenor_entities;
+    }
+
+    @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(method = RequestMethod.GET, value = "/getDepAmt")
     public List<PRODUCT_LIQUIDITY_Entity> getPRODUCT_LIQUIDITY_DEPAMT(@RequestParam(value="customer_code", defaultValue = "", required = true) String customer_code,
                                                                       @RequestParam(value="ccy",defaultValue = "",required = true) String ccy) {
