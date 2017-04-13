@@ -67,4 +67,10 @@ public class User_Group_Controller {
         }
     }
 
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @GetMapping("/functions/{groupid}")
+    public List<String> getGroupId(@PathVariable String groupid) {
+        return user_group_service.getFunctions(groupid);
+    }
+
 }

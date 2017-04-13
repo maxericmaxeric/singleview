@@ -13,4 +13,6 @@ public interface User_Group_Service {
     void createUserGroup(String groupid,String groupdesc,String remark) throws DataAccessException;
     void updateUserGroup(String groupid,String groupdesc,String remark);
     void deleteUserGroup(String groupid);
+
+    List<String> getFunctions(String groupid);
 }

@@ -28,4 +28,8 @@ public interface User_Group_Dao {
 
     @Delete("DELETE FROM CSVGROUP WHERE TRIM(GROUPID) = #{groupid}")
     void deleteUserGroup(@Param("groupid") String groupid);
+
+    @Select("SELECT TRIM(GROUPID) FROM CSVGRPFUNC WHERE TRIM(GROUPID) = TRIM(#{groupid})")
+    @ResultType(String.class)
+    List<String> getFunctions(@Param("groupid") String groupid);
 }

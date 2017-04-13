@@ -44,5 +44,10 @@ public class User_Group_ServiceImpl implements User_Group_Service{
         user_group_dao.deleteUserGroup(groupid);
     }
 
+    @Override
+    public List<String> getFunctions(String groupid) {
+        return user_group_dao.getFunctions(groupid);
+    }
+
 
 }

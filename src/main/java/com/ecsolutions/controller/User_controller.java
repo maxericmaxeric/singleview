@@ -21,7 +21,7 @@ public class User_controller {
 
     @CrossOrigin(origins = "*", maxAge = 3600)
     @PostMapping
-    public String create(@RequestBody User_Entity user_entity) {
+    public String create(User_Entity user_entity) {
         try {
             user_service.createUser(user_entity);
             return "user creation success.";
@@ -60,7 +60,7 @@ public class User_controller {
 
     @CrossOrigin(origins = "*", maxAge = 3600)
     @PutMapping()
-    public String modify(@RequestBody User_Entity user_entity) {
+    public String modify(User_Entity user_entity) {
         try {
             user_service.update(user_entity);
             return "user update success.";
