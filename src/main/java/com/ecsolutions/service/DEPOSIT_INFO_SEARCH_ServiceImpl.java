@@ -20,8 +20,8 @@ public class DEPOSIT_INFO_SEARCH_ServiceImpl implements DEPOSIT_INFO_SEARCH_Serv
     }
 
     @Override
-    public List<DEPOSIT_INFO_SEARCH_Entity> searchInfoByCustCode(String dp_account_no, String ln_account_no, String customer_code, String customer_full_name, String identity_no)
+    public List<DEPOSIT_INFO_SEARCH_Entity> searchInfoByCustCode(String dp_account_no, String ln_account_no, String customer_code, String customer_full_name, String identity_no,String userid)
     {
-        return dEPOSIT_INFO_SEARCH_DAO.searchInfoByCustCode(dp_account_no,ln_account_no,customer_code,customer_full_name,identity_no);
+        return dEPOSIT_INFO_SEARCH_DAO.searchInfoByCustCode(dp_account_no,ln_account_no,customer_code,customer_full_name,identity_no,userid);
     }
 }

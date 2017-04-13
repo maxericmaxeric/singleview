@@ -15,12 +15,29 @@ public class DEPOSIT_INFO_SEARCH_Provider {
         String customer_code = (String) map.get("customer_code");  //cus code
         String customer_full_name = (String) map.get("customer_full_name");  //cus name
         String identity_no = (String) map.get("identity_no");  //id num
+        //String userid = (String) map.get("userid");
 
         return new SQL()
         {
             {
                 SELECT(" distinct c.Customer_Code,c.Customer_full_name,c.Identity_No");
-                FROM("Customer_Info_Main c");
+                FROM("(select Customer_Code,customer_full_name,identity_no\n" +
+                        "  from customer_info_main\n" +
+                        " where internal_org_code in\n" +
+                        "       (select internal_code\n" +
+                        "          from organization_info\n" +
+                        "         where trim(Organization_Code) in\n" +
+                        "               (select trim(organization)\n" +
+                        "                  from csvuser\n" +
+                        "                 where userid = #{userid})\n" +
+                        "        union\n" +
+                        "        select internal_code\n" +
+                        "          from (select a.*, b.organization\n" +
+                        "                  from organization_info a,\n" +
+                        "                       (select * from csvuser where userid = #{userid}) b)\n" +
+                        "         start with trim(parent_organization_code) = trim(organization)\n" +
+                        "        connect by prior\n" +
+                        "                    trim(organization_code) = trim(parent_organization_code))) c");
                 LEFT_OUTER_JOIN("DEPOSIT_ACCOUNT_INFO a on c.Customer_Code=a.Customer_Code");
                 LEFT_OUTER_JOIN("LOAN_ACCOUNT_INFO b on b.Customer_Code=a.Customer_Code");
                 if(!dp_account_no.equals("") && dp_account_no != null) {
