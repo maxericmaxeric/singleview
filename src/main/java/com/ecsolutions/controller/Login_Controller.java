@@ -83,4 +83,11 @@ public class Login_Controller {
         model.addAttribute("user", user);
         return "User/UserMain";
     }
+
+    @GetMapping("/user/singleView")
+    public String singleViewPage(HttpServletRequest request, Model model) {
+        User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
+        model.addAttribute("user", user);
+        return "User/SingleView";
+    }
 }
