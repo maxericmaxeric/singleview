@@ -49,5 +49,15 @@ public class User_Group_ServiceImpl implements User_Group_Service{
         return user_group_dao.getFunctions(groupid);
     }
 
+    @Override
+    public void updateFunctions(String groupid, String[] functions) {
+        user_group_dao.deleteFunctions(groupid);
+        for (String function:
+             functions) {
+            user_group_dao.insertFunctions(groupid, function);
+        }
+
+    }
+
 
 }

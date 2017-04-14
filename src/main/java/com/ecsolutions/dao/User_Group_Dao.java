@@ -29,7 +29,13 @@ public interface User_Group_Dao {
     @Delete("DELETE FROM CSVGROUP WHERE TRIM(GROUPID) = #{groupid}")
     void deleteUserGroup(@Param("groupid") String groupid);
 
-    @Select("SELECT TRIM(GROUPID) FROM CSVGRPFUNC WHERE TRIM(GROUPID) = TRIM(#{groupid})")
+    @Select("SELECT TRIM(FUNCTIONID) FROM CSVGRPFUNC WHERE TRIM(GROUPID) = TRIM(#{groupid})")
     @ResultType(String.class)
     List<String> getFunctions(@Param("groupid") String groupid);
+
+    @Delete("DELETE FROM CSVGRPFUNC WHERE TRIM(GROUPID) = TRIM(#{groupid})")
+    void deleteFunctions(@Param("groupid") String groupid);
+
+    @Insert("INSERT INTO CSVGRPFUNC VALUES(#{groupid}, #{function}, '')")
+    void insertFunctions(@Param("groupid") String groupid, @Param("function") String function);
 }

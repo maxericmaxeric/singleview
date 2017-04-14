@@ -73,4 +73,16 @@ public class User_Group_Controller {
         return user_group_service.getFunctions(groupid);
     }
 
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @PutMapping("/functions/{groupid}")
+    public String updateFunctions(@PathVariable("groupid") String groupid, @RequestParam("functions") String[] functions) {
+        try {
+            user_group_service.updateFunctions(groupid, functions);
+            return "usergroup update success.";
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return "usergroup update failed.";
+        }
+    }
+
 }

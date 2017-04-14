@@ -15,4 +15,6 @@ public interface User_Group_Service {
     void deleteUserGroup(String groupid);
 
     List<String> getFunctions(String groupid);
+
+    void updateFunctions(String groupid, String[] functions);
 }
