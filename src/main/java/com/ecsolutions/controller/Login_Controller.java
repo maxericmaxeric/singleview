@@ -90,4 +90,28 @@ public class Login_Controller {
         model.addAttribute("user", user);
         return "User/SingleView";
     }
+
+    @GetMapping("/admin/authorityManage")
+    public String authorityManagePage(HttpServletRequest request, Model model) {
+        User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
+        model.addAttribute("user", user);
+        return "Admin/AuthorityManage";
+    }
+
+    @GetMapping("/admin/userManage")
+    public String userManagePage(HttpServletRequest request, Model model) {
+        User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
+        model.addAttribute("user", user);
+        return "Admin/UserManage";
+    }
+
+    @GetMapping("/logout")
+    public String userManagePage(HttpServletRequest request) {
+        try {
+            request.getSession().removeAttribute("CURRENT_USER");
+        } catch (Exception ex) {
+
+        }
+        return "redirect:".concat("/login");
+    }
 }

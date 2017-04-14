@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Customer Single View | Manage</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="../bootstrap/css/ionicons.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
+  <!-- DataTables -->
+  <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css"> 
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../plugins/select2-3.5.3/select2.css"> 
+  
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="hold-transition skin-green-light sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini">CSV</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg">Customer Single View</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav" style="margin-right:10px">
+		  <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <span class="hidden-xs" th:text="${user.username}">UserName</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <a class="btn bg-purple btn-flat"  href="/login" onclick="signOut()">Sign out</a>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <!--<li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>-->
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">	
+		<li class="treeview active">
+          <a href="AdminMain.html">
+            <i class="fa fa-laptop"></i> 
+			<span>User Manage</span>
+			<span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+		  <ul class="treeview-menu">
+            <li><a href="/admin/authorityManage"><i class="fa fa-circle-o"></i> Authority Management</a></li>
+            <li class="active"><a href="/admin/userManage"><i class="fa fa-circle-o"></i> User Management</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <!-- /.sidebar -->	
+  </aside>
+  
+    <!-- Modal -->
+	<div class="modal fade " id="project-um" role="dialog" aria-labelledby="project-um-label" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header bg-purple">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="project-um-label">User Manage</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>User Id:</label>											
+										<input class="form-control" id="user_id" name="userid">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>User Name:</label>
+										<input class="form-control" id="user_name" name="username">
+									</div>
+								</div>	
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>password:</label>
+										<input class="form-control" id="password" name="password">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Organization:</label>
+										<select id="organizationSelect" class="select2" data-placeholder="Select a State" style="width: 100%;" name="organization">		
+										</select>
+									 </div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Group Id:</label>
+										<select id="groupIdSelect" class="select2" data-placeholder="Select a State" style="width: 100%;" name="groupid">										
+										</select>
+									 </div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Status:</label>
+										<select id="statusSelect" class="select2" data-placeholder="Select a State" style="width: 100%;" name="status">
+											<option>A</option>
+										    <option>D</option>
+										    <option>C</option>
+										</select>
+									 </div>
+								</div>	
+								<div class="col-md-6">
+									<div class="form-group">
+										<label>Admin Flag:</label>
+										<select id="adminFlagSelect" class="select2" data-placeholder="Select a State" style="width: 100%;" name="adminFlag">
+											<option>N</option>
+										    <option>Y</option>
+										</select>
+									 </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+				<div class="modal-footer">
+					<button type="button" class="btn  bg-purple" onclick="save()">Save</button>
+					<button type="button" class="btn  bg-purple" onclick="refresh()">Refresh</button>
+				</div>				
+			</div>
+		</div>
+	</div>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+   <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+	    User Management
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="/admin"><i class="fa fa-laptop"></i> Home</a></li>
+        <li class="active">User Management</li>
+      </ol>
+    </section>
+	
+	<!-- Main content -->
+    <section class="content">
+	  <div class="row">
+	  
+		<div class="col-xs-12">
+		  <div class="box box-success">
+			<div class="box-header">
+			  <div class="pull-right box-tools">
+				<button type="button" class="btn bg-purple btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;">
+				  <i class="fa fa-minus"></i></button>
+			  </div>
+			  <h3 class="box-title">User Manage</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body no-padding">
+			  <button type="button" class="btn bg-purple" id="userAdd" data-toggle='modal' data-target='#project-um' style="margin-bottom:10px;"><i class="fa fa-plus"></i> Add user</button>
+			  <table id="userManageTable" class="table table-hover">
+			    <thead>
+				  <tr>
+					<th>User Id</th>
+					<th>User Name</th>
+					<th>Password</th>
+					<th>Organization</th>
+					<th>Group Id</th>
+					<th>Status</th>
+					<th>Admin Flag</th>
+				  </tr>
+				</thead>
+				<tbody>
+				</tbody>
+			  </table>
+			</div>
+			<br/>
+			<!-- /.box-body -->
+			<div class="box-footer">
+			  user management include add, delete, amend and query
+			</div>
+		  </div>
+		  <!-- /.box -->
+		</div>
+	  </div>
+	  <!-- /.row -->
+	</section>
+  </div>
+	
+    <!-- /.content -->
+  
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-light">
+    
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="../plugins/jQueryUI/jquery-ui.min.js"></script>
+<!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- DataTables -->
+<script src="../plugins/datatables/jquery.dataTables.js"></script>
+<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2-3.5.3/select2.min.js"></script>
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- AdminLTE App -->
+<script src="../dist/js/app.min.js"></script>
+<script src="../plugins/signOut.js"></script>
+
+<script>
+	var userManageDataTable,order_column_index;
+	var search = "";
+	$("#statusSelect").select2();
+	$("#adminFlagSelect").select2();
+	
+	function initSelectTable(){
+		var strOrganizationOptions = "";
+		var strGroupIdOptions = "";
+		$.ajax({  
+			type : "GET",  
+			url : "/organizations", 
+			dataType : "json",
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strOrganizationOptions += "<option>"+result[aData].organization_code+"</option>";
+					}
+				}
+				$("#organizationSelect").html(strOrganizationOptions);
+				$("#organizationSelect").select2();
+			},  
+			error : function(errorMsg) {  
+				//alert("get organization select data response failed!");  			
+			}  
+		});
+		$.ajax({  
+			type : "GET",   
+			url : "/usergroup/getUserGroup",  
+			dataType : "json",  
+			success : function(result) {   	
+				if (result){
+					for (var aData in result){
+						strGroupIdOptions += "<option>"+result[aData].groupid+"</option>";
+					}
+				}
+				$("#groupIdSelect").html(strGroupIdOptions);
+				$("#groupIdSelect").select2();
+			},  
+			error : function(errorMsg) {  
+				//alert("get group id select data response failed!");  			
+			}  
+		});
+	}
+	
+	function initUserManageTable(){
+		userManageDataTable = $("#userManageTable").DataTable({
+			"processing": true,
+			"serverSide": true,
+			"ajax": {
+				"url": "/users",
+				"data": function ( d ) {
+					if (userManageDataTable!=null){
+						order_column_index = userManageDataTable.order()[0][0];
+						switch(order_column_index)
+						{
+						case 0:
+						    d.orderCol = "USERID";
+						    break;
+						case 1:
+						    d.orderCol = "USERNAME";
+						    break;
+						case 2:
+						    d.orderCol = "PASSWORD";
+						    break;
+						case 3:
+						    d.orderCol = "ORGANIZATION";
+						    break;
+						case 4:
+						    d.orderCol = "GROUPID";
+						    break;		
+						case 5:
+						    d.orderCol = "STATUS";
+						    break;	
+						case 6:
+						    d.orderCol = "ADMINFLAG";
+						    break;								
+						default:
+							break;
+						}
+						d.orderDir = userManageDataTable.order()[0][1];
+					}
+					else{
+						d.orderCol = "USERID";
+						d.orderDir = "asc";
+					}
+					d.search = search;
+				}
+			}
+		});		
+		$('#userManageTable thead tr').eq(0).append("<th>Actions</th>");
+		$('#userManageTable tfoot tr').eq(0).append("<th>Actions</th>");
+	}
+	
+	$('#userManageTable').on( 'draw.dt', function () {
+		if (userManageDataTable != null){
+			var strHtml,trDom;
+			if ($('#userManageTable tbody tr td').length != 1){
+				for (var i = 0;i < $('#userManageTable tbody tr').length;++i){
+					trDom = $('#userManageTable tbody tr').eq(i);
+					trDom.find('td').eq(7).remove();
+					strHtml = "<td><input type='image' src='../image/icn_edit.png' data-toggle='modal' data-target='#project-um' name='userEdit'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='image' src='../image/icn_delete.png' name='userDelete'></td>";
+					trDom.append(strHtml);
+				}
+				
+				$(":image").on( 'click', function () {
+					var strType = this.name;					
+					if (strType == "userEdit"){
+						$('#user_id').val(userManageDataTable.cell($(this).parents('tr').find('td').eq(0)).data());
+						$("#user_id").attr("disabled","disabled");
+						$('#password').val(userManageDataTable.cell($(this).parents('tr').find('td').eq(2)).data());
+						$('#user_name').val(userManageDataTable.cell($(this).parents('tr').find('td').eq(1)).data());
+						$("#organizationSelect").select2("val", userManageDataTable.cell($(this).parents('tr').find('td').eq(3)).data()); 
+						$("#groupIdSelect").select2("val", userManageDataTable.cell($(this).parents('tr').find('td').eq(4)).data()); 
+						
+						var status = userManageDataTable.cell($(this).parents('tr').find('td').eq(5)).data();
+						$("#statusSelect").select2("val", status);
+						$("#statusSelect").removeAttr("disabled");
+						if (status == "C")
+							$("#statusSelect").attr("disabled","disabled");
+							
+						$("#adminFlagSelect").select2("val", userManageDataTable.cell($(this).parents('tr').find('td').eq(6)).data());
+					}
+					else if(strType == "userDelete"){
+						var strSearch = $("input[type='search']").val();
+						if (window.confirm("confirm to delete this user?")) {
+							var userID = userManageDataTable.cell($(this).parents('tr').find('td').eq(0)).data();
+							$.ajax({  
+								type : "DELETE",  
+								async: false, //同步
+								url : "/users/"+userID,
+								error : function(errorMsg) {  
+									alert("delete user failed!");  		
+								}  
+							}); 
+							userManageDataTable.ajax.reload();
+							$("input[type='search']").val(strSearch);
+						} else {
+							return;
+						}
+					}
+					else{
+						return;
+					}
+				});
+			}
+			
+			$(":input[type='search']").one( 'keyup', function(){			
+				search = $(":input[type='search']").val();
+				userManageDataTable.ajax.reload();
+			});
+		}
+	});
+	
+	initSelectTable();
+	initUserManageTable();
+	
+	$('#userAdd').on( 'click', function () {
+		$('#user_id').val("");
+		$("#user_id").removeAttr("disabled");
+		$('#password').val("");
+		$('#user_name').val("");
+		$("#organizationSelect").select2("val", ""); 
+		$("#groupIdSelect").select2("val", ""); 
+		$("#statusSelect").select2("val", ""); 
+		$("#statusSelect").removeAttr("disabled");
+		$("#adminFlagSelect").select2("val", ""); 
+	});
+	
+	function save(){
+	    if ($('#user_id').attr("disabled") == "disabled"){		
+			var strSearch = $("input[type='search']").val();
+			var userId,password,userName,organization,groupId,status;
+			userId = $("#user_id").val();
+			password = $("#password").val();
+			userName = $("#user_name").val();
+			organization = $("#organizationSelect").val();
+			groupId = $("#groupIdSelect").val();
+			status = $("#statusSelect").val();
+			adminFlag = $("#adminFlagSelect").val(); 
+						
+			if(password == ""){
+				alert("password can not be empty");
+				return;
+			}
+			if(organization == null){
+				alert("organization can not be empty");
+				return;
+			}
+			if(groupId == null){
+				alert("group id can not be empty");
+				return;
+			}
+			if(status == null){
+				alert("status can not be empty");
+				return;
+			}
+			if(adminFlag == null){
+				alert("admin flag can not be empty");
+				return;
+			}
+						
+			$.ajax({  
+				type : "PUT",  
+				async: false, //同步
+				url : "/users",
+				data : {"userid":userId,"username":userName,"password":password,"organization":organization,"groupid":groupId,"status":status,"adminflag":adminFlag},
+				error : function(errorMsg){
+					alert("update user failed!");
+				}
+			}); 
+			
+			userManageDataTable.ajax.reload();
+			$("input[type='search']").val(strSearch);
+			$('#project-um').modal('toggle');			
+		}
+		else {	
+			var strSearch = $("input[type='search']").val();
+			var userId,password,userName,organization,groupId,status;
+			userId = $("#user_id").val();
+			password = $("#password").val();
+			userName = $("#user_name").val();
+			organization = $("#organizationSelect").val();
+			groupId = $("#groupIdSelect").val();
+			status = $("#statusSelect").val();
+			adminFlag = $("#adminFlagSelect").val(); 
+
+			if(userId == ""){
+				alert("user id can not be empty");
+				return;
+			}
+			if(password == ""){
+				alert("password can not be empty");
+				return;
+			}
+			if(organization == null){
+				alert("organization can not be empty");
+				return;
+			}
+			if(groupId == null){
+				alert("group id can not be empty");
+				return;
+			}
+			if(status == null){
+				alert("status can not be empty");
+				return;
+			}
+			if(adminFlag == null){
+				alert("admin flag can not be empty");
+				return;
+			}
+			
+			$.ajax({  
+				type : "POST",  
+				async: false, //同步
+				url : "/users",
+				data : {"userid":userId,"username":userName,"password":password,"organization":organization,"groupid":groupId,"status":status,"adminflag":adminFlag},
+				error : function(errorMsg){
+					alert("add user failed!");
+				}
+			}); 
+			
+			userManageDataTable.ajax.reload();
+			$("input[type='search']").val(strSearch);
+			$('#project-um').modal('toggle');
+		}
+	}
+	
+	function refresh(){
+	    if ($('#user_id').attr("disabled") == "disabled"){
+			$("#password").val("");
+			$("#user_name").val("");
+			$("#organizationSelect").select2("val", ""); 
+			$("#groupIdSelect").select2("val", ""); 
+			
+			var status = $("#statusSelect").val();
+			if (status != "C")
+				$("#statusSelect").select2("val", ""); 
+				
+			$("#adminFlagSelect").select2("val", ""); 
+		}
+		else {	
+			$("#user_id").val("");
+			$("#password").val("");
+			$("#user_name").val("");
+			$("#organizationSelect").select2("val", ""); 
+			$("#groupIdSelect").select2("val", ""); 
+			
+			var status = $("#statusSelect").val();
+			if (status != "C")
+				$("#statusSelect").select2("val", ""); 
+				
+			$("#adminFlagSelect").select2("val", ""); 		
+		}
+	}
+</script>
+
+</body>
+</html>

@@ -78,7 +78,7 @@
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
               <li class="user-footer">
-                <a href="../login.html" class="btn bg-purple btn-flat">Sign out</a>
+                <a class="btn bg-purple btn-flat"  href="/login" onclick="signOut()">Sign out</a>
               </li>
             </ul>
           </li>
@@ -2384,8 +2384,8 @@
 								  <!-- Tree Structure Chart -->
 								  <div id="creditLineTreeMap">
 									<div id="creditLineTreeShowDiv" style="position:absolute;display:none;border:2px solid silver;">
-										<small></small></br>
-										<small></small></br>
+										<small></small><br/>
+										<small></small><br/>
 										<small></small>
 									</div>
 								  </div>
@@ -3334,6 +3334,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 <script src="../plugins/enquiryModal.js"></script>
+<script src="../plugins/signOut.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard.js"></script> 
 
@@ -7084,7 +7085,7 @@ $.ajax({
 			for (var aData in result){	
 				functionid = result[aData].functionid;
 				tab = result[aData].tab;
-				if (tab == ""){
+				if (functionid == "KPI"){
 					initPrimaryBox();
 					ifKPI = true;
 				}
@@ -7186,8 +7187,7 @@ $.ajax({
 					break;
 				default:
 					break;
-			}			
-			
+			}
 		}  
 	},  
 	error : function(errorMsg) {  

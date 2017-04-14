@@ -55,7 +55,7 @@
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
               <li class="user-footer">
-                <a href="../login.html" class="btn bg-purple btn-flat">Sign out</a>
+                <a class="btn bg-purple btn-flat" href="/login" onclick="signOut()">Sign out</a>
               </li>
             </ul>
           </li>
@@ -82,8 +82,8 @@
             </span>
           </a>
 		  <ul class="treeview-menu">
-            <li><a href="../Admin/AuthorityManage.html"><i class="fa fa-circle-o"></i> Authority Management</a></li>
-            <li><a href="../Admin/UserManage.html"><i class="fa fa-circle-o"></i> User Management</a></li>
+            <li><a href="/admin/authorityManage"><i class="fa fa-circle-o"></i> Authority Management</a></li>
+            <li><a href="/admin/userManage"><i class="fa fa-circle-o"></i> User Management</a></li>
           </ul>
         </li>
       </ul>
@@ -136,6 +136,7 @@
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/app.min.js"></script>
+<script src="../plugins/signOut.js"></script>
 
 </body>
 </html>
