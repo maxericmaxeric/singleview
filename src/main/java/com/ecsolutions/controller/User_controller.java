@@ -1,10 +1,13 @@
 package com.ecsolutions.controller;
 
 import com.ecsolutions.entity.DatatableResponse_Entity;
+import com.ecsolutions.entity.Function_Entity;
 import com.ecsolutions.entity.User_Entity;
 import com.ecsolutions.service.User_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/6.
@@ -82,4 +85,9 @@ public class User_controller {
         }
     }
 
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @GetMapping("/functions/{userid}")
+    public List<Function_Entity> getFunctions(@PathVariable("userid") String userid) {
+        return user_service.getFunctions(userid);
+    }
 }

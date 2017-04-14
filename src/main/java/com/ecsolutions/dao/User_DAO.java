@@ -1,6 +1,7 @@
 package com.ecsolutions.dao;
 
 import com.ecsolutions.dao.sqlProvider.User_sqlProvider;
+import com.ecsolutions.entity.Function_Entity;
 import com.ecsolutions.entity.User_Entity;
 import org.apache.ibatis.annotations.*;
 import org.springframework.dao.DataAccessException;
@@ -45,4 +46,11 @@ public interface User_DAO {
 
     @Delete("DELETE FROM CSVUSER WHERE TRIM(USERID) = #{userid}")
     void delete(String userid);
+
+    @Select("SELECT A.FUNCTIONID, TAB FROM CSVFUNCTION,\n" +
+            "(SELECT FUNCTIONID FROM CSVGRPFUNC\n" +
+            "WHERE GROUPID = (SELECT GROUPID FROM CSVUSER WHERE TRIM(USERID) = TRIM(#{userid}))) A\n" +
+            "WHERE CSVFUNCTION.FUNCTIONID = A.FUNCTIONID\n" +
+            "ORDER BY TAB")
+    List<Function_Entity> getFunctions(String userid);
 }

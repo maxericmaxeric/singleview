@@ -1,6 +1,7 @@
 package com.ecsolutions.service;
 
 import com.ecsolutions.dao.User_DAO;
+import com.ecsolutions.entity.Function_Entity;
 import com.ecsolutions.entity.User_Entity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,5 +53,10 @@ public class User_ServiceImpl implements User_Service {
     @Override
     public void delete(String userid) {
         user_dao.delete(userid);
+    }
+
+    @Override
+    public List<Function_Entity> getFunctions(String userid) {
+        return user_dao.getFunctions(userid);
     }
 }

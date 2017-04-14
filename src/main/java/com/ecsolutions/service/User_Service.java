@@ -1,5 +1,6 @@
 package com.ecsolutions.service;
 
+import com.ecsolutions.entity.Function_Entity;
 import com.ecsolutions.entity.User_Entity;
 
 import java.util.List;
@@ -21,4 +22,6 @@ public interface User_Service {
     void update(User_Entity user_entity);
 
     void delete(String userid);
+
+    List<Function_Entity> getFunctions(String userid);
 }
