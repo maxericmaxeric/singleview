@@ -53,4 +53,5 @@ public interface User_DAO {
             "WHERE CSVFUNCTION.FUNCTIONID = A.FUNCTIONID\n" +
             "ORDER BY TAB")
     List<Function_Entity> getFunctions(String userid);
+
 }

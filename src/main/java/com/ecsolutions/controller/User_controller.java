@@ -4,6 +4,7 @@ import com.ecsolutions.entity.DatatableResponse_Entity;
 import com.ecsolutions.entity.Function_Entity;
 import com.ecsolutions.entity.User_Entity;
 import com.ecsolutions.service.User_Service;
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,9 @@ public class User_controller {
     @Autowired
     private User_Service user_service;
 
+    @Autowired
+    StringEncryptor stringEncryptor;
+
     public User_Service getUser_service() {
         return user_service;
     }
@@ -26,6 +30,7 @@ public class User_controller {
     @PostMapping
     public String create(User_Entity user_entity) {
         try {
+            user_entity.setPassword(stringEncryptor.encrypt(user_entity.getPassword()));
             user_service.createUser(user_entity);
             return "user creation success.";
         } catch (Exception ex) {

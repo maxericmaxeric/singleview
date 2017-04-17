@@ -2,6 +2,7 @@ package com.ecsolutions.controller;
 
 import com.ecsolutions.entity.User_Entity;
 import com.ecsolutions.service.User_Service;
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +22,9 @@ public class Login_Controller {
     @Autowired
     private User_Service user_service;
 
+    @Autowired
+    StringEncryptor stringEncryptor;
+
     public User_Service getUser_service() {
         return user_service;
     }
@@ -34,8 +38,10 @@ public class Login_Controller {
     @PostMapping("/login")
     public String login(@RequestParam("next") Optional<String> next, @RequestParam("userid") String userid, @RequestParam("password") String password, HttpSession session, Model model) {
         // Get User instance
-        User_Entity user = user_service.findUser(userid, password);
-        if (user == null) {
+//        User_Entity user = user_service.findUser(userid, password);
+        User_Entity user = user_service.getUser(userid);
+
+        if (user == null || !password.equals(stringEncryptor.decrypt(user.getPassword()))) {
             session.setAttribute("MESSAGE", "userid/password invalid!");
             model.addAttribute("MESSAGE", "userid/password invalid!");
             return "login";
@@ -48,6 +54,7 @@ public class Login_Controller {
             model.addAttribute("MESSAGE", "This user has been cancelled, please contact the administrator!");
             return "login";
         }
+
         session.setAttribute("CURRENT_USER", user);
         String adminflag = user.getAdminflag();
         if (next.isPresent() && (adminflag.equals("Y") && next.get().startsWith("/admin") || adminflag.equals("N") && next.get().startsWith("/user")))

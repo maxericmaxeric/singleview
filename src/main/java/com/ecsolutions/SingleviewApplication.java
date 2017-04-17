@@ -6,9 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan(basePackages = "com.ecsolutions.dao")
-public class SingleviewApplication {
+public class SingleviewApplication
+{
 
 	public static void main(String[] args) {
 		SpringApplication.run(SingleviewApplication.class, args);
+
+//		SpringApplication application = new SpringApplication(SingleviewApplication.class);
+//		application.run(args);
 	}
 }

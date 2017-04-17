@@ -3,6 +3,7 @@ package com.ecsolutions.service;
 import com.ecsolutions.dao.User_DAO;
 import com.ecsolutions.entity.Function_Entity;
 import com.ecsolutions.entity.User_Entity;
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,16 @@ import java.util.List;
  */
 @Service("User_Service")
 public class User_ServiceImpl implements User_Service {
+
     private User_DAO user_dao;
 
     @Autowired
     public User_ServiceImpl(User_DAO user_dao) {
         this.user_dao = user_dao;
     }
+
+    @Autowired
+    StringEncryptor stringEncryptor;
 
     @Override
     public User_Entity findUser(String userid, String password) {
@@ -42,7 +47,12 @@ public class User_ServiceImpl implements User_Service {
 
     @Override
     public List<User_Entity> findUserList(String search, String orderCol, String orderDir) {
-        return user_dao.findUserList(search, orderCol, orderDir);
+        List<User_Entity> user_entities = user_dao.findUserList(search, orderCol, orderDir);
+        for (User_Entity user:
+             user_entities) {
+            user.setPassword(stringEncryptor.decrypt(user.getPassword()));
+        }
+        return user_entities;
     }
 
     @Override

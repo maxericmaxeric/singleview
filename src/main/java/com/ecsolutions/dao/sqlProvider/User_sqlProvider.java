@@ -16,6 +16,7 @@ public class User_sqlProvider {
         SQL sql = null;
         sql = new SQL() {
             {
+//                TRIM(PASSWORD) PASSWORD,
                 SELECT("TRIM(USERID) USERID, TRIM(USERNAME) USERNAME, TRIM(PASSWORD) PASSWORD, TRIM(ORGANIZATION) ORGANIZATION, TRIM(GROUPID) GROUPID, TRIM(STATUS) STATUS, TRIM(ADMINFLAG) ADMINFLAG");
                 FROM("CSVUSER");
                 if (search != null && !search.equals("")) {

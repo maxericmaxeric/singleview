@@ -10,6 +10,7 @@ import java.util.List;
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User_Entity extends Base_Entity{
+
     private String userid;
     private String username;
     private String password;
