@@ -74,11 +74,12 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <span class="hidden-xs" th:text="${user.username}">UserName</span>
 			  <small id="useridHidden" style="display:none;" th:text="${user.userid}"></small>
+				<small id="customercodeHidden" style="display:none;" th:text="${customer_code}"></small>
             </a>
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
               <li class="user-footer">
-                <a class="btn bg-purple btn-flat"  href="/login" onclick="signOut()">Sign out</a>
+                <a class="btn bg-purple btn-flat"  href="/logout">Sign out</a>
               </li>
             </ul>
           </li>
@@ -3296,7 +3297,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<script src="../plugins/jQuery/jquery-3.2.0.js"></script>
+<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- jQuery Number -->
 <script src="../number/jquery.number.min.js"></script>
 <!-- fullCalendar 2.2.5 -->
@@ -3334,14 +3335,13 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 <script src="../plugins/enquiryModal.js"></script>
-<script src="../plugins/signOut.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="../dist/js/pages/dashboard.js"></script> 
 
 <script>
-	var custcod = document.cookie;
+    var custcod = $("#customercodeHidden").html();
 	var order_column_index;
-	
+
 	$(function () {
 		$("#enquiryTable").DataTable({
 		  "paging": true,

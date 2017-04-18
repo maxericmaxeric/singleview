@@ -21,6 +21,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
                 return true;
             else if (adminflag.equals("N") && url.startsWith("/user"))
                 return true;
+            else if (url.startsWith("/logout"))
+                return true;
         }
 
         response.sendRedirect("/login?next=".concat(request.getRequestURI()));

@@ -39,9 +39,8 @@ function enquiry()
 
 
 $("body").delegate('#enquiryTable tbody tr', 'click', function () {
-	document.cookie=$(this).find('td').eq(0).html();	
-	$('#project-enquiry').modal('toggle');
-    self.location="/user/singleView";
+    window.location.href = "/user/singleView?customer_code="+$(this).find('td').eq(0).html();
+    $('#project-enquiry').modal('toggle');
 	// self.location="../User/SingleView.html";
 });
 

@@ -70,6 +70,7 @@ public class User_controller {
     @PutMapping()
     public String modify(User_Entity user_entity) {
         try {
+            user_entity.setPassword(stringEncryptor.encrypt(user_entity.getPassword()));
             user_service.update(user_entity);
             return "user update success.";
         } catch (Exception ex) {

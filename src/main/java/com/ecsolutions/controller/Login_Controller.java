@@ -61,9 +61,10 @@ public class Login_Controller {
             return "redirect:".concat(String.valueOf(next));
         else {
             if (user.getAdminflag().equals("Y"))
-                return "redirect:".concat("/admin");
+                return "redirect:/admin";
             else
-                return "redirect:".concat("/user");
+                return "redirect:/user";
+//                return "/user";
         }
     }
 
@@ -75,13 +76,13 @@ public class Login_Controller {
     }
 
 
-    @GetMapping("/test")
-    public String testPage(Model model) {
-        User_Entity user = new User_Entity();
-        user.setUsername("111");
-        model.addAttribute("user",user);
-        return "test";
-    }
+//    @GetMapping("/test")
+//    public String testPage(Model model) {
+//        User_Entity user = new User_Entity();
+//        user.setUsername("111");
+//        model.addAttribute("user",user);
+//        return "test";
+//    }
 
 
     @GetMapping("/user")
@@ -92,9 +93,10 @@ public class Login_Controller {
     }
 
     @GetMapping("/user/singleView")
-    public String singleViewPage(HttpServletRequest request, Model model) {
+    public String singleViewPage(@RequestParam("customer_code") String customer_code, HttpServletRequest request, Model model) {
         User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
         model.addAttribute("user", user);
+        model.addAttribute("customer_code", customer_code);
         return "User/SingleView";
     }
 
