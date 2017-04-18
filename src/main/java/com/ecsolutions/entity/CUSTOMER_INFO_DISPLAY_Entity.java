@@ -1,5 +1,7 @@
 package com.ecsolutions.entity;
 
+import java.math.BigDecimal;
+
 /**
  * Created by Administrator on 2017-3-17.
  */
@@ -8,9 +10,35 @@ public class CUSTOMER_INFO_DISPLAY_Entity {
     private String customer_code;
     private String relationship_level;
     private String credit_rating;
-    private long account_balance_lcy_sum;
-    private long balance_lcy_sum;
-    private long available_amount_lcy_sum;
+    private BigDecimal account_balance_lcy_sum;
+    private BigDecimal balance_lcy_sum;
+    private BigDecimal available_amount_lcy_sum;
+
+    public BigDecimal getAccount_balance_lcy_sum() {
+        return account_balance_lcy_sum;
+    }
+
+    public void setAccount_balance_lcy_sum(BigDecimal account_balance_lcy_sum) {
+        this.account_balance_lcy_sum = account_balance_lcy_sum;
+    }
+
+    public BigDecimal getBalance_lcy_sum() {
+        return balance_lcy_sum;
+    }
+
+    public void setBalance_lcy_sum(BigDecimal balance_lcy_sum) {
+        this.balance_lcy_sum = balance_lcy_sum;
+    }
+
+    public BigDecimal getAvailable_amount_lcy_sum() {
+        return available_amount_lcy_sum;
+    }
+
+    public void setAvailable_amount_lcy_sum(BigDecimal available_amount_lcy_sum) {
+        this.available_amount_lcy_sum = available_amount_lcy_sum;
+    }
+
+
 
     public String getCustomer_full_name() {
         return customer_full_name;
@@ -44,29 +72,7 @@ public class CUSTOMER_INFO_DISPLAY_Entity {
         this.credit_rating = credit_rating;
     }
 
-    public long getAccount_balance_lcy_sum() {
-        return account_balance_lcy_sum;
-    }
 
-    public void setAccount_balance_lcy_sum(long account_balance_lcy_sum) {
-        this.account_balance_lcy_sum = account_balance_lcy_sum;
-    }
-
-    public long getBalance_lcy_sum() {
-        return balance_lcy_sum;
-    }
-
-    public void setBalance_lcy_sum(long balance_lcy_sum) {
-        this.balance_lcy_sum = balance_lcy_sum;
-    }
-
-    public long getAvailable_amount_lcy_sum() {
-        return available_amount_lcy_sum;
-    }
-
-    public void setAvailable_amount_lcy_sum(long available_amount_lcy_sum) {
-        this.available_amount_lcy_sum = available_amount_lcy_sum;
-    }
 
 
 
