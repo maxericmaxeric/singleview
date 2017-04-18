@@ -4888,7 +4888,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "//PRODUCT_TRANSACTION_DETAIL/getValue",
+				"url": "/PRODUCT_TRANSACTION_DETAIL/getValue",
 				"data": function ( d ) {
 					if (depositTranDataTable!=null){
 						order_column_index = depositTranDataTable.order()[0][0];
@@ -5323,7 +5323,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "///PRODUCT_REPAYMENT_TABLE/getValue",
+				"url": "/PRODUCT_REPAYMENT_TABLE/getValue",
 				"data": function ( d ) {
 					if (repaymentDataTable!=null){
 						order_column_index = repaymentDataTable.order()[0][0];
@@ -5381,7 +5381,7 @@
 		var strOverdueFlagOptions = "";
 		$.ajax({  
 			type : "GET",   
-			url : "//PRODUCT_REPAYMENT_TABLE/getRep_Branch/"+custcod,  
+			url : "/PRODUCT_REPAYMENT_TABLE/getRep_Branch/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -6653,6 +6653,14 @@
 					$("#calendar").fullCalendar( 'gotoDate', date )
 				}
 			}
+            if (selectDate != ""){
+                for (var i=0;i<$('div .fc-day').length;++i){
+                    if ($('div .fc-day').eq(i).attr("data-date") == selectDate){
+                        $('div .fc-day').eq(i).addClass("memoSelect");
+                        break;
+                    }
+                }
+            }
 		}
 	}
 	

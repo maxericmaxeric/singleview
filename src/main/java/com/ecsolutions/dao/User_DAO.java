@@ -22,7 +22,7 @@ public interface User_DAO {
     @Insert("INSERT INTO CSVUSER(USERID,PASSWORD,USERNAME,ORGANIZATION,GROUPID,STATUS,ADMINFLAG) VALUES(#{userid},#{password},#{username},#{organization},#{groupid},#{status},#{adminflag})")
     void createUser(User_Entity user_entity) throws DataAccessException;
 
-    @Select("SELECT * FROM CSVUSER WHERE TRIM(USERID) = #{userid} ")
+    @Select("SELECT TRIM(USERID) USERID, TRIM(USERNAME) USERNAME, TRIM(PASSWORD) PASSWORD, TRIM(ORGANIZATION) ORGANIZATION, TRIM(GROUPID) GROUPID, TRIM(STATUS) STATUS, TRIM(ADMINFLAG) ADMINFLAG FROM CSVUSER WHERE TRIM(USERID) = #{userid} ")
     @ResultType(User_Entity.class)
     User_Entity getUser(String userid);
 
