@@ -3490,7 +3490,11 @@
 	  });
 	
 	
-//KPI	
+//KPI
+    function format (num) {
+        return (num.toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+    }
+
 	function initPrimaryBox(){	
 		
 		$.ajax({
@@ -3505,9 +3509,9 @@
 					$("div[name='b_CC']").html(data[0].customer_code);
 					$("div[name='b_CL']").html(data[0].relationship_level);
 					$("div[name='b_RR']").html(data[0].credit_rating);
-					$("div[name='b_AB']").html($.number(data[0].account_balance_lcy_sum,2));
-					$("div[name='b_LB']").html($.number(data[0].balance_lcy_sum,2));
-					$("div[name='b_LL']").html($.number(data[0].available_amount_lcy_sum,2));
+					$("div[name='b_AB']").html(format(data[0].account_balance_lcy_sum));
+					$("div[name='b_LB']").html(format(data[0].balance_lcy_sum));
+					$("div[name='b_LL']").html(format(data[0].available_amount_lcy_sum));
                       },
 			 error: function(request) {
                     //alert("Connection error");

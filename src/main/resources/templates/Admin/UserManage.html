@@ -381,7 +381,7 @@
 						$("#statusSelect").select2("val", status);
 						$("#statusSelect").removeAttr("disabled");
 						if (status == "C")
-							$("#statusSelect").attr("disabled","disabled");
+                            $("#statusSelect").prop("disabled",true);
 							
 						$("#adminFlagSelect").select2("val", userManageDataTable.cell($(this).parents('tr').find('td').eq(6)).data());
 					}
