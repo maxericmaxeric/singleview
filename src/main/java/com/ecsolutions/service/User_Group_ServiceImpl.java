@@ -41,7 +41,15 @@ public class User_Group_ServiceImpl implements User_Group_Service{
     @Override
     public void deleteUserGroup(String groupid)
     {
-        user_group_dao.deleteUserGroup(groupid);
+        try{
+            user_group_dao.deleteUserGroup(groupid);
+            user_group_dao.deleteGroup_updateuser(groupid);
+            user_group_dao.deleteFunctions(groupid);
+
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -38,4 +38,10 @@ public interface User_Group_Dao {
 
     @Insert("INSERT INTO CSVGRPFUNC VALUES(#{groupid}, #{function}, '')")
     void insertFunctions(@Param("groupid") String groupid, @Param("function") String function);
+
+    @Update("UPDATE CSVUSER SET " +
+            "GROUPID = 'DEFAULT'" +
+            "WHERE TRIM(GROUPID) = #{groupid}" )
+    void deleteGroup_updateuser(@Param("groupid") String groupid);
+
 }
