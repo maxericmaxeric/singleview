@@ -50,7 +50,7 @@ public interface User_DAO {
     @Select("SELECT A.FUNCTIONID, TAB FROM CSVFUNCTION,\n" +
             "(SELECT FUNCTIONID FROM CSVGRPFUNC\n" +
             "WHERE GROUPID = (SELECT GROUPID FROM CSVUSER WHERE TRIM(USERID) = TRIM(#{userid}))) A\n" +
-            "WHERE CSVFUNCTION.FUNCTIONID = A.FUNCTIONID\n" +
+            "WHERE TRIM(CSVFUNCTION.FUNCTIONID) = TRIM(A.FUNCTIONID)\n" +
             "ORDER BY TAB")
     List<Function_Entity> getFunctions(String userid);
 
