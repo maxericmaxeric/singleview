@@ -30,13 +30,15 @@ public class Login_Controller {
     }
 
     @GetMapping("/login")
-    public String loginPage(@RequestParam("next") Optional<String> next) {
+    public String loginPage(@RequestParam(value = "next",required = false) Optional<String> next, Model model) {
+        if (next.isPresent())
+            model.addAttribute("next", next.get());
         return "login";
     }
 
 
     @PostMapping("/login")
-    public String login(@RequestParam("next") Optional<String> next, @RequestParam("userid") String userid, @RequestParam("password") String password, HttpSession session, Model model) {
+    public String login(@RequestParam("next") String next, @RequestParam("userid") String userid, @RequestParam("password") String password, HttpSession session, Model model) {
         // Get User instance
 //        User_Entity user = user_service.findUser(userid, password);
         User_Entity user = user_service.getUser(userid);
@@ -57,8 +59,8 @@ public class Login_Controller {
 
         session.setAttribute("CURRENT_USER", user);
         String adminflag = user.getAdminflag();
-        if (next.isPresent() && (adminflag.equals("Y") && next.get().startsWith("/admin") || adminflag.equals("N") && next.get().startsWith("/user")))
-            return "redirect:".concat(String.valueOf(next));
+        if (next != null && (adminflag.equals("Y") && next.startsWith("/admin"))) // || adminflag.equals("N") && next.startsWith("/user")
+            return "redirect:".concat(next.trim());
         else {
             if (user.getAdminflag().equals("Y"))
                 return "redirect:/admin";
@@ -93,11 +95,16 @@ public class Login_Controller {
     }
 
     @GetMapping("/user/singleView")
-    public String singleViewPage(@RequestParam("customer_code") String customer_code, HttpServletRequest request, Model model) {
+    public String singleViewPage(@RequestParam(value = "customer_code", required = false) String customer_code, HttpServletRequest request, Model model) {
         User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
         model.addAttribute("user", user);
-        model.addAttribute("customer_code", customer_code);
-        return "User/SingleView";
+        if (customer_code != null) {
+            if (user_service.validateCustomer(customer_code.trim(), user.getUserid())) {
+                model.addAttribute("customer_code", customer_code);
+                return "User/SingleView";
+            }
+        }
+        return "redirect:/user";
     }
 
     @GetMapping("/admin/authorityManage")
