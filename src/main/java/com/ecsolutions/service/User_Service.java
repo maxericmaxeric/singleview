@@ -24,4 +24,6 @@ public interface User_Service {
     void delete(String userid);
 
     List<Function_Entity> getFunctions(String userid);
+
+    boolean validateCustomer(String customer_code,String userid);
 }

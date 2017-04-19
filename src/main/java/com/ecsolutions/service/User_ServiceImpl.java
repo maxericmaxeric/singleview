@@ -69,4 +69,20 @@ public class User_ServiceImpl implements User_Service {
     public List<Function_Entity> getFunctions(String userid) {
         return user_dao.getFunctions(userid);
     }
+
+    @Override
+    public boolean validateCustomer(String customer_code,String userid)
+    {
+        try{
+            List<String> data = user_dao.validateCustomer(customer_code,userid);
+            if(data.size()>0)
+            {
+                return true;
+            }
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

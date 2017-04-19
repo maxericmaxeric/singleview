@@ -54,4 +54,28 @@ public interface User_DAO {
             "ORDER BY TAB")
     List<Function_Entity> getFunctions(String userid);
 
+    @Select("select c.customer_code from \n" +
+            "(select Customer_Code\n" +
+            "  from customer_info_main\n" +
+            " where internal_org_code in\n" +
+            "       (select internal_code\n" +
+            "          from organization_info\n" +
+            "         where trim(Organization_Code) in\n" +
+            "               (select trim(organization)\n" +
+            "                  from csvuser\n" +
+            "                 where TRIM(USERID) = TRIM(#{userid}))\n" +
+            "        union\n" +
+            "        select internal_code\n" +
+            "          from (select a.*, b.organization\n" +
+            "                  from organization_info a,\n" +
+            "                       (select * from csvuser where TRIM(USERID) = TRIM(#{userid})) b)\n" +
+            "         start with trim(parent_organization_code) = trim(organization)\n" +
+            "        connect by prior\n" +
+            "                    trim(organization_code) = trim(parent_organization_code))\n" +
+            ") c \n" +
+            "\n" +
+            "where customer_code in (select customer_code from customer_info_main where TRIM(customer_code) = TRIM(#{customer_code}))")
+//    @ResultType(Boolean.class)
+    List<String> validateCustomer(@Param("customer_code") String customer_code, @Param("userid") String userid);
+
 }
