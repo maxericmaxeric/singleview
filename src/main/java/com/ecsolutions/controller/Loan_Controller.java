@@ -3,7 +3,6 @@ package com.ecsolutions.controller;
 import com.ecsolutions.entity.DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM_Entity;
 import com.ecsolutions.entity.DatatableResponse_Entity;
 import com.ecsolutions.entity.Loan_Entity;
-import com.ecsolutions.entity.Test_Entity;
 import com.ecsolutions.service.Loan_Service;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,12 +49,6 @@ public class Loan_Controller {
         return loan_entities;
     }
 
-    @CrossOrigin(origins = "*", maxAge = 3600)
-    @RequestMapping(method = RequestMethod.POST, value = "/getTest", consumes="application/json", produces = "application/json")
-    @ResponseBody
-    public Test_Entity getTest(@RequestBody Test_Entity test) {
-        return test;
-    }
 
 /*   @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(method = RequestMethod.GET, value = "/getTest2")
