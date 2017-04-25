@@ -8,39 +8,39 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/bootstrap/css/bootstrap.min.css'">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../bootstrap/css/ionicons.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/bootstrap/css/ionicons.min.css'">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
   <!-- DataTables -->
-  <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/datatables/dataTables.bootstrap.css'">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/dist/css/AdminLTE.min.css'">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/dist/css/skins/_all-skins.min.css'">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/iCheck/flat/blue.css'">
   <!-- iCheck for checkboxes and radio inputs -->
-  <link rel="stylesheet" href="../plugins/iCheck/all.css">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/iCheck/all.css'">
   <!-- Date Picker -->
-  <link rel="stylesheet" href="../plugins/datepicker/datepicker3.css">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/datepicker/datepicker3.css'">
   <!-- fullCalendar 2.2.5-->
-  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.min.css">
-  <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.print.css" media="print">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/fullcalendar/fullcalendar.min.css'">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/fullcalendar/fullcalendar.print.css'" media="print">
   <!-- Tree Map -->
-  <link rel="stylesheet" href="../plugins/d3/tree.css"> 
-  <script src="../plugins/d3/tree.js"></script>
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/d3/tree.css'"> 
+  <script th:src="${projectname}+'/plugins/d3/tree.js'"></script>
   <!-- Echarts -->
-  <script src="../plugins/echarts/echarts.js"></script>
+  <script th:src="${projectname}+'/plugins/echarts/echarts.js'"></script>
   <!-- D3 -->
-  <script src="../plugins/d3/d3.v3.min.js"></script>
+  <script th:src="${projectname}+'/plugins/d3/d3.v3.min.js'"></script>
   <!-- Select2 -->
-  <link rel="stylesheet" href="../plugins/select2/select2.min.css">  
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/select2/select2.min.css'">  
   <!-- jQuery Number -->
-  <script src="../number/jquery.number.js"></script>
+  <script th:src="${projectname}+'/number/jquery.number.js'"></script>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -79,7 +79,7 @@
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
               <li class="user-footer">
-                <a class="btn bg-purple btn-flat"  href="/logout">Sign out</a>
+                <a class="btn bg-purple btn-flat"  th:href="${projectname}+'/logout'">Sign out</a>
               </li>
             </ul>
           </li>
@@ -151,7 +151,7 @@
 									</div>
 								</div>																	
 								<div class="col-md-12">
-								<button type="button" class="btn  bg-purple btn-block" onclick="enquiry()">Search</button>
+								<button type="button" class="btn  bg-purple btn-block" onclick="enquiry(projectName)">Search</button>
 								</div>
 							</div>
 						</div>
@@ -3294,54 +3294,61 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
+<!-- /CustomerSingleView/wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<!--<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>-->
-<script src="../plugins/jQuery/jquery-3.2.0.min.js"></script>
+<!--<script th:src="${projectname}+'/plugins/jQuery/jquery-2.2.3.min.js'"></script>-->
+<script th:src="${projectname}+'/plugins/jQuery/jquery-3.2.0.min.js'"></script>
 <!-- jQuery Number -->
-<script src="../number/jquery.number.min.js"></script>
+<script th:src="${projectname}+'/number/jquery.number.min.js'"></script>
 <!-- fullCalendar 2.2.5 -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script> -->
-<script src="../plugins/fullcalendar//moment.min.js"></script>
-<script src="../plugins/fullcalendar/fullcalendar.min.js"></script>
+<script th:src="${projectname}+'/plugins/fullcalendar//moment.min.js'"></script>
+<script th:src="${projectname}+'/plugins/fullcalendar/fullcalendar.min.js'"></script>
 <!-- iCheck 1.0.1 -->
-<script src="../plugins/iCheck/icheck.min.js"></script>
+<script th:src="${projectname}+'/plugins/iCheck/icheck.min.js'"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../plugins/jQueryUI/jquery-ui.min.js"></script>
+<script th:src="${projectname}+'/plugins/jQueryUI/jquery-ui.min.js'"></script>
 <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.6 -->
-<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script th:src="${projectname}+'/bootstrap/js/bootstrap.min.js'"></script>
 <!-- DataTables -->
-<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script th:src="${projectname}+'/plugins/datatables/jquery.dataTables.min.js'"></script>
+<script th:src="${projectname}+'/plugins/datatables/dataTables.bootstrap.min.js'"></script>
 <!-- Select2 -->
-<script src="../plugins/select2/select2.full.min.js"></script>
+<script th:src="${projectname}+'/plugins/select2/select2.full.min.js'"></script>
 <!-- InputMask -->
-<script src="../plugins/input-mask/jquery.inputmask.js"></script>
-<script src="../plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-<script src="../plugins/input-mask/jquery.inputmask.extensions.js"></script>
+<script th:src="${projectname}+'/plugins/input-mask/jquery.inputmask.js'"></script>
+<script th:src="${projectname}+'/plugins/input-mask/jquery.inputmask.date.extensions.js'"></script>
+<script th:src="${projectname}+'/plugins/input-mask/jquery.inputmask.extensions.js'"></script>
 <!-- datepicker -->
-<script src="../plugins/datepicker/bootstrap-datepicker.js"></script>
+<script th:src="${projectname}+'/plugins/datepicker/bootstrap-datepicker.js'"></script>
 <!-- Slimscroll -->
-<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script th:src="${projectname}+'/plugins/slimScroll/jquery.slimscroll.min.js'"></script>
 <!-- FastClick -->
-<script src="../plugins/fastclick/fastclick.js"></script>
+<script th:src="${projectname}+'/plugins/fastclick/fastclick.js'"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/app.min.js"></script>
+<script th:src="${projectname}+'/dist/js/app.min.js'"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<script src="../plugins/enquiryModal.js"></script>
+<script th:src="${projectname}+'/dist/js/demo.js'"></script>
+<script th:src="${projectname}+'/plugins/enquiryModal.js'"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../dist/js/pages/dashboard.js"></script> 
+<script th:src="${projectname}+'/dist/js/pages/dashboard.js'"></script>
 
-<script>
+<script th:inline="javascript">
+	var projectName = [[${projectname}]];
     var custcod = $("#customercodeHidden").html();
 	var order_column_index;
+
+    $("body").delegate('#enquiryTable tbody tr', 'click', function () {
+        window.location.href = projectName + "/user/singleView?customer_code="+$(this).find('td').eq(0).html();
+        $('#project-enquiry').modal('toggle');
+        // self.location="../User/SingleView.html";
+    });
 
 	$(function () {
 		$("#enquiryTable").DataTable({
@@ -3500,7 +3507,7 @@
 		
 		$.ajax({
              type: "GET",
-             url: "/CUSTOMER_INFO_DISPLAY/"+custcod,
+             url: projectName+"/CUSTOMER_INFO_DISPLAY/"+custcod,
              data: {
 			 //custCode:cust_Code
 			 },
@@ -3572,7 +3579,7 @@
 		}; 
 		$.ajax({  
 			type : "GET",  
-			url : "/DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM/getCcy",  
+			url: projectName+"/DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM/getCcy",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  
@@ -3654,7 +3661,7 @@
 		} 
 		
 		if (index == 1){
-			url = "/DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM/getAccountType";
+			url = projectName+"/DEPOSIT_ACCOUNT_TYPE_BALANCE_LCY_SUM/getAccountType";
 			data = {customer_code:custcod,currency:name};
 			option_pie.toolbox = {  
 				show : true,  
@@ -3662,7 +3669,7 @@
 					myBackBtn1: {
 						show: true,
 						title: 'back',
-						icon: 'image://../image/back.png',
+						icon: 'image://'+projectName+'/image/back.png',
 						onclick: function (){
 						    pieIndex--;
 							pieChart.setOption(option_pieArray[0],true);
@@ -3752,7 +3759,7 @@
 
 		$.ajax({  
 			type : "GET",  
-			url : "/Loan/getLoan_Ccy_SumByCustCode",  
+			url: projectName+"/Loan/getLoan_Ccy_SumByCustCode",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  
@@ -3828,7 +3835,7 @@
 		} 
 		
 		if (index == 1){
-			url = "/Loan/getLoan_Type_SumByCustCode_CCY";
+			url = projectName+"/Loan/getLoan_Type_SumByCustCode_CCY";
 			data = {customer_code:custcod,currency:name};
 			option_bar.toolbox = {  
 				show : true,  
@@ -3836,7 +3843,7 @@
 					myBackBtn1: {
 						show: true,
 						title: 'back',
-						icon: 'image://../image/back.png',
+						icon: 'image://'+projectName+'/image/back.png',
 						onclick: function (){
 						    barIndex--;
 							barChart.setOption(option_barArray[0],true);
@@ -3890,7 +3897,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/DEPOSIT_ACCOUNT_INFO/getDeposit",
+				"url": projectName+"/DEPOSIT_ACCOUNT_INFO/getDeposit",
 				"data": function ( d ) {
 					if (depositDataTable!=null){
 						order_column_index = depositDataTable.order()[0][0];
@@ -3943,7 +3950,7 @@
 		var strStatusOptions = "";
 		$.ajax({  
 			type : "GET",   
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Branch/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Branch/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -3960,7 +3967,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_type/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_type/"+custcod,
 			data : {},  
 			dataType : "json",   
 			success : function(result) {   	
@@ -3977,7 +3984,7 @@
 		});
 		$.ajax({  
 			type : "GET",  
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Currency/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Currency/"+custcod,
 			data : {},  
 			dataType : "json",
 			success : function(result) {   	
@@ -3994,7 +4001,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_status/"+custcod,  
+			ururl: projectName+"/POSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_status/"+custcod,
 			data : {},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -4022,7 +4029,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/Loan/getLoanInfo",
+				"url": projectName+"/Loan/getLoanInfo",
 				"data": function ( d ) {
 					if (loanDataTable!=null){
 						order_column_index = loanDataTable.order()[0][0];
@@ -4085,7 +4092,7 @@
 		var strStatusOptions = "";
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_BranchByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_BranchByCustCode/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -4102,7 +4109,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_PrinCCYByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_PrinCCYByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",   
 			success : function(result) {   	
@@ -4119,7 +4126,7 @@
 		});
 		$.ajax({  
 			type : "GET",  
-			url : "/Loan/getLoan_BalCCYByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_BalCCYByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",
 			success : function(result) {   	
@@ -4136,7 +4143,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_TypeByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_TypeByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -4153,7 +4160,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_AccStatusByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_AccStatusByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -4180,7 +4187,7 @@
 	function initBasicInformationDisplay(){
 		$.ajax({  
 			type : "GET",  
-			url : "/CustomerInfoMain/getCustomerInfoMainByCustCode",  
+			url: projectName+"/CustomerInfoMain/getCustomerInfoMainByCustCode",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  
@@ -4215,7 +4222,7 @@
 	function initRiskRatingDisplay(){
 		$.ajax({  
 			type : "GET",  
-			url : "/ExternalRating/getExternalRatingByCustCode",  
+			url: projectName+"/ExternalRating/getExternalRatingByCustCode",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  
@@ -4237,7 +4244,7 @@
 	function initCompanyInformationDisplay(){
 		$.ajax({  
 			type : "GET",  
-			url : "/CompanyProfileExtent/getCompanyInformationByCustCode",  
+			url: projectName+"/CompanyProfileExtent/getCompanyInformationByCustCode",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  
@@ -4265,7 +4272,7 @@
 	function initCompanyRegistrationDisplay(){
 		$.ajax({  
 			type : "GET",  
-			url : "/CompanyProfileExtent/getCompanyRegistrationByCustCode",  
+			url: projectName+"/CompanyProfileExtent/getCompanyRegistrationByCustCode",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  
@@ -4310,7 +4317,7 @@
 	function initCustomerGroupTreeMap(){
 		$.ajax({  
 			type : "GET",  
-			url : "/CustomerGroup/getCustomerGroupByCustCode",
+			url: projectName+"/CustomerGroup/getCustomerGroupByCustCode",
 			data : {customer_code:custcod},			
 			dataType : "json",
 			success : function(result) {  
@@ -4336,7 +4343,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/RelatedParty/getRelatedParty",
+				"url": projectName+"/RelatedParty/getRelatedParty",
 				"data": function ( d ) {
 					if (relatedPartiesDataTable!=null){
 						order_column_index = relatedPartiesDataTable.order()[0][0];
@@ -4382,7 +4389,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/BackgroundCheck/getBackgroundCheck",
+				"url": projectName+"/BackgroundCheck/getBackgroundCheck",
 				"data": function ( d ) {
 					if (backgroundCheckDataTable!=null){
 						order_column_index = backgroundCheckDataTable.order()[0][0];
@@ -4490,7 +4497,7 @@
 		
 		$.ajax({  
 			type : "GET",   
-			url : "/PRODUCT_LIQUIDITY/getCcy",  
+			url: projectName+"/PRODUCT_LIQUIDITY/getCcy",
 			data : {"customer_code":custcod},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -4521,7 +4528,7 @@
 		
 		$.ajax({
 			type : "GET",
-			url : "/PRODUCT_LIQUIDITY/getTenor",
+			url: projectName+"/PRODUCT_LIQUIDITY/getTenor",
 			data : {"customer_code":custcod},
 			dataType : "json",
 			success : function(result) {
@@ -4543,7 +4550,7 @@
 
 		$.ajax({
 			type : "GET",
-			url : "/PRODUCT_LIQUIDITY/getDepAmt",
+			url: projectName+"/PRODUCT_LIQUIDITY/getDepAmt",
 			data : {"customer_code":custcod,"ccy":currency},
 			dataType : "json",
 			success : function(result) {
@@ -4574,7 +4581,7 @@
 
 		$.ajax({
 			type : "GET",
-			url : "/PRODUCT_LIQUIDITY/getLoanAmt",
+			url: projectName+"/PRODUCT_LIQUIDITY/getLoanAmt",
 			data : {"customer_code":custcod,"ccy":currency},
 			dataType : "json",
 			success : function(result) {
@@ -4615,7 +4622,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/DEPOSIT_ACCOUNT_INFO/getDeposit",
+				"url": projectName+"/DEPOSIT_ACCOUNT_INFO/getDeposit",
 				"data": function ( d ) {
 					if (proDepositDataTable!=null){
 						order_column_index = proDepositDataTable.order()[0][0];
@@ -4668,7 +4675,7 @@
 		var strStatusOptions = "";
 		$.ajax({  
 			type : "GET",   
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Branch/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Branch/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -4685,7 +4692,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_type/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_type/"+custcod,
 			data : {},  
 			dataType : "json",   
 			success : function(result) {   	
@@ -4702,7 +4709,7 @@
 		});
 		$.ajax({  
 			type : "GET",  
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Currency/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Currency/"+custcod,
 			data : {},  
 			dataType : "json",
 			success : function(result) {   	
@@ -4719,7 +4726,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_status/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_INFO/getDEPOSIT_ACCOUNT_INFO_Account_status/"+custcod,
 			data : {},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -4825,7 +4832,7 @@
 		$.ajax({  
 			type : "GET",  
 			async : false, // synchronous 
-			url : "/DEPOSIT_ACCOUNT_TRAN_CURRENCY/getDEPOSIT_ACCOUNT_TRAN_CURRENCY_AllDatesByCustomer_code/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_TRAN_CURRENCY/getDEPOSIT_ACCOUNT_TRAN_CURRENCY_AllDatesByCustomer_code/"+custcod,
 			data : {},  
 			dataType : "json",
 			success : function(result) {  
@@ -4843,7 +4850,7 @@
 		//get other data
 		$.ajax({  
 			type : "GET",  
-			url : "/DEPOSIT_ACCOUNT_TRAN_CURRENCY/"+custcod,  
+			url: projectName+"/DEPOSIT_ACCOUNT_TRAN_CURRENCY/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {  
@@ -4893,7 +4900,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/PRODUCT_TRANSACTION_DETAIL/getValue",
+				"url": projectName+"/PRODUCT_TRANSACTION_DETAIL/getValue",
 				"data": function ( d ) {
 					if (depositTranDataTable!=null){
 						order_column_index = depositTranDataTable.order()[0][0];
@@ -4946,7 +4953,7 @@
 		var strDrIndicatorOptions = "";
 		$.ajax({  
 			type : "GET",   
-			url : "/PRODUCT_TRANSACTION_DETAIL/getDepTran_Branch/"+custcod,  
+			url: projectName+"/PRODUCT_TRANSACTION_DETAIL/getDepTran_Branch/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -4963,7 +4970,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/PRODUCT_TRANSACTION_DETAIL/getDepTran_Type/"+custcod,  
+			ururl: projectName+"/ODUCT_TRANSACTION_DETAIL/getDepTran_Type/"+custcod,
 			data : {},  
 			dataType : "json",   
 			success : function(result) {   	
@@ -4980,7 +4987,7 @@
 		});
 		$.ajax({  
 			type : "GET",  
-			url : "/PRODUCT_TRANSACTION_DETAIL/getDepTran_Ccy/"+custcod,  
+			url: projectName+"/PRODUCT_TRANSACTION_DETAIL/getDepTran_Ccy/"+custcod,
 			data : {},  
 			dataType : "json",
 			success : function(result) {   	
@@ -4997,7 +5004,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/PRODUCT_TRANSACTION_DETAIL/getDepTran_Dr_Indicator/"+custcod,  
+			url: projectName+"/PRODUCT_TRANSACTION_DETAIL/getDepTran_Dr_Indicator/"+custcod,
 			data : {},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -5026,7 +5033,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/Loan/getLoanInfo",
+				"url": projectName+"/Loan/getLoanInfo",
 				"data": function ( d ) {
 					if (proLoanDataTable!=null){
 						order_column_index = proLoanDataTable.order()[0][0];
@@ -5089,7 +5096,7 @@
 		var strStatusOptions = "";
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_BranchByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_BranchByCustCode/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -5106,7 +5113,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_PrinCCYByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_PrinCCYByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",   
 			success : function(result) {   	
@@ -5123,7 +5130,7 @@
 		});
 		$.ajax({  
 			type : "GET",  
-			url : "/Loan/getLoan_BalCCYByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_BalCCYByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",
 			success : function(result) {   	
@@ -5140,7 +5147,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_TypeByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_TypeByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -5157,7 +5164,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/Loan/getLoan_AccStatusByCustCode/"+custcod,  
+			url: projectName+"/Loan/getLoan_AccStatusByCustCode/"+custcod,
 			data : {},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -5216,7 +5223,7 @@
 	function initOverdueKPI(){
 		$.ajax({
 			type : "GET",
-			url : "/PRODUCT_REPAYMENT_TIMEOVERDUE/getValue",
+			url: projectName+"/PRODUCT_REPAYMENT_TIMEOVERDUE/getValue",
 			data : {"customer_code":custcod},
 			dataType : "json",
 			success : function(result) {
@@ -5260,7 +5267,7 @@
 		
 		$.ajax({  
 			type : "GET",   
-			url : "/PRODUCT_REPAYMENT_DELIQUENCY/getCcy",  
+			url: projectName+"/PRODUCT_REPAYMENT_DELIQUENCY/getCcy",
 			data : {"customer_code":custcod},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -5293,7 +5300,7 @@
 
 		$.ajax({
 			type : "GET",
-			url : "/PRODUCT_REPAYMENT_DELIQUENCY/getValue",
+			url: projectName+"/PRODUCT_REPAYMENT_DELIQUENCY/getValue",
 			data : {"customer_code":custcod,"ccy":currency},
 			dataType : "json",
 			success : function(result) {
@@ -5328,7 +5335,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/PRODUCT_REPAYMENT_TABLE/getValue",
+				"url": projectName+"/PRODUCT_REPAYMENT_TABLE/getValue",
 				"data": function ( d ) {
 					if (repaymentDataTable!=null){
 						order_column_index = repaymentDataTable.order()[0][0];
@@ -5386,7 +5393,7 @@
 		var strOverdueFlagOptions = "";
 		$.ajax({  
 			type : "GET",   
-			url : "/PRODUCT_REPAYMENT_TABLE/getRep_Branch/"+custcod,
+			url: projectName+"/PRODUCT_REPAYMENT_TABLE/getRep_Branch/"+custcod,
 			data : {},  
 			dataType : "json", 
 			success : function(result) {   	
@@ -5403,7 +5410,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/PRODUCT_REPAYMENT_TABLE/getRep_Ccy/"+custcod,  
+			url: projectName+"/PRODUCT_REPAYMENT_TABLE/getRep_Ccy/"+custcod,
 			data : {},  
 			dataType : "json",   
 			success : function(result) {   	
@@ -5420,7 +5427,7 @@
 		});
 		$.ajax({  
 			type : "GET",  
-			url : "/PRODUCT_REPAYMENT_TABLE/getRep_Overdue_Flag/"+custcod,  
+			url: projectName+"/PRODUCT_REPAYMENT_TABLE/getRep_Overdue_Flag/"+custcod,
 			data : {},  
 			dataType : "json",
 			success : function(result) {   	
@@ -5461,7 +5468,7 @@
 	function initCreditLineTreeMap(){
 		$.ajax({  
 			type : "GET",  
-			url : "/CustomerCreditLine/getCustomerCreditLineByCustCode",  
+			url: projectName+"/CustomerCreditLine/getCustomerCreditLineByCustCode",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  
@@ -5490,7 +5497,7 @@
 			"searching": false,
 //			"scrollX": true,
 			"ajax": {
-				"url": "/CreditLineMain/getCreditLineMain",
+				"url": projectName+"/CreditLineMain/getCreditLineMain",
 				"data": function ( d ) {
 					if (creditLineDataTable!=null){
 						order_column_index = creditLineDataTable.order()[0][0];
@@ -5549,7 +5556,7 @@
 		var strRevolvingOptions = "";
 		$.ajax({  
 			type : "GET",  
-			url : "/CreditLineMain/getCurrencyByCustCode",  
+			url: projectName+"/CreditLineMain/getCurrencyByCustCode",
 			data : {customer_code:custcod},   
 			dataType : "json",
 			success : function(result) {   	
@@ -5566,7 +5573,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/CreditLineMain/getRevolvingIndByCustCode",  
+			url: projectName+"/CreditLineMain/getRevolvingIndByCustCode",
 			data : {customer_code:custcod},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -5648,7 +5655,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/CollateralMain/getCollateralMain",
+				"url": projectName+"/CollateralMain/getCollateralMain",
 				"data": function ( d ) {
 					if (collateralsDataTable!=null){
 						order_column_index = collateralsDataTable.order()[0][0];
@@ -5699,7 +5706,7 @@
 		var strTypeOptions = "";
 		$.ajax({  
 			type : "GET",  
-			url : "/CollateralMain/getValCurrencyByCustCode",  
+			url: projectName+"/CollateralMain/getValCurrencyByCustCode",
 			data : {customer_code:custcod},   
 			dataType : "json",
 			success : function(result) {   	
@@ -5716,7 +5723,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/CollateralMain/getCollateralTypeByCustCode",  
+			url: projectName+"/CollateralMain/getCollateralTypeByCustCode",
 			data : {customer_code:custcod},  
 			dataType : "json",  
 			success : function(result) {   	
@@ -5747,7 +5754,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/PRICING_PREFERENTIAL_INTEREST_RATE/getValue",
+				"url": projectName+"/PRICING_PREFERENTIAL_INTEREST_RATE/getValue",
 				"data": function ( d ) {
 					if (preferentialInterestRateTable!=null){
 						order_column_index = preferentialInterestRateTable.order()[0][0];
@@ -5799,7 +5806,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/PRICING_PREFERENTIAL_FX_RATE/getValue",
+				"url": projectName+"/PRICING_PREFERENTIAL_FX_RATE/getValue",
 				"data": function ( d ) {
 					if (preferentialFXRateTable!=null){
 						order_column_index = preferentialFXRateTable.order()[0][0];
@@ -5848,7 +5855,7 @@
 			"searching": false,
 			"scrollX": true,
 			"ajax": {
-				"url": "/PRICING_PREFERENTIAL_FEES/getValue",
+				"url": projectName+"/PRICING_PREFERENTIAL_FEES/getValue",
 				"data": function ( d ) {
 					if (preferentialFeesDataTable!=null){
 						order_column_index = preferentialFeesDataTable.order()[0][0];
@@ -5885,7 +5892,7 @@
 			"searching": false, 
 			"scrollX": true,
 			"ajax": {
-				"url": "/PRICING_STANDING_INSTRUCTION/getValue",
+				"url": projectName+"/PRICING_STANDING_INSTRUCTION/getValue",
 				"data": function ( d ) {
 					if (standingInstructionTable!=null){
 						order_column_index = standingInstructionTable.order()[0][0];
@@ -5925,7 +5932,7 @@
 			"searching": false, 
 			"scrollX": true,
 			"ajax": {
-				"url": "/PRICING_PRODUCT_INSTRUCTION/getValue",
+				"url": projectName+"/PRICING_PRODUCT_INSTRUCTION/getValue",
 				"data": function ( d ) {
 					if (productInstructionTable!=null){
 						order_column_index = productInstructionTable.order()[0][0];
@@ -5975,7 +5982,7 @@
 		$.ajax({  
 			type : "GET",  
 			async: false, //同步
-			url : "/CallMemo/getCallMemoByCustCode",  
+			url: projectName+"/CallMemo/getCallMemoByCustCode",
 			data : {customer_code:custcod},
 			dataType : "json",
 			success : function(result) {  				
@@ -6750,7 +6757,7 @@ function loadCustomerProfileTab(array){
 		$.ajax({  
 			type : "GET",  
 			async : false,
-			url : "/CustomerInfoMain/getPersonalFlagByCustCode", 
+			url: projectName+"/CustomerInfoMain/getPersonalFlagByCustCode",
 			data : {customer_code:custcod},
 			success : function(result) { 
 				ifPersonal = result;
@@ -7090,7 +7097,7 @@ function loadCallMemoTab(){
 
 $.ajax({  
 	type : "GET",  
-	url : "/users/functions/"+userid,
+	url: projectName+"/users/functions/"+userid,
 	dataType : "json",
 	success : function(result) {  
 		if (result) {  

@@ -8,21 +8,21 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/bootstrap/css/bootstrap.min.css'">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../bootstrap/css/ionicons.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/bootstrap/css/ionicons.min.css'">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
   <!-- DataTables -->
-  <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/datatables/dataTables.bootstrap.css'">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/dist/css/AdminLTE.min.css'">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/dist/css/skins/_all-skins.min.css'">
   <!-- iCheck -->
-  <link rel="stylesheet" href="../plugins/iCheck/flat/blue.css"> 
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/iCheck/flat/blue.css'"> 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,7 +60,7 @@
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
               <li class="user-footer">
-                <a class="btn bg-purple btn-flat"  href="/logout">Sign out</a>
+                <a class="btn bg-purple btn-flat"  th:href="${projectname}+'/logout'">Sign out</a>
               </li>
             </ul>
           </li>
@@ -132,7 +132,7 @@
 									</div>
 								</div>																	
 								<div class="col-md-12">
-								<button type="button" class="btn  bg-purple btn-block" onclick="enquiry()">Search</button>
+								<button type="button" class="btn  bg-purple btn-block" onclick="enquiry(projectName)">Search</button>
 								</div>
 							</div>
 						</div>
@@ -187,33 +187,34 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
+<!-- /CustomerSingleView/wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script th:src="${projectname}+'/plugins/jQuery/jquery-2.2.3.min.js'"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../plugins/jQueryUI/jquery-ui.min.js"></script>
+<script th:src="${projectname}+'/plugins/jQueryUI/jquery-ui.min.js'"></script>
 <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.6 -->
-<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script th:src="${projectname}+'/bootstrap/js/bootstrap.min.js'"></script>
 <!-- DataTables -->
-<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script th:src="${projectname}+'/plugins/datatables/jquery.dataTables.min.js'"></script>
+<script th:src="${projectname}+'/plugins/datatables/dataTables.bootstrap.min.js'"></script>
 <!-- Slimscroll -->
-<script src="../plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<script th:src="${projectname}+'/plugins/slimScroll/jquery.slimscroll.min.js'"></script>
 <!-- FastClick -->
-<script src="../plugins/fastclick/fastclick.js"></script>
+<script th:src="${projectname}+'/plugins/fastclick/fastclick.js'"></script>
 <!-- AdminLTE App -->
-<script src="../dist/js/app.min.js"></script>
+<script th:src="${projectname}+'/dist/js/app.min.js'"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../dist/js/demo.js"></script>
-<script src="../plugins/enquiryModal.js"></script>
+<script th:src="${projectname}+'/dist/js/demo.js'"></script>
+<script th:src="${projectname}+'/plugins/enquiryModal.js'" th:inline="javascript"></script>
 
-<script>
+<script th:inline="javascript">
+    var projectName = [[${projectname}]];
 $(function () {
 	$("#enquiryTable").DataTable({
 	  "paging": true,
@@ -224,10 +225,16 @@ $(function () {
       "autoWidth": false
 	});	
   });
+
+$("body").delegate('#enquiryTable tbody tr', 'click', function () {
+    window.location.href = projectName + "/user/singleView?customer_code="+$(this).find('td').eq(0).html();
+    $('#project-enquiry').modal('toggle');
+    // self.location="../User/SingleView.html";
+});
 </script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="../dist/js/pages/dashboard.js"></script> 
+<script th:src="${projectname}+'/dist/js/pages/dashboard.js'"></script> 
 
 </body>
 </html>

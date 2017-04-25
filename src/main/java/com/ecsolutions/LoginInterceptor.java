@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by Administrator on 2017/4/1.
  */
-public class LoginInterceptor extends HandlerInterceptorAdapter{
+public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("loginInterceptor: " + request.getRequestURI());
@@ -17,11 +17,11 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
         if (user != null) {
             String adminflag = user.getAdminflag();
             String url = request.getRequestURI();
-            if (adminflag.equals("Y") && url.startsWith("/admin"))
+            if (adminflag.equals("Y") && url.contains("/admin"))
                 return true;
-            else if (adminflag.equals("N") && url.startsWith("/user"))
+            else if (adminflag.equals("N") && url.contains("/user"))
                 return true;
-            else if (url.startsWith("/logout"))
+            else if (url.contains("/logout"))
                 return true;
         }
 

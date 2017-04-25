@@ -22,6 +22,8 @@ public class Login_Controller {
     @Autowired
     private User_Service user_service;
 
+    private final String PROJECTNAME = "/CustomerSingleView";
+
     @Autowired
     StringEncryptor stringEncryptor;
 
@@ -33,6 +35,7 @@ public class Login_Controller {
     public String loginPage(@RequestParam(value = "next",required = false) Optional<String> next, Model model) {
         if (next.isPresent())
             model.addAttribute("next", next.get());
+        model.addAttribute("projectname", PROJECTNAME);
         return "login";
     }
 
@@ -74,6 +77,8 @@ public class Login_Controller {
     public String adminPage(HttpServletRequest request, Model model) {
         User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
         model.addAttribute("user", user);
+
+        model.addAttribute("projectname", PROJECTNAME);
         return "Admin/AdminMain";
     }
 
@@ -91,6 +96,7 @@ public class Login_Controller {
     public String userPage(HttpServletRequest request, Model model) {
         User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
         model.addAttribute("user", user);
+        model.addAttribute("projectname", PROJECTNAME);
         return "User/UserMain";
     }
 
@@ -101,6 +107,7 @@ public class Login_Controller {
         if (customer_code != null) {
             if (user_service.validateCustomer(customer_code.trim(), user.getUserid())) {
                 model.addAttribute("customer_code", customer_code);
+                model.addAttribute("projectname", PROJECTNAME);
                 return "User/SingleView";
             }
         }
@@ -111,6 +118,7 @@ public class Login_Controller {
     public String authorityManagePage(HttpServletRequest request, Model model) {
         User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
         model.addAttribute("user", user);
+        model.addAttribute("projectname", PROJECTNAME);
         return "Admin/AuthorityManage";
     }
 
@@ -118,6 +126,7 @@ public class Login_Controller {
     public String userManagePage(HttpServletRequest request, Model model) {
         User_Entity user = (User_Entity)request.getSession().getAttribute("CURRENT_USER");
         model.addAttribute("user", user);
+        model.addAttribute("projectname", PROJECTNAME);
         return "Admin/UserManage";
     }
 

@@ -1,10 +1,11 @@
-function enquiry()
-{	
+
+function enquiry(projectName)
+{
 	var userId = $("#useridHidden").html();
 	$.ajax({
 		type: "GET",
 		async: false,
-		url: "/DEPOSIT_INFO_SEARCH/getSearchResult/",
+		url: projectName + "/DEPOSIT_INFO_SEARCH/getSearchResult/",
 		data: {
 			userid:userId,
 			customer_code:$('#cust_code').val().trim(), 
@@ -38,11 +39,7 @@ function enquiry()
 }
 
 
-$("body").delegate('#enquiryTable tbody tr', 'click', function () {
-    window.location.href = "/user/singleView?customer_code="+$(this).find('td').eq(0).html();
-    $('#project-enquiry').modal('toggle');
-	// self.location="../User/SingleView.html";
-});
+
 
 $(window).scroll(function(){
 	var y=$(window).scrollTop();

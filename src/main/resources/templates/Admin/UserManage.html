@@ -8,21 +8,21 @@
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/bootstrap/css/bootstrap.min.css'">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
-  <link rel="stylesheet" href="../bootstrap/css/ionicons.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/bootstrap/css/ionicons.min.css'">
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
   <!-- DataTables -->
-  <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/datatables/dataTables.bootstrap.css'">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+  <link rel="stylesheet" th:href="${projectname}+'/dist/css/AdminLTE.min.css'">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css"> 
+  <link rel="stylesheet" th:href="${projectname}+'/dist/css/skins/_all-skins.min.css'"> 
   <!-- Select2 -->
-  <link rel="stylesheet" href="../plugins/select2-3.5.3/select2.css"> 
+  <link rel="stylesheet" th:href="${projectname}+'/plugins/select2-3.5.3/select2.css'"> 
   
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,7 +59,7 @@
             <ul class="dropdown-menu">
               <!-- Menu Footer-->
               <li class="user-footer">
-                <a class="btn bg-purple btn-flat"  href="/logout">Sign out</a>
+                <a class="btn bg-purple btn-flat"  th:href="${projectname}+'/logout'">Sign out</a>
               </li>
             </ul>
           </li>
@@ -78,7 +78,7 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">	
 		<li class="treeview active">
-          <a href="AdminMain.html">
+          <a th:href="${projectname}+'/admin'">
             <i class="fa fa-laptop"></i> 
 			<span>User Manage</span>
 			<span class="pull-right-container">
@@ -86,8 +86,8 @@
             </span>
           </a>
 		  <ul class="treeview-menu">
-            <li><a href="/admin/authorityManage"><i class="fa fa-circle-o"></i> Authority Management</a></li>
-            <li class="active"><a href="/admin/userManage"><i class="fa fa-circle-o"></i> User Management</a></li>
+            <li><a th:href="${projectname}+'/admin/authorityManage'"><i class="fa fa-circle-o"></i> Authority Management</a></li>
+            <li class="active"><a th:href="${projectname}+'/admin/userManage'"><i class="fa fa-circle-o"></i> User Management</a></li>
           </ul>
         </li>
       </ul>
@@ -179,7 +179,7 @@
         <small></small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="/admin"><i class="fa fa-laptop"></i> Home</a></li>
+        <li><a th:href="${projectname}+'/admin'"><i class="fa fa-laptop"></i> Home</a></li>
         <li class="active">User Management</li>
       </ol>
     </section>
@@ -240,28 +240,29 @@
        immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
-<!-- ./wrapper -->
+<!-- /CustomerSingleView/wrapper -->
 
 <!-- jQuery 2.2.3 -->
-<script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<script th:src="${projectname}+'/plugins/jQuery/jquery-2.2.3.min.js'"></script>
 <!-- Bootstrap 3.3.6 -->
-<script src="../bootstrap/js/bootstrap.min.js"></script>
+<script th:src="${projectname}+'/bootstrap/js/bootstrap.min.js'"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="../plugins/jQueryUI/jquery-ui.min.js"></script>
+<script th:src="${projectname}+'/plugins/jQueryUI/jquery-ui.min.js'"></script>
 <!--<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>-->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <!-- DataTables -->
-<script src="../plugins/datatables/jquery.dataTables.js"></script>
-<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+<script th:src="${projectname}+'/plugins/datatables/jquery.dataTables.js'"></script>
+<script th:src="${projectname}+'/plugins/datatables/dataTables.bootstrap.min.js'"></script>
 <!-- Select2 -->
-<script src="../plugins/select2-3.5.3/select2.min.js"></script>
+<script th:src="${projectname}+'/plugins/select2-3.5.3/select2.min.js'"></script>
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- AdminLTE App -->
-<script src="../dist/js/app.min.js"></script>
+<script th:src="${projectname}+'/dist/js/app.min.js'"></script>
 
-<script>
+<script th:inline="javascript">
+	var projectName = [[${projectname}]];
 	var userManageDataTable,order_column_index;
 	var search = "";
 	$("#statusSelect").select2();
@@ -272,7 +273,7 @@
 		var strGroupIdOptions = "";
 		$.ajax({  
 			type : "GET",  
-			url : "/organizations", 
+			url : projectName+"/organizations",
 			dataType : "json",
 			success : function(result) {   	
 				if (result){
@@ -289,7 +290,7 @@
 		});
 		$.ajax({  
 			type : "GET",   
-			url : "/usergroup/getUserGroup",  
+			url : projectName+"/usergroup/getUserGroup",
 			dataType : "json",  
 			success : function(result) {   	
 				if (result){
@@ -311,7 +312,7 @@
 			"processing": true,
 			"serverSide": true,
 			"ajax": {
-				"url": "/users",
+				"url": projectName+"/users",
 				"data": function ( d ) {
 					if (userManageDataTable!=null){
 						order_column_index = userManageDataTable.order()[0][0];
@@ -362,7 +363,7 @@
 				for (var i = 0;i < $('#userManageTable tbody tr').length;++i){
 					trDom = $('#userManageTable tbody tr').eq(i);
 					trDom.find('td').eq(7).remove();
-					strHtml = "<td><input type='image' src='../image/icn_edit.png' data-toggle='modal' data-target='#project-um' name='userEdit'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='image' src='../image/icn_delete.png' name='userDelete'></td>";
+					strHtml = "<td><input type='image' src='"+projectName+"/image/icn_edit.png' data-toggle='modal' data-target='#project-um' name='userEdit'>&nbsp;&nbsp;&nbsp;&nbsp;<input type='image' src='"+projectName+"/image/icn_delete.png' name='userDelete'></td>";
 					trDom.append(strHtml);
 				}
 				
@@ -389,9 +390,9 @@
 						if (window.confirm("confirm to delete this user?")) {
 							var userID = userManageDataTable.cell($(this).parents('tr').find('td').eq(0)).data();
 							$.ajax({  
-								type : "DELETE",  
+								type : "DELETE",
 								async: false, //同步
-								url : "/users/"+userID,
+								url : projectName+"/users/"+userID,
 								error : function(errorMsg) {  
 									alert("delete user failed!");  		
 								}  
@@ -466,7 +467,7 @@
 			$.ajax({  
 				type : "PUT",  
 				async: false, //同步
-				url : "/users",
+				url : projectName+"/users",
 				data : {"userid":userId,"username":userName,"password":password,"organization":organization,"groupid":groupId,"status":status,"adminflag":adminFlag},
 				error : function(errorMsg){
 					alert("update user failed!");
@@ -516,7 +517,7 @@
 			$.ajax({  
 				type : "POST",  
 				async: false, //同步
-				url : "/users",
+				url : projectName+"/users",
 				data : {"userid":userId,"username":userName,"password":password,"organization":organization,"groupid":groupId,"status":status,"adminflag":adminFlag},
 				error : function(errorMsg){
 					alert("add user failed!");
